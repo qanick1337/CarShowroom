@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Find_button = new Button();
             panel1 = new Panel();
             maxPriceLabel = new Label();
@@ -37,7 +38,8 @@
             brandLabel = new Label();
             brandTextBox = new TextBox();
             FindAutoLabel = new Label();
-            listBox1 = new ListBox();
+            ResultsListBox = new ListBox();
+            carBindingSource = new BindingSource(components);
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             newToolStripMenuItem = new ToolStripMenuItem();
@@ -68,8 +70,14 @@
             searchToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator5 = new ToolStripSeparator();
             aboutToolStripMenuItem = new ToolStripMenuItem();
+            ResultsPanel = new Panel();
+            ResultCarYear = new TextBox();
+            ResultCarBrand = new TextBox();
+            ResultCarModel = new TextBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)carBindingSource).BeginInit();
             menuStrip1.SuspendLayout();
+            ResultsPanel.SuspendLayout();
             SuspendLayout();
             // 
             // Find_button
@@ -164,15 +172,22 @@
             FindAutoLabel.TabIndex = 2;
             FindAutoLabel.Text = "Пошук авто";
             // 
-            // listBox1
+            // ResultsListBox
             // 
-            listBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 25;
-            listBox1.Location = new Point(9, 397);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(1061, 129);
-            listBox1.TabIndex = 3;
+            ResultsListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ResultsListBox.DataSource = carBindingSource;
+            ResultsListBox.DisplayMember = "Model";
+            ResultsListBox.FormattingEnabled = true;
+            ResultsListBox.ItemHeight = 25;
+            ResultsListBox.Location = new Point(12, 400);
+            ResultsListBox.Name = "ResultsListBox";
+            ResultsListBox.Size = new Size(482, 379);
+            ResultsListBox.TabIndex = 3;
+            ResultsListBox.ValueMember = "Features";
+            // 
+            // carBindingSource
+            // 
+            carBindingSource.DataSource = typeof(Models.Car);
             // 
             // menuStrip1
             // 
@@ -373,23 +388,72 @@
             aboutToolStripMenuItem.Size = new Size(185, 34);
             aboutToolStripMenuItem.Text = "&About...";
             // 
+            // ResultsPanel
+            // 
+            ResultsPanel.BackColor = SystemColors.ControlLight;
+            ResultsPanel.Controls.Add(ResultCarYear);
+            ResultsPanel.Controls.Add(ResultCarBrand);
+            ResultsPanel.Controls.Add(ResultCarModel);
+            ResultsPanel.Location = new Point(559, 400);
+            ResultsPanel.Name = "ResultsPanel";
+            ResultsPanel.Size = new Size(497, 382);
+            ResultsPanel.TabIndex = 5;
+            ResultsPanel.Visible = false;
+            // 
+            // ResultCarYear
+            // 
+            ResultCarYear.BackColor = SystemColors.ControlLight;
+            ResultCarYear.DataBindings.Add(new Binding("Text", carBindingSource, "ReleaseYear", true));
+            ResultCarYear.Font = new Font("Segoe UI", 12F);
+            ResultCarYear.Location = new Point(26, 146);
+            ResultCarYear.Name = "ResultCarYear";
+            ResultCarYear.Size = new Size(235, 39);
+            ResultCarYear.TabIndex = 2;
+            ResultCarYear.TextAlign = HorizontalAlignment.Center;
+            // 
+            // ResultCarBrand
+            // 
+            ResultCarBrand.BackColor = SystemColors.ControlLight;
+            ResultCarBrand.DataBindings.Add(new Binding("Text", carBindingSource, "Brand", true));
+            ResultCarBrand.Font = new Font("Segoe UI", 12F);
+            ResultCarBrand.Location = new Point(26, 83);
+            ResultCarBrand.Name = "ResultCarBrand";
+            ResultCarBrand.Size = new Size(235, 39);
+            ResultCarBrand.TabIndex = 1;
+            ResultCarBrand.TextAlign = HorizontalAlignment.Center;
+            // 
+            // ResultCarModel
+            // 
+            ResultCarModel.BackColor = SystemColors.ControlLight;
+            ResultCarModel.DataBindings.Add(new Binding("Text", carBindingSource, "Model", true));
+            ResultCarModel.Font = new Font("Segoe UI", 16F);
+            ResultCarModel.Location = new Point(128, 14);
+            ResultCarModel.Name = "ResultCarModel";
+            ResultCarModel.Size = new Size(235, 50);
+            ResultCarModel.TabIndex = 0;
+            ResultCarModel.TextAlign = HorizontalAlignment.Center;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1078, 546);
-            Controls.Add(listBox1);
+            ClientSize = new Size(1078, 846);
+            Controls.Add(ResultsPanel);
+            Controls.Add(ResultsListBox);
             Controls.Add(FindAutoLabel);
             Controls.Add(panel1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            MinimumSize = new Size(1100, 602);
+            MinimumSize = new Size(1100, 902);
             Name = "MainForm";
             Text = "Auto_ShowRoom";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)carBindingSource).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ResultsPanel.ResumeLayout(false);
+            ResultsPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -403,7 +467,7 @@
         private TextBox brandTextBox;
         private Label yearLabel;
         private TextBox yearTextBox;
-        private ListBox listBox1;
+        private ListBox ResultsListBox;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem newToolStripMenuItem;
@@ -436,5 +500,10 @@
         private ToolStripMenuItem aboutToolStripMenuItem;
         private Label maxPriceLabel;
         private TextBox maxPriceTextBox;
+        private BindingSource carBindingSource;
+        private Panel ResultsPanel;
+        private TextBox ResultCarModel;
+        private TextBox ResultCarBrand;
+        private TextBox ResultCarYear;
     }
 }

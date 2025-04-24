@@ -43,8 +43,6 @@ namespace CarShowroom
             string yearText = yearTextBox.Text.Trim();
             string maxPrice = maxPriceTextBox.Text.Trim();
 
-            
-
             int.TryParse(yearText, out int yearInt);
             double.TryParse(maxPrice, out double maxPriceInt);
 
@@ -52,29 +50,32 @@ namespace CarShowroom
             currentCustomer.MaxBudget = maxPriceInt;
 
             var filteredCars = carDatabase
-                .Where(car => (car.Brand.Contains(brand, StringComparison.OrdinalIgnoreCase)) && (yearInt == 0 || car.ReleaseYear == yearInt))
+                .Where(car => (car.Brand.Contains(brand)) && (yearInt == 0 || car.ReleaseYear == yearInt))
                 .Where(car => currentCustomer.DesiredBrands.Contains(car.Brand) && car.Price <= currentCustomer.MaxBudget)
                 .ToList();
 
-            listBox1.Items.Clear();
-            if (filteredCars.Any())
-            {
-                foreach (var car in filteredCars)
-                {
-                    listBox1.Items.Add(car.ToString());
-                }
-            }
-            else
-            {
-                listBox1.Items.Add("No results found.");
-            }
+            carBindingSource.DataSource = filteredCars;
+            //listBox1.Items.Clear();
+            //if (filteredCars.Any())
+            //{
+            //    foreach (var car in filteredCars)
+            //    {
+            //        listBox1.Items.Add(car.ToString());
+            //    }
+            //}
+            //else
+            //{
+            //    listBox1.Items.Add("No results found.");
+            //}
         }
 
         private void Find_button_Click(object sender, EventArgs e)
         {
             SearchCars();
+            ResultsPanel.Visible = true;
         }
 
         
     }
 }
+//data gride view

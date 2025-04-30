@@ -29,36 +29,28 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             Find_button = new Button();
             panel1 = new Panel();
-            maxPriceLabel = new Label();
-            maxPriceTextBox = new TextBox();
-            yearLabel = new Label();
-            yearTextBox = new TextBox();
-            brandLabel = new Label();
-            brandTextBox = new TextBox();
+            ConditionListBox = new ListBox();
+            minPriceTextBox = new TextBox();
             FindAutoLabel = new Label();
+            modelTextBox = new TextBox();
+            maxPriceTextBox = new TextBox();
+            yearTextBox = new TextBox();
+            brandTextBox = new TextBox();
             ResultsListBox = new ListBox();
             carBindingSource = new BindingSource(components);
-            menuStrip1 = new MenuStrip();
+            MainFormMenuStrip = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
-            newToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator = new ToolStripSeparator();
-            saveToolStripMenuItem = new ToolStripMenuItem();
             saveAsToolStripMenuItem = new ToolStripMenuItem();
-            toolStripSeparator1 = new ToolStripSeparator();
-            printToolStripMenuItem = new ToolStripMenuItem();
-            printPreviewToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator2 = new ToolStripSeparator();
             exitToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem = new ToolStripMenuItem();
             undoToolStripMenuItem = new ToolStripMenuItem();
             redoToolStripMenuItem = new ToolStripMenuItem();
-            toolStripSeparator3 = new ToolStripSeparator();
-            cutToolStripMenuItem = new ToolStripMenuItem();
-            copyToolStripMenuItem = new ToolStripMenuItem();
-            pasteToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator4 = new ToolStripSeparator();
             selectAllToolStripMenuItem = new ToolStripMenuItem();
             toolsToolStripMenuItem = new ToolStripMenuItem();
@@ -66,28 +58,31 @@
             optionsToolStripMenuItem = new ToolStripMenuItem();
             helpToolStripMenuItem = new ToolStripMenuItem();
             contentsToolStripMenuItem = new ToolStripMenuItem();
-            indexToolStripMenuItem = new ToolStripMenuItem();
-            searchToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator5 = new ToolStripSeparator();
             aboutToolStripMenuItem = new ToolStripMenuItem();
-            ResultsPanel = new Panel();
-            ResultCarYear = new TextBox();
-            ResultCarBrand = new TextBox();
-            ResultCarModel = new TextBox();
+            LogInToolStripMenuItem = new ToolStripMenuItem();
+            CreateAccountToolStripMenuItem = new ToolStripMenuItem();
+            dataGridView1 = new DataGridView();
+            brandDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            modelDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            originCountryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            releaseYearDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            featuresDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            priceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)carBindingSource).BeginInit();
-            menuStrip1.SuspendLayout();
-            ResultsPanel.SuspendLayout();
+            MainFormMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // Find_button
             // 
-            Find_button.BackColor = Color.LightCyan;
+            Find_button.BackColor = Color.FromArgb(255, 192, 128);
             Find_button.FlatStyle = FlatStyle.Popup;
             Find_button.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            Find_button.Location = new Point(262, 185);
+            Find_button.Location = new Point(258, 167);
             Find_button.Name = "Find_button";
-            Find_button.Size = new Size(92, 35);
+            Find_button.Size = new Size(111, 38);
             Find_button.TabIndex = 0;
             Find_button.Text = "Find";
             Find_button.UseVisualStyleBackColor = false;
@@ -96,81 +91,88 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top;
-            panel1.BackColor = SystemColors.InactiveBorder;
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(maxPriceLabel);
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(ConditionListBox);
+            panel1.Controls.Add(minPriceTextBox);
+            panel1.Controls.Add(FindAutoLabel);
+            panel1.Controls.Add(modelTextBox);
             panel1.Controls.Add(maxPriceTextBox);
-            panel1.Controls.Add(yearLabel);
             panel1.Controls.Add(yearTextBox);
-            panel1.Controls.Add(brandLabel);
             panel1.Controls.Add(brandTextBox);
             panel1.Controls.Add(Find_button);
-            panel1.Location = new Point(231, 112);
+            panel1.Location = new Point(229, 99);
             panel1.Name = "panel1";
-            panel1.Size = new Size(617, 250);
+            panel1.Size = new Size(617, 263);
             panel1.TabIndex = 1;
             // 
-            // maxPriceLabel
+            // ConditionListBox
             // 
-            maxPriceLabel.AutoSize = true;
-            maxPriceLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            maxPriceLabel.Location = new Point(35, 109);
-            maxPriceLabel.Name = "maxPriceLabel";
-            maxPriceLabel.Size = new Size(101, 25);
-            maxPriceLabel.TabIndex = 6;
-            maxPriceLabel.Text = "Max. Price";
+            ConditionListBox.BackColor = Color.FromArgb(192, 255, 192);
+            ConditionListBox.FormattingEnabled = true;
+            ConditionListBox.ItemHeight = 25;
+            ConditionListBox.Items.AddRange(new object[] { "New", "Used" });
+            ConditionListBox.Location = new Point(193, 116);
+            ConditionListBox.Name = "ConditionListBox";
+            ConditionListBox.SelectionMode = SelectionMode.None;
+            ConditionListBox.Size = new Size(153, 29);
+            ConditionListBox.TabIndex = 11;
             // 
-            // maxPriceTextBox
+            // minPriceTextBox
             // 
-            maxPriceTextBox.Location = new Point(147, 109);
-            maxPriceTextBox.Name = "maxPriceTextBox";
-            maxPriceTextBox.Size = new Size(431, 31);
-            maxPriceTextBox.TabIndex = 5;
-            // 
-            // yearLabel
-            // 
-            yearLabel.AutoSize = true;
-            yearLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            yearLabel.Location = new Point(35, 66);
-            yearLabel.Name = "yearLabel";
-            yearLabel.Size = new Size(48, 25);
-            yearLabel.TabIndex = 4;
-            yearLabel.Text = "Year";
-            // 
-            // yearTextBox
-            // 
-            yearTextBox.Location = new Point(145, 66);
-            yearTextBox.Name = "yearTextBox";
-            yearTextBox.Size = new Size(431, 31);
-            yearTextBox.TabIndex = 3;
-            // 
-            // brandLabel
-            // 
-            brandLabel.AutoSize = true;
-            brandLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            brandLabel.Location = new Point(35, 20);
-            brandLabel.Name = "brandLabel";
-            brandLabel.Size = new Size(63, 25);
-            brandLabel.TabIndex = 2;
-            brandLabel.Text = "Brand";
-            // 
-            // brandTextBox
-            // 
-            brandTextBox.Location = new Point(145, 17);
-            brandTextBox.Name = "brandTextBox";
-            brandTextBox.Size = new Size(431, 31);
-            brandTextBox.TabIndex = 1;
+            minPriceTextBox.BackColor = Color.FromArgb(192, 255, 192);
+            minPriceTextBox.Location = new Point(352, 75);
+            minPriceTextBox.Name = "minPriceTextBox";
+            minPriceTextBox.PlaceholderText = "Minimum Price";
+            minPriceTextBox.Size = new Size(153, 31);
+            minPriceTextBox.TabIndex = 10;
             // 
             // FindAutoLabel
             // 
             FindAutoLabel.Anchor = AnchorStyles.Top;
             FindAutoLabel.AutoSize = true;
             FindAutoLabel.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
-            FindAutoLabel.Location = new Point(416, 58);
+            FindAutoLabel.ForeColor = Color.FromArgb(255, 128, 0);
+            FindAutoLabel.Location = new Point(183, 10);
             FindAutoLabel.Name = "FindAutoLabel";
-            FindAutoLabel.Size = new Size(239, 51);
+            FindAutoLabel.Size = new Size(268, 51);
             FindAutoLabel.TabIndex = 2;
-            FindAutoLabel.Text = "Пошук авто";
+            FindAutoLabel.Text = "Auto Matcher";
+            // 
+            // modelTextBox
+            // 
+            modelTextBox.BackColor = Color.FromArgb(192, 255, 192);
+            modelTextBox.Location = new Point(24, 116);
+            modelTextBox.Name = "modelTextBox";
+            modelTextBox.PlaceholderText = "Model";
+            modelTextBox.Size = new Size(153, 31);
+            modelTextBox.TabIndex = 9;
+            // 
+            // maxPriceTextBox
+            // 
+            maxPriceTextBox.BackColor = Color.FromArgb(192, 255, 192);
+            maxPriceTextBox.Location = new Point(352, 116);
+            maxPriceTextBox.Name = "maxPriceTextBox";
+            maxPriceTextBox.PlaceholderText = "Maximum Price";
+            maxPriceTextBox.Size = new Size(153, 31);
+            maxPriceTextBox.TabIndex = 5;
+            // 
+            // yearTextBox
+            // 
+            yearTextBox.BackColor = Color.FromArgb(192, 255, 192);
+            yearTextBox.Location = new Point(193, 75);
+            yearTextBox.Name = "yearTextBox";
+            yearTextBox.PlaceholderText = "Year";
+            yearTextBox.Size = new Size(153, 31);
+            yearTextBox.TabIndex = 3;
+            // 
+            // brandTextBox
+            // 
+            brandTextBox.BackColor = Color.FromArgb(192, 255, 192);
+            brandTextBox.Location = new Point(24, 75);
+            brandTextBox.Name = "brandTextBox";
+            brandTextBox.PlaceholderText = "Brand";
+            brandTextBox.Size = new Size(153, 31);
+            brandTextBox.TabIndex = 1;
             // 
             // ResultsListBox
             // 
@@ -179,9 +181,9 @@
             ResultsListBox.DisplayMember = "Model";
             ResultsListBox.FormattingEnabled = true;
             ResultsListBox.ItemHeight = 25;
-            ResultsListBox.Location = new Point(12, 400);
+            ResultsListBox.Location = new Point(773, 501);
             ResultsListBox.Name = "ResultsListBox";
-            ResultsListBox.Size = new Size(482, 379);
+            ResultsListBox.Size = new Size(0, 4);
             ResultsListBox.TabIndex = 3;
             ResultsListBox.ValueMember = "Features";
             // 
@@ -189,172 +191,110 @@
             // 
             carBindingSource.DataSource = typeof(Models.Car);
             // 
-            // menuStrip1
+            // MainFormMenuStrip
             // 
-            menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, toolsToolStripMenuItem, helpToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1078, 33);
-            menuStrip1.TabIndex = 4;
-            menuStrip1.Text = "menuStrip1";
+            MainFormMenuStrip.BackColor = SystemColors.ButtonFace;
+            MainFormMenuStrip.ImageScalingSize = new Size(24, 24);
+            MainFormMenuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, toolsToolStripMenuItem, helpToolStripMenuItem, LogInToolStripMenuItem, CreateAccountToolStripMenuItem });
+            MainFormMenuStrip.Location = new Point(0, 0);
+            MainFormMenuStrip.Name = "MainFormMenuStrip";
+            MainFormMenuStrip.Size = new Size(1074, 33);
+            MainFormMenuStrip.TabIndex = 4;
+            MainFormMenuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, openToolStripMenuItem, toolStripSeparator, saveToolStripMenuItem, saveAsToolStripMenuItem, toolStripSeparator1, printToolStripMenuItem, printPreviewToolStripMenuItem, toolStripSeparator2, exitToolStripMenuItem });
+            fileToolStripMenuItem.BackColor = SystemColors.ButtonFace;
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, toolStripSeparator, saveAsToolStripMenuItem, toolStripSeparator2, exitToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(54, 29);
             fileToolStripMenuItem.Text = "&File";
-            // 
-            // newToolStripMenuItem
-            // 
-            newToolStripMenuItem.ImageTransparentColor = Color.Magenta;
-            newToolStripMenuItem.Name = "newToolStripMenuItem";
-            newToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.N;
-            newToolStripMenuItem.Size = new Size(223, 34);
-            newToolStripMenuItem.Text = "&New";
             // 
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.ImageTransparentColor = Color.Magenta;
             openToolStripMenuItem.Name = "openToolStripMenuItem";
             openToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
-            openToolStripMenuItem.Size = new Size(223, 34);
-            openToolStripMenuItem.Text = "&Open";
+            openToolStripMenuItem.Size = new Size(282, 34);
+            openToolStripMenuItem.Text = "&Open Car DB";
             // 
             // toolStripSeparator
             // 
             toolStripSeparator.Name = "toolStripSeparator";
-            toolStripSeparator.Size = new Size(220, 6);
-            // 
-            // saveToolStripMenuItem
-            // 
-            saveToolStripMenuItem.ImageTransparentColor = Color.Magenta;
-            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.S;
-            saveToolStripMenuItem.Size = new Size(223, 34);
-            saveToolStripMenuItem.Text = "&Save";
+            toolStripSeparator.Size = new Size(279, 6);
             // 
             // saveAsToolStripMenuItem
             // 
             saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            saveAsToolStripMenuItem.Size = new Size(223, 34);
-            saveAsToolStripMenuItem.Text = "Save &As";
-            // 
-            // toolStripSeparator1
-            // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(220, 6);
-            // 
-            // printToolStripMenuItem
-            // 
-            printToolStripMenuItem.ImageTransparentColor = Color.Magenta;
-            printToolStripMenuItem.Name = "printToolStripMenuItem";
-            printToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.P;
-            printToolStripMenuItem.Size = new Size(223, 34);
-            printToolStripMenuItem.Text = "&Print";
-            // 
-            // printPreviewToolStripMenuItem
-            // 
-            printPreviewToolStripMenuItem.ImageTransparentColor = Color.Magenta;
-            printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-            printPreviewToolStripMenuItem.Size = new Size(223, 34);
-            printPreviewToolStripMenuItem.Text = "Print Pre&view";
+            saveAsToolStripMenuItem.Size = new Size(282, 34);
+            saveAsToolStripMenuItem.Text = "&Save Car DB As";
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(220, 6);
+            toolStripSeparator2.Size = new Size(279, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(223, 34);
+            exitToolStripMenuItem.Size = new Size(282, 34);
             exitToolStripMenuItem.Text = "E&xit";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // editToolStripMenuItem
             // 
-            editToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { undoToolStripMenuItem, redoToolStripMenuItem, toolStripSeparator3, cutToolStripMenuItem, copyToolStripMenuItem, pasteToolStripMenuItem, toolStripSeparator4, selectAllToolStripMenuItem });
+            editToolStripMenuItem.BackColor = SystemColors.ButtonFace;
+            editToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { undoToolStripMenuItem, redoToolStripMenuItem, toolStripSeparator4, selectAllToolStripMenuItem });
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(58, 29);
-            editToolStripMenuItem.Text = "&Edit";
+            editToolStripMenuItem.Size = new Size(62, 29);
+            editToolStripMenuItem.Text = "&Cars";
             // 
             // undoToolStripMenuItem
             // 
             undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            undoToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Z;
-            undoToolStripMenuItem.Size = new Size(219, 34);
-            undoToolStripMenuItem.Text = "&Undo";
+            undoToolStripMenuItem.Size = new Size(268, 34);
+            undoToolStripMenuItem.Text = "🔍 &Find a car";
             // 
             // redoToolStripMenuItem
             // 
             redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             redoToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Y;
-            redoToolStripMenuItem.Size = new Size(219, 34);
-            redoToolStripMenuItem.Text = "&Redo";
-            // 
-            // toolStripSeparator3
-            // 
-            toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(216, 6);
-            // 
-            // cutToolStripMenuItem
-            // 
-            cutToolStripMenuItem.ImageTransparentColor = Color.Magenta;
-            cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            cutToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.X;
-            cutToolStripMenuItem.Size = new Size(219, 34);
-            cutToolStripMenuItem.Text = "Cu&t";
-            // 
-            // copyToolStripMenuItem
-            // 
-            copyToolStripMenuItem.ImageTransparentColor = Color.Magenta;
-            copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            copyToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.C;
-            copyToolStripMenuItem.Size = new Size(219, 34);
-            copyToolStripMenuItem.Text = "&Copy";
-            // 
-            // pasteToolStripMenuItem
-            // 
-            pasteToolStripMenuItem.ImageTransparentColor = Color.Magenta;
-            pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            pasteToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.V;
-            pasteToolStripMenuItem.Size = new Size(219, 34);
-            pasteToolStripMenuItem.Text = "&Paste";
+            redoToolStripMenuItem.Size = new Size(268, 34);
+            redoToolStripMenuItem.Text = "&➕ &New car";
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(216, 6);
+            toolStripSeparator4.Size = new Size(265, 6);
             // 
             // selectAllToolStripMenuItem
             // 
             selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            selectAllToolStripMenuItem.Size = new Size(219, 34);
+            selectAllToolStripMenuItem.Size = new Size(268, 34);
             selectAllToolStripMenuItem.Text = "Select &All";
             // 
             // toolsToolStripMenuItem
             // 
             toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { customizeToolStripMenuItem, optionsToolStripMenuItem });
             toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            toolsToolStripMenuItem.Size = new Size(69, 29);
-            toolsToolStripMenuItem.Text = "&Tools";
+            toolsToolStripMenuItem.Size = new Size(63, 29);
+            toolsToolStripMenuItem.Text = "&User";
             // 
             // customizeToolStripMenuItem
             // 
             customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            customizeToolStripMenuItem.Size = new Size(197, 34);
-            customizeToolStripMenuItem.Text = "&Customize";
+            customizeToolStripMenuItem.Size = new Size(289, 34);
+            customizeToolStripMenuItem.Text = "&New user";
             // 
             // optionsToolStripMenuItem
             // 
             optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            optionsToolStripMenuItem.Size = new Size(197, 34);
-            optionsToolStripMenuItem.Text = "&Options";
+            optionsToolStripMenuItem.Size = new Size(289, 34);
+            optionsToolStripMenuItem.Text = "&Automative car search";
             // 
             // helpToolStripMenuItem
             // 
-            helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contentsToolStripMenuItem, indexToolStripMenuItem, searchToolStripMenuItem, toolStripSeparator5, aboutToolStripMenuItem });
+            helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contentsToolStripMenuItem, toolStripSeparator5, aboutToolStripMenuItem });
             helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             helpToolStripMenuItem.Size = new Size(65, 29);
             helpToolStripMenuItem.Text = "&Help";
@@ -362,98 +302,138 @@
             // contentsToolStripMenuItem
             // 
             contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            contentsToolStripMenuItem.Size = new Size(185, 34);
-            contentsToolStripMenuItem.Text = "&Contents";
-            // 
-            // indexToolStripMenuItem
-            // 
-            indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            indexToolStripMenuItem.Size = new Size(185, 34);
-            indexToolStripMenuItem.Text = "&Index";
-            // 
-            // searchToolStripMenuItem
-            // 
-            searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            searchToolStripMenuItem.Size = new Size(185, 34);
-            searchToolStripMenuItem.Text = "&Search";
+            contentsToolStripMenuItem.Size = new Size(250, 34);
+            contentsToolStripMenuItem.Text = "ℹ️ &About...";
             // 
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(182, 6);
+            toolStripSeparator5.Size = new Size(247, 6);
             // 
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(185, 34);
-            aboutToolStripMenuItem.Text = "&About...";
+            aboutToolStripMenuItem.Size = new Size(250, 34);
+            aboutToolStripMenuItem.Text = "📘 &User's manual";
             // 
-            // ResultsPanel
+            // LogInToolStripMenuItem
             // 
-            ResultsPanel.BackColor = SystemColors.ControlLight;
-            ResultsPanel.Controls.Add(ResultCarYear);
-            ResultsPanel.Controls.Add(ResultCarBrand);
-            ResultsPanel.Controls.Add(ResultCarModel);
-            ResultsPanel.Location = new Point(559, 400);
-            ResultsPanel.Name = "ResultsPanel";
-            ResultsPanel.Size = new Size(497, 382);
-            ResultsPanel.TabIndex = 5;
-            ResultsPanel.Visible = false;
+            LogInToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
+            LogInToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
+            LogInToolStripMenuItem.ForeColor = Color.Black;
+            LogInToolStripMenuItem.Margin = new Padding(0, 0, 20, 0);
+            LogInToolStripMenuItem.Name = "LogInToolStripMenuItem";
+            LogInToolStripMenuItem.Size = new Size(78, 29);
+            LogInToolStripMenuItem.Text = "Log In";
             // 
-            // ResultCarYear
+            // CreateAccountToolStripMenuItem
             // 
-            ResultCarYear.BackColor = SystemColors.ControlLight;
-            ResultCarYear.DataBindings.Add(new Binding("Text", carBindingSource, "ReleaseYear", true));
-            ResultCarYear.Font = new Font("Segoe UI", 12F);
-            ResultCarYear.Location = new Point(26, 146);
-            ResultCarYear.Name = "ResultCarYear";
-            ResultCarYear.Size = new Size(235, 39);
-            ResultCarYear.TabIndex = 2;
-            ResultCarYear.TextAlign = HorizontalAlignment.Center;
+            CreateAccountToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
+            CreateAccountToolStripMenuItem.BackColor = Color.FromArgb(255, 192, 128);
+            CreateAccountToolStripMenuItem.ForeColor = Color.Black;
+            CreateAccountToolStripMenuItem.Margin = new Padding(0, 0, 20, 0);
+            CreateAccountToolStripMenuItem.Name = "CreateAccountToolStripMenuItem";
+            CreateAccountToolStripMenuItem.Size = new Size(145, 29);
+            CreateAccountToolStripMenuItem.Text = "Create account";
+            CreateAccountToolStripMenuItem.Click += logInToolStripMenuItem_Click;
             // 
-            // ResultCarBrand
+            // dataGridView1
             // 
-            ResultCarBrand.BackColor = SystemColors.ControlLight;
-            ResultCarBrand.DataBindings.Add(new Binding("Text", carBindingSource, "Brand", true));
-            ResultCarBrand.Font = new Font("Segoe UI", 12F);
-            ResultCarBrand.Location = new Point(26, 83);
-            ResultCarBrand.Name = "ResultCarBrand";
-            ResultCarBrand.Size = new Size(235, 39);
-            ResultCarBrand.TabIndex = 1;
-            ResultCarBrand.TextAlign = HorizontalAlignment.Center;
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.BackgroundColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { brandDataGridViewTextBoxColumn, modelDataGridViewTextBoxColumn, originCountryDataGridViewTextBoxColumn, releaseYearDataGridViewTextBoxColumn, featuresDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn });
+            dataGridView1.DataSource = carBindingSource;
+            dataGridView1.Location = new Point(76, 380);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(956, 239);
+            dataGridView1.TabIndex = 6;
             // 
-            // ResultCarModel
+            // brandDataGridViewTextBoxColumn
             // 
-            ResultCarModel.BackColor = SystemColors.ControlLight;
-            ResultCarModel.DataBindings.Add(new Binding("Text", carBindingSource, "Model", true));
-            ResultCarModel.Font = new Font("Segoe UI", 16F);
-            ResultCarModel.Location = new Point(128, 14);
-            ResultCarModel.Name = "ResultCarModel";
-            ResultCarModel.Size = new Size(235, 50);
-            ResultCarModel.TabIndex = 0;
-            ResultCarModel.TextAlign = HorizontalAlignment.Center;
+            brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
+            brandDataGridViewTextBoxColumn.HeaderText = "Brand";
+            brandDataGridViewTextBoxColumn.MinimumWidth = 8;
+            brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
+            brandDataGridViewTextBoxColumn.ReadOnly = true;
+            brandDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // modelDataGridViewTextBoxColumn
+            // 
+            modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
+            modelDataGridViewTextBoxColumn.HeaderText = "Model";
+            modelDataGridViewTextBoxColumn.MinimumWidth = 8;
+            modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
+            modelDataGridViewTextBoxColumn.ReadOnly = true;
+            modelDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // originCountryDataGridViewTextBoxColumn
+            // 
+            originCountryDataGridViewTextBoxColumn.DataPropertyName = "OriginCountry";
+            originCountryDataGridViewTextBoxColumn.HeaderText = "OriginCountry";
+            originCountryDataGridViewTextBoxColumn.MinimumWidth = 8;
+            originCountryDataGridViewTextBoxColumn.Name = "originCountryDataGridViewTextBoxColumn";
+            originCountryDataGridViewTextBoxColumn.ReadOnly = true;
+            originCountryDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // releaseYearDataGridViewTextBoxColumn
+            // 
+            releaseYearDataGridViewTextBoxColumn.DataPropertyName = "ReleaseYear";
+            releaseYearDataGridViewTextBoxColumn.HeaderText = "ReleaseYear";
+            releaseYearDataGridViewTextBoxColumn.MinimumWidth = 8;
+            releaseYearDataGridViewTextBoxColumn.Name = "releaseYearDataGridViewTextBoxColumn";
+            releaseYearDataGridViewTextBoxColumn.ReadOnly = true;
+            releaseYearDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // featuresDataGridViewTextBoxColumn
+            // 
+            featuresDataGridViewTextBoxColumn.DataPropertyName = "Features";
+            featuresDataGridViewTextBoxColumn.HeaderText = "Features";
+            featuresDataGridViewTextBoxColumn.MinimumWidth = 8;
+            featuresDataGridViewTextBoxColumn.Name = "featuresDataGridViewTextBoxColumn";
+            featuresDataGridViewTextBoxColumn.ReadOnly = true;
+            featuresDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            priceDataGridViewTextBoxColumn.MinimumWidth = 8;
+            priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            priceDataGridViewTextBoxColumn.ReadOnly = true;
+            priceDataGridViewTextBoxColumn.Width = 150;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1078, 846);
-            Controls.Add(ResultsPanel);
+            BackColor = Color.FromArgb(245, 245, 245);
+            ClientSize = new Size(1074, 640);
+            Controls.Add(dataGridView1);
             Controls.Add(ResultsListBox);
-            Controls.Add(FindAutoLabel);
             Controls.Add(panel1);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
-            MinimumSize = new Size(1100, 902);
+            Controls.Add(MainFormMenuStrip);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            MainMenuStrip = MainFormMenuStrip;
+            MinimumSize = new Size(1100, 700);
             Name = "MainForm";
             Text = "Auto_ShowRoom";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)carBindingSource).EndInit();
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
-            ResultsPanel.ResumeLayout(false);
-            ResultsPanel.PerformLayout();
+            MainFormMenuStrip.ResumeLayout(false);
+            MainFormMenuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -463,30 +443,19 @@
         private Button Find_button;
         private Panel panel1;
         private Label FindAutoLabel;
-        private Label brandLabel;
         private TextBox brandTextBox;
-        private Label yearLabel;
         private TextBox yearTextBox;
         private ListBox ResultsListBox;
-        private MenuStrip menuStrip1;
+        private MenuStrip MainFormMenuStrip;
         private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem newToolStripMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator;
-        private ToolStripMenuItem saveToolStripMenuItem;
         private ToolStripMenuItem saveAsToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator1;
-        private ToolStripMenuItem printToolStripMenuItem;
-        private ToolStripMenuItem printPreviewToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem exitToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem undoToolStripMenuItem;
         private ToolStripMenuItem redoToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator3;
-        private ToolStripMenuItem cutToolStripMenuItem;
-        private ToolStripMenuItem copyToolStripMenuItem;
-        private ToolStripMenuItem pasteToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripMenuItem selectAllToolStripMenuItem;
         private ToolStripMenuItem toolsToolStripMenuItem;
@@ -494,16 +463,21 @@
         private ToolStripMenuItem optionsToolStripMenuItem;
         private ToolStripMenuItem helpToolStripMenuItem;
         private ToolStripMenuItem contentsToolStripMenuItem;
-        private ToolStripMenuItem indexToolStripMenuItem;
-        private ToolStripMenuItem searchToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator5;
         private ToolStripMenuItem aboutToolStripMenuItem;
-        private Label maxPriceLabel;
         private TextBox maxPriceTextBox;
         private BindingSource carBindingSource;
-        private Panel ResultsPanel;
-        private TextBox ResultCarModel;
-        private TextBox ResultCarBrand;
-        private TextBox ResultCarYear;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn originCountryDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn releaseYearDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn featuresDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private ToolStripSeparator toolStripSeparator5;
+        private ToolStripMenuItem CreateAccountToolStripMenuItem;
+        private TextBox modelTextBox;
+        private ListBox ConditionListBox;
+        private TextBox minPriceTextBox;
+        private ToolStripMenuItem LogInToolStripMenuItem;
     }
 }

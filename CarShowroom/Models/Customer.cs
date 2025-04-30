@@ -12,13 +12,15 @@ namespace CarShowroom.Models
         public string Name { get; set; }
         public MailAddress ContactInfo { get; set; }
         public List<string> DesiredBrands { get; set; }
+        public double MinBudget { get; set; }
         public double MaxBudget { get; set; }
 
-        public Customer(string name, MailAddress contactInfo, List<string> desiredBrands, double maxBudget)
+        public Customer(string name, MailAddress contactInfo, List<string> desiredBrands, double minBudget, double maxBudget)
         {
             Name = name;
             ContactInfo = contactInfo;
             DesiredBrands = desiredBrands;
+            MinBudget = minBudget;
             MaxBudget = maxBudget;
         }
     }

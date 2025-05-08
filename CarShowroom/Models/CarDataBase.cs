@@ -67,6 +67,10 @@ namespace CarShowroom.Models
                 Cars = new List<Car>();
             }
         }
+        //public List<Car> FilterDataBase()
+        //{
+            
+        //}
 
         public List<Car> GetCars()
         {

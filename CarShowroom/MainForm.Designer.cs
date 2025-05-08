@@ -100,9 +100,9 @@
             panel1.Controls.Add(yearTextBox);
             panel1.Controls.Add(brandTextBox);
             panel1.Controls.Add(Find_button);
-            panel1.Location = new Point(229, 99);
+            panel1.Location = new Point(221, 36);
             panel1.Name = "panel1";
-            panel1.Size = new Size(617, 263);
+            panel1.Size = new Size(617, 217);
             panel1.TabIndex = 1;
             // 
             // ConditionListBox
@@ -132,7 +132,7 @@
             FindAutoLabel.AutoSize = true;
             FindAutoLabel.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             FindAutoLabel.ForeColor = Color.FromArgb(255, 128, 0);
-            FindAutoLabel.Location = new Point(183, 10);
+            FindAutoLabel.Location = new Point(177, 9);
             FindAutoLabel.Name = "FindAutoLabel";
             FindAutoLabel.Size = new Size(268, 51);
             FindAutoLabel.TabIndex = 2;
@@ -352,11 +352,11 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { brandDataGridViewTextBoxColumn, modelDataGridViewTextBoxColumn, originCountryDataGridViewTextBoxColumn, releaseYearDataGridViewTextBoxColumn, featuresDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn });
             dataGridView1.DataSource = carBindingSource;
-            dataGridView1.Location = new Point(76, 380);
+            dataGridView1.Location = new Point(12, 259);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(956, 239);
+            dataGridView1.Size = new Size(1050, 378);
             dataGridView1.TabIndex = 6;
             // 
             // brandDataGridViewTextBoxColumn

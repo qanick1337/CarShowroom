@@ -44,6 +44,13 @@ namespace CarShowroom
 
         private void Find_button_Click(object sender, EventArgs e)
         {
+            //string brand = brandTextBox.Text.Trim();
+            //string yearText = yearTextBox.Text.Trim();
+            //string maxPrice = maxPriceTextBox.Text.Trim();
+
+            //int.TryParse(yearText, out int yearInt);
+            //double.TryParse(maxPrice, out double maxPriceInt);
+            //currentCustomer = new Customer()
             SearchCars();
         }
 

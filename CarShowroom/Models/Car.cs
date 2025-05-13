@@ -15,8 +15,24 @@ namespace CarShowroom.Models
         public Features Features { get; set; } = new Features("Default Engine", 0, "Unknown Fuel");
         public double Price { get; set; } = 0.0;
 
+        private string condition = "used";
+        public string Condition
+        {
+            get => condition ;
+            set
+            {
+                if (value == "new" || value == "used")
+                {
+                    condition = value;
+                }
+                    
+            }
+        }
+
+
+
         public Car() { }
-        public Car(string brand, string model, string originCountry, int releaseYear, Features features, double price)
+        public Car(string brand, string model, string originCountry, int releaseYear, Features features, double price, string condition)
         {
             Brand = brand;
             Model = model;
@@ -24,6 +40,7 @@ namespace CarShowroom.Models
             ReleaseYear = releaseYear;
             Features = features;
             Price = price;
+            Condition = condition;
         }
 
         public override string ToString()

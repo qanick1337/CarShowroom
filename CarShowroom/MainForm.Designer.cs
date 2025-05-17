@@ -30,12 +30,16 @@
         {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             Find_button = new Button();
             panel1 = new Panel();
+            ConditionLabel = new Label();
+            ConditionComboBox = new ComboBox();
+            ModelLabel = new Label();
             ModelsComboBox = new ComboBox();
             BrandLabel = new Label();
             BrandsComboBox = new ComboBox();
-            ConditionListBox = new ListBox();
             minPriceTextBox = new TextBox();
             FindAutoLabel = new Label();
             maxPriceTextBox = new TextBox();
@@ -70,7 +74,6 @@
             featuresDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             priceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             Condition = new DataGridViewTextBoxColumn();
-            ModelLabel = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)carBindingSource).BeginInit();
             MainFormMenuStrip.SuspendLayout();
@@ -94,20 +97,52 @@
             // 
             panel1.Anchor = AnchorStyles.Top;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(ConditionLabel);
+            panel1.Controls.Add(ConditionComboBox);
             panel1.Controls.Add(ModelLabel);
             panel1.Controls.Add(ModelsComboBox);
             panel1.Controls.Add(BrandLabel);
             panel1.Controls.Add(BrandsComboBox);
-            panel1.Controls.Add(ConditionListBox);
             panel1.Controls.Add(minPriceTextBox);
             panel1.Controls.Add(FindAutoLabel);
             panel1.Controls.Add(maxPriceTextBox);
             panel1.Controls.Add(yearTextBox);
             panel1.Controls.Add(Find_button);
-            panel1.Location = new Point(234, 36);
+            panel1.Location = new Point(250, 36);
             panel1.Name = "panel1";
             panel1.Size = new Size(617, 217);
             panel1.TabIndex = 1;
+            // 
+            // ConditionLabel
+            // 
+            ConditionLabel.AutoSize = true;
+            ConditionLabel.BackColor = Color.FromArgb(192, 255, 192);
+            ConditionLabel.Location = new Point(196, 119);
+            ConditionLabel.Name = "ConditionLabel";
+            ConditionLabel.Size = new Size(90, 25);
+            ConditionLabel.TabIndex = 18;
+            ConditionLabel.Text = "Condition";
+            // 
+            // ConditionComboBox
+            // 
+            ConditionComboBox.BackColor = Color.FromArgb(192, 255, 192);
+            ConditionComboBox.Items.AddRange(new object[] { "All", "New", "Used" });
+            ConditionComboBox.Location = new Point(193, 116);
+            ConditionComboBox.Name = "ConditionComboBox";
+            ConditionComboBox.Size = new Size(153, 33);
+            ConditionComboBox.TabIndex = 17;
+            ConditionComboBox.SelectedIndexChanged += ConditionComboBox_SelectedIndexChanged;
+            ConditionComboBox.TextChanged += ConditionComboBox_TextChanged;
+            // 
+            // ModelLabel
+            // 
+            ModelLabel.AutoSize = true;
+            ModelLabel.BackColor = Color.FromArgb(192, 255, 192);
+            ModelLabel.Location = new Point(37, 120);
+            ModelLabel.Name = "ModelLabel";
+            ModelLabel.Size = new Size(63, 25);
+            ModelLabel.TabIndex = 16;
+            ModelLabel.Text = "Model";
             // 
             // ModelsComboBox
             // 
@@ -116,12 +151,13 @@
             ModelsComboBox.Name = "ModelsComboBox";
             ModelsComboBox.Size = new Size(153, 33);
             ModelsComboBox.TabIndex = 15;
+            ModelsComboBox.TextChanged += ModelsComboBox_TextChanged;
             // 
             // BrandLabel
             // 
             BrandLabel.AutoSize = true;
             BrandLabel.BackColor = Color.FromArgb(192, 255, 192);
-            BrandLabel.Location = new Point(38, 77);
+            BrandLabel.Location = new Point(37, 76);
             BrandLabel.Name = "BrandLabel";
             BrandLabel.Size = new Size(58, 25);
             BrandLabel.TabIndex = 14;
@@ -130,31 +166,22 @@
             // BrandsComboBox
             // 
             BrandsComboBox.BackColor = Color.FromArgb(192, 255, 192);
+            BrandsComboBox.Items.AddRange(new object[] { "All" });
             BrandsComboBox.Location = new Point(34, 73);
             BrandsComboBox.Name = "BrandsComboBox";
             BrandsComboBox.Size = new Size(153, 33);
             BrandsComboBox.TabIndex = 13;
             BrandsComboBox.SelectedIndexChanged += BrandsComboBox_SelectedIndexChanged;
-            // 
-            // ConditionListBox
-            // 
-            ConditionListBox.BackColor = Color.FromArgb(192, 255, 192);
-            ConditionListBox.FormattingEnabled = true;
-            ConditionListBox.ItemHeight = 25;
-            ConditionListBox.Items.AddRange(new object[] { "All", "Latest", "New", "Used", "Old" });
-            ConditionListBox.Location = new Point(193, 118);
-            ConditionListBox.Name = "ConditionListBox";
-            ConditionListBox.SelectionMode = SelectionMode.None;
-            ConditionListBox.Size = new Size(153, 29);
-            ConditionListBox.TabIndex = 11;
+            BrandsComboBox.TextChanged += BrandsComboBox_TextChanged;
             // 
             // minPriceTextBox
             // 
             minPriceTextBox.BackColor = Color.FromArgb(192, 255, 192);
-            minPriceTextBox.Location = new Point(352, 75);
+            minPriceTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            minPriceTextBox.Location = new Point(352, 72);
             minPriceTextBox.Name = "minPriceTextBox";
             minPriceTextBox.PlaceholderText = "Minimum Price";
-            minPriceTextBox.Size = new Size(153, 31);
+            minPriceTextBox.Size = new Size(153, 34);
             minPriceTextBox.TabIndex = 10;
             // 
             // FindAutoLabel
@@ -172,19 +199,21 @@
             // maxPriceTextBox
             // 
             maxPriceTextBox.BackColor = Color.FromArgb(192, 255, 192);
-            maxPriceTextBox.Location = new Point(352, 118);
+            maxPriceTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            maxPriceTextBox.Location = new Point(352, 115);
             maxPriceTextBox.Name = "maxPriceTextBox";
             maxPriceTextBox.PlaceholderText = "Maximum Price";
-            maxPriceTextBox.Size = new Size(153, 31);
+            maxPriceTextBox.Size = new Size(153, 34);
             maxPriceTextBox.TabIndex = 5;
             // 
             // yearTextBox
             // 
             yearTextBox.BackColor = Color.FromArgb(192, 255, 192);
-            yearTextBox.Location = new Point(193, 75);
+            yearTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            yearTextBox.Location = new Point(193, 72);
             yearTextBox.Name = "yearTextBox";
             yearTextBox.PlaceholderText = "Year";
-            yearTextBox.Size = new Size(153, 31);
+            yearTextBox.Size = new Size(153, 34);
             yearTextBox.TabIndex = 3;
             // 
             // carBindingSource
@@ -333,29 +362,49 @@
             CreateAccountToolStripMenuItem.ForeColor = Color.Black;
             CreateAccountToolStripMenuItem.Margin = new Padding(0, 0, 20, 0);
             CreateAccountToolStripMenuItem.Name = "CreateAccountToolStripMenuItem";
-            CreateAccountToolStripMenuItem.Size = new Size(145, 29);
-            CreateAccountToolStripMenuItem.Text = "Create account";
+            CreateAccountToolStripMenuItem.Size = new Size(89, 29);
+            CreateAccountToolStripMenuItem.Text = "Sign up";
             CreateAccountToolStripMenuItem.Click += logInToolStripMenuItem_Click;
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.Anchor = AnchorStyles.Top;
             dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.BackgroundColor = Color.FromArgb(192, 255, 192);
+            dataGridView1.BackgroundColor = Color.FromArgb(192, 255, 255);
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(192, 255, 192);
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(192, 255, 255);
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { brandDataGridViewTextBoxColumn, modelDataGridViewTextBoxColumn, originCountryDataGridViewTextBoxColumn, releaseYearDataGridViewTextBoxColumn, featuresDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, Condition });
             dataGridView1.DataSource = carBindingSource;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Menu;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.Location = new Point(12, 259);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(192, 255, 255);
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(1076, 429);
             dataGridView1.TabIndex = 6;
@@ -381,7 +430,7 @@
             // originCountryDataGridViewTextBoxColumn
             // 
             originCountryDataGridViewTextBoxColumn.DataPropertyName = "OriginCountry";
-            originCountryDataGridViewTextBoxColumn.HeaderText = "OriginCountry";
+            originCountryDataGridViewTextBoxColumn.HeaderText = "Country";
             originCountryDataGridViewTextBoxColumn.MinimumWidth = 8;
             originCountryDataGridViewTextBoxColumn.Name = "originCountryDataGridViewTextBoxColumn";
             originCountryDataGridViewTextBoxColumn.ReadOnly = true;
@@ -390,7 +439,7 @@
             // releaseYearDataGridViewTextBoxColumn
             // 
             releaseYearDataGridViewTextBoxColumn.DataPropertyName = "ReleaseYear";
-            releaseYearDataGridViewTextBoxColumn.HeaderText = "ReleaseYear";
+            releaseYearDataGridViewTextBoxColumn.HeaderText = "Year";
             releaseYearDataGridViewTextBoxColumn.MinimumWidth = 8;
             releaseYearDataGridViewTextBoxColumn.Name = "releaseYearDataGridViewTextBoxColumn";
             releaseYearDataGridViewTextBoxColumn.ReadOnly = true;
@@ -403,7 +452,7 @@
             featuresDataGridViewTextBoxColumn.MinimumWidth = 8;
             featuresDataGridViewTextBoxColumn.Name = "featuresDataGridViewTextBoxColumn";
             featuresDataGridViewTextBoxColumn.ReadOnly = true;
-            featuresDataGridViewTextBoxColumn.Width = 150;
+            featuresDataGridViewTextBoxColumn.Width = 200;
             // 
             // priceDataGridViewTextBoxColumn
             // 
@@ -422,16 +471,6 @@
             Condition.Name = "Condition";
             Condition.ReadOnly = true;
             Condition.Width = 150;
-            // 
-            // ModelLabel
-            // 
-            ModelLabel.AutoSize = true;
-            ModelLabel.BackColor = Color.FromArgb(192, 255, 192);
-            ModelLabel.Location = new Point(38, 120);
-            ModelLabel.Name = "ModelLabel";
-            ModelLabel.Size = new Size(63, 25);
-            ModelLabel.TabIndex = 16;
-            ModelLabel.Text = "Model";
             // 
             // MainForm
             // 
@@ -487,9 +526,13 @@
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripMenuItem CreateAccountToolStripMenuItem;
         private TextBox modelTextBox;
-        private ListBox ConditionListBox;
         private TextBox minPriceTextBox;
         private ToolStripMenuItem LogInToolStripMenuItem;
+        private ComboBox BrandsComboBox;
+        private Label BrandLabel;
+        private ComboBox ModelsComboBox;
+        private Label ModelLabel;
+        private ComboBox ConditionComboBox;
         private DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn originCountryDataGridViewTextBoxColumn;
@@ -497,9 +540,6 @@
         private DataGridViewTextBoxColumn featuresDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Condition;
-        private ComboBox BrandsComboBox;
-        private Label BrandLabel;
-        private ComboBox ModelsComboBox;
-        private Label ModelLabel;
+        private Label ConditionLabel;
     }
 }

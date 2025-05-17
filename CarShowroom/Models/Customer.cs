@@ -9,19 +9,91 @@ namespace CarShowroom.Models
 {
     public class Customer
     {
-        public string Name { get; set; }
-        public MailAddress ContactInfo { get; set; }
+        public string ContactInfo { get; set; }
+        public string Password { get; set; }
         public List<string> DesiredBrands { get; set; }
+        public List<string> DesiredBrandsModels { get; set; }
         public double MinBudget { get; set; }
         public double MaxBudget { get; set; }
 
-        public Customer(string name, MailAddress contactInfo, List<string> desiredBrands, double minBudget, double maxBudget)
+        // Default constructor
+        public Customer()
         {
-            Name = name;
+            DesiredBrands = new List<string>();
+            DesiredBrandsModels = new List<string>();
+        }
+
+
+        public Customer(string contactInfo, string password)
+        {
             ContactInfo = contactInfo;
-            DesiredBrands = desiredBrands;
+            Password = password;
+
+            DesiredBrands = new List<string>();
+            DesiredBrandsModels = new List<string>();
+        }
+
+
+        public Customer(string contactInfo, string password, double minBudget, double maxBudget)
+        {
+            MinBudget = minBudget;
+            MaxBudget = maxBudget;
+
+            ContactInfo = contactInfo;
+            Password = password;
+
+            DesiredBrands = new List<string>();
+            DesiredBrandsModels = new List<string>();
+        }
+
+        // Main constructor
+        public Customer(string contactInfo, string password, List<string> desiredBrands, List<string> desiredBrandsModels, double minBudget, double maxBudget)
+        {
+            ContactInfo = contactInfo;
+            Password = password;
+            DesiredBrands = desiredBrands ?? new List<string>();
+            DesiredBrandsModels = desiredBrandsModels ?? new List<string>();
             MinBudget = minBudget;
             MaxBudget = maxBudget;
         }
+
+        public void CustomerValidator()
+        {
+            if (string.IsNullOrEmpty(ContactInfo) || string.IsNullOrEmpty(Password))
+            {
+                MessageBox.Show("Contact info and password cannot be empty.");
+            }
+            if (!IsValidEmail(ContactInfo))
+            {
+                MessageBox.Show("Invalid email format.");
+            }
+            if (MinBudget < 0 || MaxBudget < 0)
+            {
+                MessageBox.Show("Budget cannot be negative.");
+            }
+            if (MinBudget > MaxBudget)
+            {
+                MessageBox.Show("Minimum budget cannot be greater than maximum budget.");
+            }
+        }
+
+        public static bool IsValidEmail(string email)
+        {
+            var trimmedEmail = email.Trim();
+
+            if (trimmedEmail.EndsWith("."))
+            {
+                return false; 
+            }
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == trimmedEmail;
+            }
+            catch
+            {
+                return false;
+            }
+        }  
     }
 }

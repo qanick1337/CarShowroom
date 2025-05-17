@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarShowroom.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,13 @@ namespace CarShowroom
 {
     public partial class NewUserForm : Form
     {
+        private CustomerDataBase customerDataBase = new();
+
         public NewUserForm()
         {
             InitializeComponent();
         }
         List<string> userBrands = new List<string>();
-
 
         private void AddBrandButton_Click(object sender, EventArgs e)
         {
@@ -35,21 +37,34 @@ namespace CarShowroom
             }
         }
 
+        private void AddModelTextBox_Click(object sender, EventArgs e)
+        {
+            string model = UserModelsTextBox.Text.Trim();
+
+            if (!string.IsNullOrEmpty(model) && !userBrands.Contains(model))
+            {
+                userBrands.Add(model);
+                FavoriteModelsListBox.Items.Add(model);
+                UserModelsTextBox.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid model name or the model already exists.");
+            }
+        }
+
         private void Find_button_Click(object sender, EventArgs e)
         {
-            string userName = UserNameTextBox.Text.Trim();
-            string userEmail = UserMailTextBox.Text.Trim();
-            string userMinimumBudget = minPriceTextBox.Text.Trim();
-            string userMaximumBudget = maxPriceTextBox.Text.Trim();
+            customerDataBase.DeserializeData("CustomerDataBase.txt");
 
-            double.TryParse(userMinimumBudget, out double userMinimumBudgetInt);
-            double.TryParse(userMaximumBudget, out double userMaximumBudgetInt);
+            string userMail = UserMailTextBox.Text.Trim();
+            string userPassword = UserPasswordTextBox.Text.Trim();
 
-            if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(userEmail) || string.IsNullOrEmpty(userMinimumBudget) || string.IsNullOrEmpty(userMaximumBudget))
-            {
-                MessageBox.Show("Please fill in all fields.");
-                return;
-            }
+            double.TryParse(minPriceTextBox.Text.Trim(), out double userMinimumBudgetInt);
+            double.TryParse(maxPriceTextBox.Text.Trim(), out double userMaximumBudgetInt);
+
+            new Customer(userMail, userPassword, userBrands, userBrands, userMinimumBudgetInt, userMaximumBudgetInt).CustomerValidator();
+
         }
     }
 }

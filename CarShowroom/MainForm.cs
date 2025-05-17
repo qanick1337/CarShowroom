@@ -7,40 +7,48 @@ namespace CarShowroom
     {
 
         private CarDataBase carDatabase;
+        private CustomerDataBase customerDatabase;
+        private List<string> brands;
+        private bool isUserLoggedIn = false;
         public MainForm()
         {
             InitializeComponent();
-            InitializeTestData();
+            InitializeData();
         }
 
-        public void InitializeTestData()
+        public void InitializeData()
         {
             carDatabase = new CarDataBase();
             carDatabase.DeserializeData("CarDataBase.txt");
 
-            for (int i = 0; i < carDatabase.Cars.Count; i++)
-            {
-                if (!BrandsComboBox.Items.Contains(carDatabase.Cars[i].Brand))
-                {
-                    BrandsComboBox.Items.Add(carDatabase.Cars[i].Brand);
-                }
-            }
+            customerDatabase = new CustomerDataBase();
+            customerDatabase.GenerateData();
+            customerDatabase.SerializeData("CustomerDataBase.txt");
+            //customerDatabase.DeserializeData("CustomerDataBase.txt");
+
+            brands = carDatabase.Cars.Select(car => car.Brand).Distinct().ToList();
+            BrandLabel.Visible = true;
+
+
+            BindingSource brandsBindingSource = new BindingSource();
+            brandsBindingSource.DataSource = brands;
+            BrandsComboBox.DataSource = brandsBindingSource;
+            BrandsComboBox.Text = string.Empty;
+            BrandsComboBox.SelectedIndex = -1;
+            BrandLabel.Visible = true;
         }
 
         private void SearchCars()
         {
             string brand = BrandsComboBox.SelectedItem as string ?? string.Empty;
-            brandTextBox.Text = brand;
+            string model = ModelsComboBox.SelectedItem as string ?? string.Empty;
+            string condition = ConditionComboBox.SelectedItem as string ?? string.Empty;
 
-            string yearText = yearTextBox.Text.Trim();
-            string minPrice = minPriceTextBox.Text.Trim();
-            string maxPrice = maxPriceTextBox.Text.Trim();
+            int.TryParse(yearTextBox.Text.Trim(), out int yearInt);
+            int.TryParse(minPriceTextBox.Text.Trim(), out int minPriceInt);
+            int.TryParse(maxPriceTextBox.Text.Trim(), out int maxPriceInt);
 
-            int.TryParse(yearText, out int yearInt);
-            int.TryParse(maxPrice, out int maxPriceInt);
-            int.TryParse(minPrice, out int minPriceInt);
-
-            var filteredCars = carDatabase.FilterDataBase(brand, minPriceInt, maxPriceInt).ToList();
+            var filteredCars = carDatabase.FilterDataBase(brand, model, yearInt, condition, minPriceInt, maxPriceInt).ToList();
 
             carBindingSource.DataSource = filteredCars;
         }
@@ -76,6 +84,46 @@ namespace CarShowroom
                 }
             }
         }
+
+        private void BrandsComboBox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(BrandsComboBox.Text))
+            {
+                BrandLabel.Visible = true;
+            }
+            else
+            {
+                BrandLabel.Visible = false;
+            }
+        }
+
+        private void ModelsComboBox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(ModelsComboBox.Text))
+            {
+                ModelLabel.Visible = true;
+            }
+            else
+            {
+                ModelLabel.Visible = false;
+            }
+        }
+
+        private void ConditionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ConditionLabel.Visible = false;
+        }
+
+        private void ConditionComboBox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(ConditionComboBox.Text))
+            {
+                ConditionLabel.Visible = true;
+            }
+            else
+            {
+                ConditionLabel.Visible = false;
+            }
+        }
     }
 }
-//data gride view

@@ -64,8 +64,10 @@
             contentsToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator5 = new ToolStripSeparator();
             aboutToolStripMenuItem = new ToolStripMenuItem();
+            SignOutToolStripMenuItem = new ToolStripMenuItem();
             LogInToolStripMenuItem = new ToolStripMenuItem();
             CreateAccountToolStripMenuItem = new ToolStripMenuItem();
+            UserNameToolStripMenuItem = new ToolStripMenuItem();
             dataGridView1 = new DataGridView();
             brandDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             modelDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -74,6 +76,7 @@
             featuresDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             priceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             Condition = new DataGridViewTextBoxColumn();
+            SubmitApplicationButton = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)carBindingSource).BeginInit();
             MainFormMenuStrip.SuspendLayout();
@@ -224,7 +227,7 @@
             // 
             MainFormMenuStrip.BackColor = SystemColors.ButtonFace;
             MainFormMenuStrip.ImageScalingSize = new Size(24, 24);
-            MainFormMenuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, toolsToolStripMenuItem, helpToolStripMenuItem, LogInToolStripMenuItem, CreateAccountToolStripMenuItem });
+            MainFormMenuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, toolsToolStripMenuItem, helpToolStripMenuItem, SignOutToolStripMenuItem, LogInToolStripMenuItem, CreateAccountToolStripMenuItem, UserNameToolStripMenuItem });
             MainFormMenuStrip.Location = new Point(0, 0);
             MainFormMenuStrip.Name = "MainFormMenuStrip";
             MainFormMenuStrip.Size = new Size(1100, 33);
@@ -345,6 +348,18 @@
             aboutToolStripMenuItem.Size = new Size(250, 34);
             aboutToolStripMenuItem.Text = "📘 &User's manual";
             // 
+            // SignOutToolStripMenuItem
+            // 
+            SignOutToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
+            SignOutToolStripMenuItem.BackColor = SystemColors.ButtonFace;
+            SignOutToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            SignOutToolStripMenuItem.ForeColor = Color.FromArgb(255, 128, 0);
+            SignOutToolStripMenuItem.Margin = new Padding(0, 0, 20, 0);
+            SignOutToolStripMenuItem.Name = "SignOutToolStripMenuItem";
+            SignOutToolStripMenuItem.Size = new Size(99, 29);
+            SignOutToolStripMenuItem.Text = "Sign out";
+            SignOutToolStripMenuItem.Click += SignOutToolStripMenuItem_Click;
+            // 
             // LogInToolStripMenuItem
             // 
             LogInToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
@@ -354,6 +369,7 @@
             LogInToolStripMenuItem.Name = "LogInToolStripMenuItem";
             LogInToolStripMenuItem.Size = new Size(78, 29);
             LogInToolStripMenuItem.Text = "Log In";
+            LogInToolStripMenuItem.Click += LogInToolStripMenuItem_Click;
             // 
             // CreateAccountToolStripMenuItem
             // 
@@ -364,7 +380,14 @@
             CreateAccountToolStripMenuItem.Name = "CreateAccountToolStripMenuItem";
             CreateAccountToolStripMenuItem.Size = new Size(89, 29);
             CreateAccountToolStripMenuItem.Text = "Sign up";
-            CreateAccountToolStripMenuItem.Click += logInToolStripMenuItem_Click;
+            CreateAccountToolStripMenuItem.Click += CreateAccountToolStripMenuItem_Click;
+            // 
+            // UserNameToolStripMenuItem
+            // 
+            UserNameToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
+            UserNameToolStripMenuItem.Name = "UserNameToolStripMenuItem";
+            UserNameToolStripMenuItem.Size = new Size(110, 29);
+            UserNameToolStripMenuItem.Text = "user name";
             // 
             // dataGridView1
             // 
@@ -404,9 +427,8 @@
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1076, 429);
+            dataGridView1.Size = new Size(1076, 366);
             dataGridView1.TabIndex = 6;
             // 
             // brandDataGridViewTextBoxColumn
@@ -472,12 +494,25 @@
             Condition.ReadOnly = true;
             Condition.Width = 150;
             // 
+            // SubmitApplicationButton
+            // 
+            SubmitApplicationButton.BackColor = Color.FromArgb(192, 255, 255);
+            SubmitApplicationButton.FlatStyle = FlatStyle.Popup;
+            SubmitApplicationButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            SubmitApplicationButton.Location = new Point(470, 640);
+            SubmitApplicationButton.Name = "SubmitApplicationButton";
+            SubmitApplicationButton.Size = new Size(200, 38);
+            SubmitApplicationButton.TabIndex = 19;
+            SubmitApplicationButton.Text = "New application";
+            SubmitApplicationButton.UseVisualStyleBackColor = false;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 245, 245);
             ClientSize = new Size(1100, 700);
+            Controls.Add(SubmitApplicationButton);
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Controls.Add(MainFormMenuStrip);
@@ -541,5 +576,8 @@
         private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Condition;
         private Label ConditionLabel;
+        private Button SubmitApplicationButton;
+        private ToolStripMenuItem UserNameToolStripMenuItem;
+        private ToolStripMenuItem SignOutToolStripMenuItem;
     }
 }

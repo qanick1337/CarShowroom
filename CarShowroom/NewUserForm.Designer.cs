@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            CancelButton = new Button();
             FavoriteModelsLabel = new Label();
             FavoriteModelsListBox = new ListBox();
             PricingLabel = new Label();
@@ -53,6 +54,7 @@
             // 
             panel1.Anchor = AnchorStyles.Top;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(CancelButton);
             panel1.Controls.Add(FavoriteModelsLabel);
             panel1.Controls.Add(FavoriteModelsListBox);
             panel1.Controls.Add(PricingLabel);
@@ -70,10 +72,22 @@
             panel1.Controls.Add(maxPriceTextBox);
             panel1.Controls.Add(UserMailTextBox);
             panel1.Controls.Add(CreateButton);
-            panel1.Location = new Point(113, 12);
+            panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(617, 487);
+            panel1.Size = new Size(689, 523);
             panel1.TabIndex = 6;
+            // 
+            // CancelButton
+            // 
+            CancelButton.BackColor = Color.White;
+            CancelButton.FlatStyle = FlatStyle.Popup;
+            CancelButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            CancelButton.Location = new Point(335, 405);
+            CancelButton.Name = "CancelButton";
+            CancelButton.Size = new Size(111, 38);
+            CancelButton.TabIndex = 23;
+            CancelButton.Text = "Cancel";
+            CancelButton.UseVisualStyleBackColor = false;
             // 
             // FavoriteModelsLabel
             // 
@@ -213,7 +227,7 @@
             WelcomeLabel.AutoSize = true;
             WelcomeLabel.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
             WelcomeLabel.ForeColor = Color.FromArgb(255, 128, 0);
-            WelcomeLabel.Location = new Point(24, 9);
+            WelcomeLabel.Location = new Point(60, 9);
             WelcomeLabel.Name = "WelcomeLabel";
             WelcomeLabel.Size = new Size(561, 51);
             WelcomeLabel.TabIndex = 2;
@@ -242,20 +256,20 @@
             CreateButton.BackColor = Color.FromArgb(255, 192, 128);
             CreateButton.FlatStyle = FlatStyle.Popup;
             CreateButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            CreateButton.Location = new Point(257, 405);
+            CreateButton.Location = new Point(200, 405);
             CreateButton.Name = "CreateButton";
             CreateButton.Size = new Size(111, 38);
             CreateButton.TabIndex = 0;
             CreateButton.Text = "Create";
             CreateButton.UseVisualStyleBackColor = false;
-            CreateButton.Click += Find_button_Click;
+            CreateButton.Click += CreateButton_Click;
             // 
             // NewUserForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(833, 547);
+            ClientSize = new Size(713, 547);
             Controls.Add(panel1);
             Name = "NewUserForm";
             Text = "NewUserForm";
@@ -285,5 +299,6 @@
         private Label FavoriteModelsLabel;
         private ListBox FavoriteModelsListBox;
         private Label PricingLabel;
+        private Button CancelButton;
     }
 }

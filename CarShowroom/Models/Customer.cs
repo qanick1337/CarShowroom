@@ -57,24 +57,44 @@ namespace CarShowroom.Models
             MaxBudget = maxBudget;
         }
 
-        public void CustomerValidator()
+        public bool CustomerValidator()
         {
             if (string.IsNullOrEmpty(ContactInfo) || string.IsNullOrEmpty(Password))
             {
                 MessageBox.Show("Contact info and password cannot be empty.");
+                return false;
             }
             if (!IsValidEmail(ContactInfo))
             {
                 MessageBox.Show("Invalid email format.");
+                return false;
             }
             if (MinBudget < 0 || MaxBudget < 0)
             {
                 MessageBox.Show("Budget cannot be negative.");
+                return false;
             }
             if (MinBudget > MaxBudget)
             {
                 MessageBox.Show("Minimum budget cannot be greater than maximum budget.");
+                return false;
             }
+            return true;
+        }
+
+        public bool ValidateLoginData()
+        {
+            if (string.IsNullOrEmpty(ContactInfo) || string.IsNullOrEmpty(Password))
+            {
+                MessageBox.Show("Contact info and password cannot be empty.");
+                return false;
+            }
+            if (!IsValidEmail(ContactInfo))
+            {
+                MessageBox.Show("Invalid email format.");
+                return false;
+            }
+            return true;
         }
 
         public static bool IsValidEmail(string email)

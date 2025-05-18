@@ -59,5 +59,17 @@ namespace CarShowroom.Models
                 Customers = new List<Customer>();
             }
         }
+
+        public bool isUserExist(string userMail, string userPassword)
+        {
+            foreach (var customer in Customers)
+            {
+                if (customer.ContactInfo == userMail && customer.Password == userPassword)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

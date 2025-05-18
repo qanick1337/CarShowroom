@@ -9,6 +9,8 @@ namespace CarShowroom
         private CarDataBase carDatabase;
         private CustomerDataBase customerDatabase;
         private List<string> brands;
+        private Customer currentCustomer;
+
         private bool isUserLoggedIn = false;
         public MainForm()
         {
@@ -22,9 +24,8 @@ namespace CarShowroom
             carDatabase.DeserializeData("CarDataBase.txt");
 
             customerDatabase = new CustomerDataBase();
-            customerDatabase.GenerateData();
-            customerDatabase.SerializeData("CustomerDataBase.txt");
-            //customerDatabase.DeserializeData("CustomerDataBase.txt");
+            customerDatabase.DeserializeData("CustomerDataBase.txt");
+
 
             brands = carDatabase.Cars.Select(car => car.Brand).Distinct().ToList();
             BrandLabel.Visible = true;
@@ -36,6 +37,8 @@ namespace CarShowroom
             BrandsComboBox.Text = string.Empty;
             BrandsComboBox.SelectedIndex = -1;
             BrandLabel.Visible = true;
+
+            SignOutToolStripMenuItem.Visible = false;
         }
 
         private void SearchCars()
@@ -63,9 +66,22 @@ namespace CarShowroom
             this.Close();
         }
 
-        private void logInToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CreateAccountToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new NewUserForm().ShowDialog();
+            using NewUserForm newUserForm = new();
+            var result = newUserForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                currentCustomer = newUserForm.newCustomer;
+                isUserLoggedIn = true;
+
+                MessageBox.Show("You are logged in as " + currentCustomer.ContactInfo);
+
+                LogInToolStripMenuItem.Visible = false;
+                CreateAccountToolStripMenuItem.Visible = false;
+                UserNameToolStripMenuItem.Text = currentCustomer.ContactInfo;
+                SignOutToolStripMenuItem.Visible = true;
+            }
         }
 
         private void BrandsComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -124,6 +140,23 @@ namespace CarShowroom
             {
                 ConditionLabel.Visible = false;
             }
+        }
+
+        private void LogInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using LoginForm loginForm = new();
+            var result = loginForm.ShowDialog();
+        }
+
+        private void SignOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            currentCustomer = null;
+            isUserLoggedIn = false;
+            LogInToolStripMenuItem.Visible = true;
+            CreateAccountToolStripMenuItem.Visible = true;
+
+            UserNameToolStripMenuItem.Text = "User";
+            SignOutToolStripMenuItem.Visible = false;
         }
     }
 }

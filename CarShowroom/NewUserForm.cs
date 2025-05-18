@@ -14,12 +14,14 @@ namespace CarShowroom
     public partial class NewUserForm : Form
     {
         private CustomerDataBase customerDataBase = new();
+        public Customer newCustomer;
 
         public NewUserForm()
         {
             InitializeComponent();
         }
         List<string> userBrands = new List<string>();
+        List<string> userModels = new List<string>();
 
         private void AddBrandButton_Click(object sender, EventArgs e)
         {
@@ -41,9 +43,9 @@ namespace CarShowroom
         {
             string model = UserModelsTextBox.Text.Trim();
 
-            if (!string.IsNullOrEmpty(model) && !userBrands.Contains(model))
+            if (!string.IsNullOrEmpty(model) && !userModels.Contains(model))
             {
-                userBrands.Add(model);
+                userModels.Add(model);
                 FavoriteModelsListBox.Items.Add(model);
                 UserModelsTextBox.Clear();
             }
@@ -53,7 +55,7 @@ namespace CarShowroom
             }
         }
 
-        private void Find_button_Click(object sender, EventArgs e)
+        private void CreateButton_Click(object sender, EventArgs e)
         {
             customerDataBase.DeserializeData("CustomerDataBase.txt");
 
@@ -63,8 +65,31 @@ namespace CarShowroom
             double.TryParse(minPriceTextBox.Text.Trim(), out double userMinimumBudgetInt);
             double.TryParse(maxPriceTextBox.Text.Trim(), out double userMaximumBudgetInt);
 
-            new Customer(userMail, userPassword, userBrands, userBrands, userMinimumBudgetInt, userMaximumBudgetInt).CustomerValidator();
+            newCustomer = new Customer(userMail, userPassword, userBrands, userModels, userMinimumBudgetInt, userMaximumBudgetInt);
+            newCustomer.CustomerValidator();
 
+            if (newCustomer.CustomerValidator())
+            {
+                customerDataBase.AddCustomer(newCustomer);
+                customerDataBase.SerializeData("CustomerDataBase.txt");
+                MessageBox.Show("User added successfully!");
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+        private void NewUserForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            if(this.DialogResult == DialogResult.OK)
+            {
+                newCustomer = new Customer(UserMailTextBox.Text.Trim(), UserPasswordTextBox.Text.Trim(), userBrands, userBrands, double.Parse(minPriceTextBox.Text.Trim()), double.Parse(maxPriceTextBox.Text.Trim()));
+            }
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

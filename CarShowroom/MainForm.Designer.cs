@@ -386,8 +386,8 @@
             // 
             UserNameToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
             UserNameToolStripMenuItem.Name = "UserNameToolStripMenuItem";
-            UserNameToolStripMenuItem.Size = new Size(110, 29);
-            UserNameToolStripMenuItem.Text = "user name";
+            UserNameToolStripMenuItem.Size = new Size(124, 29);
+            UserNameToolStripMenuItem.Text = "User's name";
             // 
             // dataGridView1
             // 

@@ -28,7 +28,8 @@ namespace CarShowroom.Models
 
         public void GenerateData()
         {
-            Customers.Add(new Customer("pupkin_vasyl@gmail.com", "pupkinHarosh", new List<string> {"Ferrari", "BMW"}, new List<string> { "Daytona SP3", "M3" }, 10000, 10000));
+            Customers.Add(new Customer("pupkin_vasyl@gmail.com", "pupkinHarosh", new List<string> { "Ferrari", "BMW" }, new List<string> { "Daytona SP3", "M3" }, 10000, 10000));
+            Customers.Add(new Customer("pupkin_vasyl@gmail.com", "pupkinHarosh", new List<string> { "Ferrari", "BMW" }, new List<string> { "Daytona SP3", "M3" }, 10000, 10000));
         }
 
         public void SerializeData(string path)

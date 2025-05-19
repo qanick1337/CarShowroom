@@ -16,12 +16,13 @@ namespace CarShowroom
         private CustomerDataBase customerDataBase = new();
         public Customer newCustomer;
 
+        List<string> userBrands = new List<string>();
+        List<string> userModels = new List<string>();
         public NewUserForm()
         {
             InitializeComponent();
         }
-        List<string> userBrands = new List<string>();
-        List<string> userModels = new List<string>();
+
 
         private void AddBrandButton_Click(object sender, EventArgs e)
         {
@@ -65,30 +66,31 @@ namespace CarShowroom
             double.TryParse(minPriceTextBox.Text.Trim(), out double userMinimumBudgetInt);
             double.TryParse(maxPriceTextBox.Text.Trim(), out double userMaximumBudgetInt);
 
-            newCustomer = new Customer(userMail, userPassword, userBrands, userModels, userMinimumBudgetInt, userMaximumBudgetInt);
-            newCustomer.CustomerValidator();
+            Customer customerToCheck = new Customer(userMail, userPassword, userBrands, userModels, userMinimumBudgetInt, userMaximumBudgetInt);
+            customerToCheck.CustomerValidator();
 
-            if (newCustomer.CustomerValidator())
+            if (customerToCheck.CustomerValidator())
             {
-                customerDataBase.AddCustomer(newCustomer);
+                newCustomer = customerToCheck;
+                customerDataBase.AddCustomer(customerToCheck);
                 customerDataBase.SerializeData("CustomerDataBase.txt");
+
                 MessageBox.Show("User added successfully!");
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
         }
-        private void NewUserForm_Closed(object sender, FormClosedEventArgs e)
-        {
-            if(this.DialogResult == DialogResult.OK)
-            {
-                newCustomer = new Customer(UserMailTextBox.Text.Trim(), UserPasswordTextBox.Text.Trim(), userBrands, userBrands, double.Parse(minPriceTextBox.Text.Trim()), double.Parse(maxPriceTextBox.Text.Trim()));
-            }
-        }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void RetryButton_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Retry;
             this.Close();
         }
     }

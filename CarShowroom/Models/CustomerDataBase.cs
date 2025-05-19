@@ -28,8 +28,8 @@ namespace CarShowroom.Models
 
         public void GenerateData()
         {
-            Customers.Add(new Customer("pupkin_vasyl@gmail.com", "pupkinHarosh", new List<string> { "Ferrari", "BMW" }, new List<string> { "Daytona SP3", "M3" }, 10000, 10000));
-            Customers.Add(new Customer("pupkin_vasyl@gmail.com", "pupkinHarosh", new List<string> { "Ferrari", "BMW" }, new List<string> { "Daytona SP3", "M3" }, 10000, 10000));
+            Customers.Add(new Customer("vovchik@gmail.com", "pupkinHarosh", new List<string> { "Ferrari", "BMW" }, new List<string> { "Daytona SP3", "M3" }, 10000, 7890000));
+            Customers.Add(new Customer("sigmaboy@usamail.com", "UsaUsaUsa", new List<string> {}, new List<string> {}, 10000, 10000000));
         }
 
         public void SerializeData(string path)
@@ -71,6 +71,18 @@ namespace CarShowroom.Models
                 }
             }
             return false;
+        }
+
+        public Customer GetCustomerByData(string userMail, string userPassword)
+        {
+            foreach (var customer in Customers)
+            {
+                if (customer.ContactInfo == userMail && customer.Password == userPassword)
+                {
+                    return customer;
+                }
+            }
+            return null;
         }
     }
 }

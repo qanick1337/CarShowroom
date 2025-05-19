@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
+            NewUserFormPanel = new Panel();
+            RetryButton = new Button();
+            RetryLabel = new Label();
             CancelButton = new Button();
             FavoriteModelsLabel = new Label();
             FavoriteModelsListBox = new ListBox();
@@ -47,86 +49,120 @@
             maxPriceTextBox = new TextBox();
             UserMailTextBox = new TextBox();
             CreateButton = new Button();
-            panel1.SuspendLayout();
+            NewUserFormPanel.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // NewUserFormPanel
             // 
-            panel1.Anchor = AnchorStyles.Top;
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(CancelButton);
-            panel1.Controls.Add(FavoriteModelsLabel);
-            panel1.Controls.Add(FavoriteModelsListBox);
-            panel1.Controls.Add(PricingLabel);
-            panel1.Controls.Add(AddModelTextBox);
-            panel1.Controls.Add(UserModelsTextBox);
-            panel1.Controls.Add(PrefferedCarsLabel);
-            panel1.Controls.Add(PersonalInfoLabel);
-            panel1.Controls.Add(UserPasswordTextBox);
-            panel1.Controls.Add(FavoriteBrandsLabel);
-            panel1.Controls.Add(FavoriteBrandsListBox);
-            panel1.Controls.Add(AddBrandButton);
-            panel1.Controls.Add(UserBrandsTextBox);
-            panel1.Controls.Add(minPriceTextBox);
-            panel1.Controls.Add(WelcomeLabel);
-            panel1.Controls.Add(maxPriceTextBox);
-            panel1.Controls.Add(UserMailTextBox);
-            panel1.Controls.Add(CreateButton);
-            panel1.Location = new Point(12, 12);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(689, 523);
-            panel1.TabIndex = 6;
+            NewUserFormPanel.Anchor = AnchorStyles.Top;
+            NewUserFormPanel.BackColor = Color.FromArgb(249, 250, 251);
+            NewUserFormPanel.Controls.Add(RetryButton);
+            NewUserFormPanel.Controls.Add(RetryLabel);
+            NewUserFormPanel.Controls.Add(CancelButton);
+            NewUserFormPanel.Controls.Add(FavoriteModelsLabel);
+            NewUserFormPanel.Controls.Add(FavoriteModelsListBox);
+            NewUserFormPanel.Controls.Add(PricingLabel);
+            NewUserFormPanel.Controls.Add(AddModelTextBox);
+            NewUserFormPanel.Controls.Add(UserModelsTextBox);
+            NewUserFormPanel.Controls.Add(PrefferedCarsLabel);
+            NewUserFormPanel.Controls.Add(PersonalInfoLabel);
+            NewUserFormPanel.Controls.Add(UserPasswordTextBox);
+            NewUserFormPanel.Controls.Add(FavoriteBrandsLabel);
+            NewUserFormPanel.Controls.Add(FavoriteBrandsListBox);
+            NewUserFormPanel.Controls.Add(AddBrandButton);
+            NewUserFormPanel.Controls.Add(UserBrandsTextBox);
+            NewUserFormPanel.Controls.Add(minPriceTextBox);
+            NewUserFormPanel.Controls.Add(WelcomeLabel);
+            NewUserFormPanel.Controls.Add(maxPriceTextBox);
+            NewUserFormPanel.Controls.Add(UserMailTextBox);
+            NewUserFormPanel.Controls.Add(CreateButton);
+            NewUserFormPanel.Location = new Point(12, 12);
+            NewUserFormPanel.Name = "NewUserFormPanel";
+            NewUserFormPanel.Size = new Size(792, 652);
+            NewUserFormPanel.TabIndex = 6;
+            // 
+            // RetryButton
+            // 
+            RetryButton.BackColor = Color.FromArgb(249, 250, 251);
+            RetryButton.DialogResult = DialogResult.Retry;
+            RetryButton.FlatStyle = FlatStyle.Popup;
+            RetryButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            RetryButton.ForeColor = Color.FromArgb(0, 123, 255);
+            RetryButton.Location = new Point(497, 587);
+            RetryButton.Margin = new Padding(0);
+            RetryButton.Name = "RetryButton";
+            RetryButton.Size = new Size(111, 45);
+            RetryButton.TabIndex = 25;
+            RetryButton.Text = "Log in";
+            RetryButton.UseVisualStyleBackColor = false;
+            RetryButton.Click += RetryButton_Click;
+            // 
+            // RetryLabel
+            // 
+            RetryLabel.Anchor = AnchorStyles.Top;
+            RetryLabel.AutoSize = true;
+            RetryLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            RetryLabel.ForeColor = Color.Black;
+            RetryLabel.Location = new Point(186, 593);
+            RetryLabel.Name = "RetryLabel";
+            RetryLabel.Size = new Size(305, 32);
+            RetryLabel.TabIndex = 24;
+            RetryLabel.Text = "Already have an account?";
             // 
             // CancelButton
             // 
             CancelButton.BackColor = Color.White;
             CancelButton.FlatStyle = FlatStyle.Popup;
-            CancelButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            CancelButton.Location = new Point(335, 405);
+            CancelButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            CancelButton.ForeColor = Color.FromArgb(255, 167, 38);
+            CancelButton.Location = new Point(440, 523);
             CancelButton.Name = "CancelButton";
-            CancelButton.Size = new Size(111, 38);
+            CancelButton.Size = new Size(111, 45);
             CancelButton.TabIndex = 23;
             CancelButton.Text = "Cancel";
             CancelButton.UseVisualStyleBackColor = false;
+            CancelButton.Click += CancelButton_Click;
             // 
             // FavoriteModelsLabel
             // 
             FavoriteModelsLabel.AutoSize = true;
-            FavoriteModelsLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            FavoriteModelsLabel.Location = new Point(335, 238);
+            FavoriteModelsLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            FavoriteModelsLabel.Location = new Point(498, 279);
             FavoriteModelsLabel.Name = "FavoriteModelsLabel";
-            FavoriteModelsLabel.Size = new Size(152, 28);
+            FavoriteModelsLabel.Size = new Size(194, 32);
             FavoriteModelsLabel.TabIndex = 22;
             FavoriteModelsLabel.Text = "Favorite Models";
             // 
             // FavoriteModelsListBox
             // 
-            FavoriteModelsListBox.BackColor = Color.WhiteSmoke;
+            FavoriteModelsListBox.BackColor = Color.White;
+            FavoriteModelsListBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             FavoriteModelsListBox.FormattingEnabled = true;
-            FavoriteModelsListBox.ItemHeight = 25;
-            FavoriteModelsListBox.Location = new Point(335, 269);
+            FavoriteModelsListBox.ItemHeight = 28;
+            FavoriteModelsListBox.Location = new Point(499, 314);
             FavoriteModelsListBox.Name = "FavoriteModelsListBox";
-            FavoriteModelsListBox.Size = new Size(231, 104);
+            FavoriteModelsListBox.Size = new Size(231, 116);
             FavoriteModelsListBox.TabIndex = 21;
             // 
             // PricingLabel
             // 
             PricingLabel.AutoSize = true;
-            PricingLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            PricingLabel.Location = new Point(24, 309);
+            PricingLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            PricingLabel.Location = new Point(36, 334);
             PricingLabel.Name = "PricingLabel";
-            PricingLabel.Size = new Size(120, 28);
+            PricingLabel.Size = new Size(185, 32);
             PricingLabel.TabIndex = 20;
-            PricingLabel.Text = "Your budget";
+            PricingLabel.Text = "💰Your budget";
             // 
             // AddModelTextBox
             // 
-            AddModelTextBox.BackColor = Color.FromArgb(255, 192, 128);
+            AddModelTextBox.BackColor = Color.FromArgb(0, 123, 255);
             AddModelTextBox.FlatStyle = FlatStyle.Popup;
-            AddModelTextBox.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            AddModelTextBox.Location = new Point(238, 259);
+            AddModelTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            AddModelTextBox.ForeColor = Color.White;
+            AddModelTextBox.Location = new Point(250, 277);
             AddModelTextBox.Name = "AddModelTextBox";
-            AddModelTextBox.Size = new Size(64, 31);
+            AddModelTextBox.Size = new Size(64, 34);
             AddModelTextBox.TabIndex = 19;
             AddModelTextBox.Text = "Add";
             AddModelTextBox.UseVisualStyleBackColor = false;
@@ -134,70 +170,74 @@
             // 
             // UserModelsTextBox
             // 
-            UserModelsTextBox.BackColor = Color.FromArgb(192, 255, 192);
-            UserModelsTextBox.Location = new Point(24, 258);
+            UserModelsTextBox.BackColor = Color.White;
+            UserModelsTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            UserModelsTextBox.Location = new Point(36, 277);
             UserModelsTextBox.Name = "UserModelsTextBox";
             UserModelsTextBox.PlaceholderText = "Models you want to buy";
-            UserModelsTextBox.Size = new Size(208, 31);
+            UserModelsTextBox.Size = new Size(208, 34);
             UserModelsTextBox.TabIndex = 18;
             // 
             // PrefferedCarsLabel
             // 
             PrefferedCarsLabel.AutoSize = true;
-            PrefferedCarsLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            PrefferedCarsLabel.Location = new Point(29, 188);
+            PrefferedCarsLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            PrefferedCarsLabel.Location = new Point(36, 202);
             PrefferedCarsLabel.Name = "PrefferedCarsLabel";
-            PrefferedCarsLabel.Size = new Size(264, 28);
+            PrefferedCarsLabel.Size = new Size(382, 32);
             PrefferedCarsLabel.TabIndex = 17;
-            PrefferedCarsLabel.Text = "Preferred brands and models";
+            PrefferedCarsLabel.Text = "🚘Preferred brands and models";
             // 
             // PersonalInfoLabel
             // 
             PersonalInfoLabel.AutoSize = true;
-            PersonalInfoLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            PersonalInfoLabel.Location = new Point(29, 69);
+            PersonalInfoLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            PersonalInfoLabel.Location = new Point(36, 71);
             PersonalInfoLabel.Name = "PersonalInfoLabel";
-            PersonalInfoLabel.Size = new Size(193, 28);
+            PersonalInfoLabel.Size = new Size(285, 32);
             PersonalInfoLabel.TabIndex = 16;
-            PersonalInfoLabel.Text = "Personal information";
+            PersonalInfoLabel.Text = "📋Personal information";
             // 
             // UserPasswordTextBox
             // 
-            UserPasswordTextBox.BackColor = Color.FromArgb(192, 255, 192);
-            UserPasswordTextBox.Location = new Point(24, 137);
+            UserPasswordTextBox.BackColor = Color.White;
+            UserPasswordTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            UserPasswordTextBox.Location = new Point(36, 146);
             UserPasswordTextBox.Name = "UserPasswordTextBox";
             UserPasswordTextBox.PlaceholderText = "Enter password";
-            UserPasswordTextBox.Size = new Size(278, 31);
+            UserPasswordTextBox.Size = new Size(278, 34);
             UserPasswordTextBox.TabIndex = 15;
             // 
             // FavoriteBrandsLabel
             // 
             FavoriteBrandsLabel.AutoSize = true;
-            FavoriteBrandsLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            FavoriteBrandsLabel.Location = new Point(335, 69);
+            FavoriteBrandsLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            FavoriteBrandsLabel.Location = new Point(499, 71);
             FavoriteBrandsLabel.Name = "FavoriteBrandsLabel";
-            FavoriteBrandsLabel.Size = new Size(146, 28);
+            FavoriteBrandsLabel.Size = new Size(193, 32);
             FavoriteBrandsLabel.TabIndex = 14;
             FavoriteBrandsLabel.Text = "Favorite Brands";
             // 
             // FavoriteBrandsListBox
             // 
-            FavoriteBrandsListBox.BackColor = Color.WhiteSmoke;
+            FavoriteBrandsListBox.BackColor = Color.White;
+            FavoriteBrandsListBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             FavoriteBrandsListBox.FormattingEnabled = true;
-            FavoriteBrandsListBox.ItemHeight = 25;
-            FavoriteBrandsListBox.Location = new Point(335, 100);
+            FavoriteBrandsListBox.ItemHeight = 28;
+            FavoriteBrandsListBox.Location = new Point(499, 106);
             FavoriteBrandsListBox.Name = "FavoriteBrandsListBox";
-            FavoriteBrandsListBox.Size = new Size(231, 104);
+            FavoriteBrandsListBox.Size = new Size(231, 116);
             FavoriteBrandsListBox.TabIndex = 13;
             // 
             // AddBrandButton
             // 
-            AddBrandButton.BackColor = Color.FromArgb(255, 192, 128);
+            AddBrandButton.BackColor = Color.FromArgb(0, 123, 255);
             AddBrandButton.FlatStyle = FlatStyle.Popup;
-            AddBrandButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            AddBrandButton.Location = new Point(238, 222);
+            AddBrandButton.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            AddBrandButton.ForeColor = Color.White;
+            AddBrandButton.Location = new Point(250, 237);
             AddBrandButton.Name = "AddBrandButton";
-            AddBrandButton.Size = new Size(64, 31);
+            AddBrandButton.Size = new Size(64, 34);
             AddBrandButton.TabIndex = 12;
             AddBrandButton.Text = "Add";
             AddBrandButton.UseVisualStyleBackColor = false;
@@ -205,20 +245,22 @@
             // 
             // UserBrandsTextBox
             // 
-            UserBrandsTextBox.BackColor = Color.FromArgb(192, 255, 192);
-            UserBrandsTextBox.Location = new Point(24, 221);
+            UserBrandsTextBox.BackColor = Color.White;
+            UserBrandsTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            UserBrandsTextBox.Location = new Point(36, 237);
             UserBrandsTextBox.Name = "UserBrandsTextBox";
             UserBrandsTextBox.PlaceholderText = "Brands you want to buy";
-            UserBrandsTextBox.Size = new Size(208, 31);
+            UserBrandsTextBox.Size = new Size(208, 34);
             UserBrandsTextBox.TabIndex = 11;
             // 
             // minPriceTextBox
             // 
-            minPriceTextBox.BackColor = Color.FromArgb(192, 255, 192);
-            minPriceTextBox.Location = new Point(24, 342);
+            minPriceTextBox.BackColor = Color.White;
+            minPriceTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            minPriceTextBox.Location = new Point(36, 381);
             minPriceTextBox.Name = "minPriceTextBox";
             minPriceTextBox.PlaceholderText = "Minimum Price";
-            minPriceTextBox.Size = new Size(133, 31);
+            minPriceTextBox.Size = new Size(278, 34);
             minPriceTextBox.TabIndex = 10;
             // 
             // WelcomeLabel
@@ -226,8 +268,8 @@
             WelcomeLabel.Anchor = AnchorStyles.Top;
             WelcomeLabel.AutoSize = true;
             WelcomeLabel.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
-            WelcomeLabel.ForeColor = Color.FromArgb(255, 128, 0);
-            WelcomeLabel.Location = new Point(60, 9);
+            WelcomeLabel.ForeColor = Color.FromArgb(0, 123, 255);
+            WelcomeLabel.Location = new Point(112, 9);
             WelcomeLabel.Name = "WelcomeLabel";
             WelcomeLabel.Size = new Size(561, 51);
             WelcomeLabel.TabIndex = 2;
@@ -235,32 +277,35 @@
             // 
             // maxPriceTextBox
             // 
-            maxPriceTextBox.BackColor = Color.FromArgb(192, 255, 192);
-            maxPriceTextBox.Location = new Point(163, 342);
+            maxPriceTextBox.BackColor = Color.White;
+            maxPriceTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            maxPriceTextBox.Location = new Point(36, 421);
             maxPriceTextBox.Name = "maxPriceTextBox";
             maxPriceTextBox.PlaceholderText = "Maximum Price";
-            maxPriceTextBox.Size = new Size(139, 31);
+            maxPriceTextBox.Size = new Size(278, 34);
             maxPriceTextBox.TabIndex = 5;
             // 
             // UserMailTextBox
             // 
-            UserMailTextBox.BackColor = Color.FromArgb(192, 255, 192);
-            UserMailTextBox.Location = new Point(24, 100);
+            UserMailTextBox.BackColor = Color.White;
+            UserMailTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            UserMailTextBox.Location = new Point(36, 106);
             UserMailTextBox.Name = "UserMailTextBox";
             UserMailTextBox.PlaceholderText = "Your e-mail";
-            UserMailTextBox.Size = new Size(278, 31);
+            UserMailTextBox.Size = new Size(278, 34);
             UserMailTextBox.TabIndex = 1;
             // 
             // CreateButton
             // 
-            CreateButton.BackColor = Color.FromArgb(255, 192, 128);
+            CreateButton.BackColor = Color.White;
             CreateButton.FlatStyle = FlatStyle.Popup;
-            CreateButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            CreateButton.Location = new Point(200, 405);
+            CreateButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            CreateButton.ForeColor = Color.FromArgb(0, 123, 255);
+            CreateButton.Location = new Point(269, 523);
             CreateButton.Name = "CreateButton";
-            CreateButton.Size = new Size(111, 38);
+            CreateButton.Size = new Size(111, 45);
             CreateButton.TabIndex = 0;
-            CreateButton.Text = "Create";
+            CreateButton.Text = "Sign Up";
             CreateButton.UseVisualStyleBackColor = false;
             CreateButton.Click += CreateButton_Click;
             // 
@@ -269,18 +314,18 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(713, 547);
-            Controls.Add(panel1);
+            ClientSize = new Size(816, 676);
+            Controls.Add(NewUserFormPanel);
             Name = "NewUserForm";
             Text = "NewUserForm";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            NewUserFormPanel.ResumeLayout(false);
+            NewUserFormPanel.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
         private ToolStripMenuItem logInToolStripMenuItem;
-        private Panel panel1;
+        private Panel NewUserFormPanel;
         private ListBox ConditionListBox;
         private TextBox minPriceTextBox;
         private Label WelcomeLabel;
@@ -300,5 +345,7 @@
         private ListBox FavoriteModelsListBox;
         private Label PricingLabel;
         private Button CancelButton;
+        private Button RetryButton;
+        private Label RetryLabel;
     }
 }

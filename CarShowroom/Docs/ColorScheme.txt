@@ -1,0 +1,7 @@
+Main color: #007BFF; // blue
+Form background: #F9FAFB; // light
+Text color: #FFFFFF // white
+
+Button secondary color: #FFA726; // orange
+
+input color : #212529 // dark

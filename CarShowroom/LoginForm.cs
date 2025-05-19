@@ -14,7 +14,7 @@ namespace CarShowroom
     public partial class LoginForm : Form
     {
         private CustomerDataBase customerDataBase = new();
-        private Customer currentCustomer;
+        public Customer currentCustomer;
 
         public LoginForm()
         {
@@ -26,20 +26,39 @@ namespace CarShowroom
             string contactInfo = UserMailTextBox.Text.Trim();
             string password = UserPasswordTextBox.Text.Trim();
 
-            currentCustomer = new Customer(contactInfo, password);
-            currentCustomer.ValidateLoginData();
+            bool validationResult = new Customer(contactInfo, password).ValidateLoginData();
 
-            if (currentCustomer.ValidateLoginData())
+            customerDataBase.DeserializeData("CustomerDataBase.txt");
+
+            if (validationResult)
             {
-                customerDataBase.DeserializeData("CustomerDataBase.txt");
-                if (customerDataBase.isUserExist(currentCustomer.ContactInfo, currentCustomer.Password))
+                Customer customerFromDB = customerDataBase.GetCustomerByData(contactInfo, password);
+
+                if (customerFromDB != null)
                 {
+                    currentCustomer = customerFromDB;
                     MessageBox.Show("Login successful!");
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
+                else
+                {
+                    MessageBox.Show("Invalid email or password.");
+                }
             }
 
+        }
+
+        private void LoginCancelButton_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void RetryButton_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Retry;
+            this.Close();
         }
     }
 }

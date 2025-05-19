@@ -34,6 +34,7 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             Find_button = new Button();
             panel1 = new Panel();
+            AutoFindButton = new Button();
             ConditionLabel = new Label();
             ConditionComboBox = new ComboBox();
             ModelLabel = new Label();
@@ -59,6 +60,7 @@
             selectAllToolStripMenuItem = new ToolStripMenuItem();
             toolsToolStripMenuItem = new ToolStripMenuItem();
             customizeToolStripMenuItem = new ToolStripMenuItem();
+            logInToolStripMenuItemU = new ToolStripMenuItem();
             optionsToolStripMenuItem = new ToolStripMenuItem();
             helpToolStripMenuItem = new ToolStripMenuItem();
             contentsToolStripMenuItem = new ToolStripMenuItem();
@@ -85,14 +87,15 @@
             // 
             // Find_button
             // 
-            Find_button.BackColor = Color.FromArgb(255, 192, 128);
+            Find_button.BackColor = Color.FromArgb(0, 123, 255);
             Find_button.FlatStyle = FlatStyle.Popup;
             Find_button.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            Find_button.Location = new Point(258, 167);
+            Find_button.ForeColor = Color.White;
+            Find_button.Location = new Point(159, 167);
             Find_button.Name = "Find_button";
             Find_button.Size = new Size(111, 38);
             Find_button.TabIndex = 0;
-            Find_button.Text = "Find";
+            Find_button.Text = "🔍Find";
             Find_button.UseVisualStyleBackColor = false;
             Find_button.Click += Find_button_Click;
             // 
@@ -100,6 +103,7 @@
             // 
             panel1.Anchor = AnchorStyles.Top;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(AutoFindButton);
             panel1.Controls.Add(ConditionLabel);
             panel1.Controls.Add(ConditionComboBox);
             panel1.Controls.Add(ModelLabel);
@@ -111,28 +115,46 @@
             panel1.Controls.Add(maxPriceTextBox);
             panel1.Controls.Add(yearTextBox);
             panel1.Controls.Add(Find_button);
-            panel1.Location = new Point(250, 36);
+            panel1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            panel1.Location = new Point(423, 43);
             panel1.Name = "panel1";
-            panel1.Size = new Size(617, 217);
+            panel1.Size = new Size(574, 217);
             panel1.TabIndex = 1;
+            // 
+            // AutoFindButton
+            // 
+            AutoFindButton.BackColor = Color.White;
+            AutoFindButton.FlatStyle = FlatStyle.Popup;
+            AutoFindButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            AutoFindButton.ForeColor = Color.FromArgb(0, 123, 255);
+            AutoFindButton.Location = new Point(315, 167);
+            AutoFindButton.Name = "AutoFindButton";
+            AutoFindButton.Size = new Size(131, 38);
+            AutoFindButton.TabIndex = 19;
+            AutoFindButton.Text = "⚡Auto Find";
+            AutoFindButton.UseVisualStyleBackColor = false;
+            AutoFindButton.Click += AutoFindButton_Click;
             // 
             // ConditionLabel
             // 
             ConditionLabel.AutoSize = true;
-            ConditionLabel.BackColor = Color.FromArgb(192, 255, 192);
+            ConditionLabel.BackColor = Color.White;
+            ConditionLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             ConditionLabel.Location = new Point(196, 119);
             ConditionLabel.Name = "ConditionLabel";
-            ConditionLabel.Size = new Size(90, 25);
+            ConditionLabel.Size = new Size(99, 28);
             ConditionLabel.TabIndex = 18;
             ConditionLabel.Text = "Condition";
             // 
             // ConditionComboBox
             // 
-            ConditionComboBox.BackColor = Color.FromArgb(192, 255, 192);
+            ConditionComboBox.BackColor = Color.White;
+            ConditionComboBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            ConditionComboBox.ForeColor = Color.FromArgb(33, 37, 41);
             ConditionComboBox.Items.AddRange(new object[] { "All", "New", "Used" });
             ConditionComboBox.Location = new Point(193, 116);
             ConditionComboBox.Name = "ConditionComboBox";
-            ConditionComboBox.Size = new Size(153, 33);
+            ConditionComboBox.Size = new Size(153, 36);
             ConditionComboBox.TabIndex = 17;
             ConditionComboBox.SelectedIndexChanged += ConditionComboBox_SelectedIndexChanged;
             ConditionComboBox.TextChanged += ConditionComboBox_TextChanged;
@@ -140,46 +162,52 @@
             // ModelLabel
             // 
             ModelLabel.AutoSize = true;
-            ModelLabel.BackColor = Color.FromArgb(192, 255, 192);
-            ModelLabel.Location = new Point(37, 120);
+            ModelLabel.BackColor = Color.White;
+            ModelLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            ModelLabel.Location = new Point(37, 119);
             ModelLabel.Name = "ModelLabel";
-            ModelLabel.Size = new Size(63, 25);
+            ModelLabel.Size = new Size(69, 28);
             ModelLabel.TabIndex = 16;
             ModelLabel.Text = "Model";
             // 
             // ModelsComboBox
             // 
-            ModelsComboBox.BackColor = Color.FromArgb(192, 255, 192);
+            ModelsComboBox.BackColor = Color.White;
+            ModelsComboBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            ModelsComboBox.ForeColor = Color.FromArgb(33, 37, 41);
             ModelsComboBox.Location = new Point(34, 116);
             ModelsComboBox.Name = "ModelsComboBox";
-            ModelsComboBox.Size = new Size(153, 33);
+            ModelsComboBox.Size = new Size(153, 36);
             ModelsComboBox.TabIndex = 15;
             ModelsComboBox.TextChanged += ModelsComboBox_TextChanged;
             // 
             // BrandLabel
             // 
             BrandLabel.AutoSize = true;
-            BrandLabel.BackColor = Color.FromArgb(192, 255, 192);
+            BrandLabel.BackColor = Color.White;
+            BrandLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             BrandLabel.Location = new Point(37, 76);
             BrandLabel.Name = "BrandLabel";
-            BrandLabel.Size = new Size(58, 25);
+            BrandLabel.Size = new Size(63, 28);
             BrandLabel.TabIndex = 14;
             BrandLabel.Text = "Brand";
             // 
             // BrandsComboBox
             // 
-            BrandsComboBox.BackColor = Color.FromArgb(192, 255, 192);
+            BrandsComboBox.BackColor = Color.White;
+            BrandsComboBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            BrandsComboBox.ForeColor = Color.FromArgb(33, 37, 41);
             BrandsComboBox.Items.AddRange(new object[] { "All" });
             BrandsComboBox.Location = new Point(34, 73);
             BrandsComboBox.Name = "BrandsComboBox";
-            BrandsComboBox.Size = new Size(153, 33);
+            BrandsComboBox.Size = new Size(153, 36);
             BrandsComboBox.TabIndex = 13;
             BrandsComboBox.SelectedIndexChanged += BrandsComboBox_SelectedIndexChanged;
             BrandsComboBox.TextChanged += BrandsComboBox_TextChanged;
             // 
             // minPriceTextBox
             // 
-            minPriceTextBox.BackColor = Color.FromArgb(192, 255, 192);
+            minPriceTextBox.BackColor = Color.White;
             minPriceTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             minPriceTextBox.Location = new Point(352, 72);
             minPriceTextBox.Name = "minPriceTextBox";
@@ -191,19 +219,19 @@
             // 
             FindAutoLabel.Anchor = AnchorStyles.Top;
             FindAutoLabel.AutoSize = true;
-            FindAutoLabel.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
-            FindAutoLabel.ForeColor = Color.FromArgb(255, 128, 0);
-            FindAutoLabel.Location = new Point(177, 9);
+            FindAutoLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            FindAutoLabel.ForeColor = Color.FromArgb(0, 123, 255);
+            FindAutoLabel.Location = new Point(156, 9);
             FindAutoLabel.Name = "FindAutoLabel";
-            FindAutoLabel.Size = new Size(268, 51);
+            FindAutoLabel.Size = new Size(252, 48);
             FindAutoLabel.TabIndex = 2;
             FindAutoLabel.Text = "Auto Matcher";
             // 
             // maxPriceTextBox
             // 
-            maxPriceTextBox.BackColor = Color.FromArgb(192, 255, 192);
+            maxPriceTextBox.BackColor = Color.White;
             maxPriceTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            maxPriceTextBox.Location = new Point(352, 115);
+            maxPriceTextBox.Location = new Point(352, 116);
             maxPriceTextBox.Name = "maxPriceTextBox";
             maxPriceTextBox.PlaceholderText = "Maximum Price";
             maxPriceTextBox.Size = new Size(153, 34);
@@ -211,7 +239,7 @@
             // 
             // yearTextBox
             // 
-            yearTextBox.BackColor = Color.FromArgb(192, 255, 192);
+            yearTextBox.BackColor = Color.White;
             yearTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             yearTextBox.Location = new Point(193, 72);
             yearTextBox.Name = "yearTextBox";
@@ -226,11 +254,12 @@
             // MainFormMenuStrip
             // 
             MainFormMenuStrip.BackColor = SystemColors.ButtonFace;
+            MainFormMenuStrip.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             MainFormMenuStrip.ImageScalingSize = new Size(24, 24);
             MainFormMenuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, toolsToolStripMenuItem, helpToolStripMenuItem, SignOutToolStripMenuItem, LogInToolStripMenuItem, CreateAccountToolStripMenuItem, UserNameToolStripMenuItem });
             MainFormMenuStrip.Location = new Point(0, 0);
             MainFormMenuStrip.Name = "MainFormMenuStrip";
-            MainFormMenuStrip.Size = new Size(1100, 33);
+            MainFormMenuStrip.Size = new Size(1396, 36);
             MainFormMenuStrip.TabIndex = 4;
             MainFormMenuStrip.Text = "menuStrip1";
             // 
@@ -239,7 +268,7 @@
             fileToolStripMenuItem.BackColor = SystemColors.ButtonFace;
             fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, toolStripSeparator, saveAsToolStripMenuItem, toolStripSeparator2, exitToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(54, 29);
+            fileToolStripMenuItem.Size = new Size(58, 32);
             fileToolStripMenuItem.Text = "&File";
             // 
             // openToolStripMenuItem
@@ -247,29 +276,29 @@
             openToolStripMenuItem.ImageTransparentColor = Color.Magenta;
             openToolStripMenuItem.Name = "openToolStripMenuItem";
             openToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
-            openToolStripMenuItem.Size = new Size(282, 34);
+            openToolStripMenuItem.Size = new Size(298, 36);
             openToolStripMenuItem.Text = "&Open Car DB";
             // 
             // toolStripSeparator
             // 
             toolStripSeparator.Name = "toolStripSeparator";
-            toolStripSeparator.Size = new Size(279, 6);
+            toolStripSeparator.Size = new Size(295, 6);
             // 
             // saveAsToolStripMenuItem
             // 
             saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            saveAsToolStripMenuItem.Size = new Size(282, 34);
+            saveAsToolStripMenuItem.Size = new Size(298, 36);
             saveAsToolStripMenuItem.Text = "&Save Car DB As";
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(279, 6);
+            toolStripSeparator2.Size = new Size(295, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(282, 34);
+            exitToolStripMenuItem.Size = new Size(298, 36);
             exitToolStripMenuItem.Text = "E&xit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -278,74 +307,82 @@
             editToolStripMenuItem.BackColor = SystemColors.ButtonFace;
             editToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { undoToolStripMenuItem, redoToolStripMenuItem, toolStripSeparator4, selectAllToolStripMenuItem });
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(62, 29);
+            editToolStripMenuItem.Size = new Size(65, 32);
             editToolStripMenuItem.Text = "&Cars";
             // 
             // undoToolStripMenuItem
             // 
             undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            undoToolStripMenuItem.Size = new Size(268, 34);
+            undoToolStripMenuItem.Size = new Size(284, 36);
             undoToolStripMenuItem.Text = "🔍 &Find a car";
             // 
             // redoToolStripMenuItem
             // 
             redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             redoToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Y;
-            redoToolStripMenuItem.Size = new Size(268, 34);
+            redoToolStripMenuItem.Size = new Size(284, 36);
             redoToolStripMenuItem.Text = "&➕ &New car";
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(265, 6);
+            toolStripSeparator4.Size = new Size(281, 6);
             // 
             // selectAllToolStripMenuItem
             // 
             selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            selectAllToolStripMenuItem.Size = new Size(268, 34);
+            selectAllToolStripMenuItem.Size = new Size(284, 36);
             selectAllToolStripMenuItem.Text = "Select &All";
             // 
             // toolsToolStripMenuItem
             // 
-            toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { customizeToolStripMenuItem, optionsToolStripMenuItem });
+            toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { customizeToolStripMenuItem, logInToolStripMenuItemU, optionsToolStripMenuItem });
             toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            toolsToolStripMenuItem.Size = new Size(63, 29);
+            toolsToolStripMenuItem.Size = new Size(67, 32);
             toolsToolStripMenuItem.Text = "&User";
             // 
             // customizeToolStripMenuItem
             // 
             customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            customizeToolStripMenuItem.Size = new Size(289, 34);
+            customizeToolStripMenuItem.Size = new Size(307, 36);
             customizeToolStripMenuItem.Text = "&New user";
+            customizeToolStripMenuItem.Click += customizeToolStripMenuItem_Click;
+            // 
+            // logInToolStripMenuItemU
+            // 
+            logInToolStripMenuItemU.Name = "logInToolStripMenuItemU";
+            logInToolStripMenuItemU.Size = new Size(307, 36);
+            logInToolStripMenuItemU.Text = "Log in";
+            logInToolStripMenuItemU.Click += logInToolStripMenuItemU_Click;
             // 
             // optionsToolStripMenuItem
             // 
             optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            optionsToolStripMenuItem.Size = new Size(289, 34);
+            optionsToolStripMenuItem.Size = new Size(307, 36);
             optionsToolStripMenuItem.Text = "&Automative car search";
             // 
             // helpToolStripMenuItem
             // 
             helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contentsToolStripMenuItem, toolStripSeparator5, aboutToolStripMenuItem });
             helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            helpToolStripMenuItem.Size = new Size(65, 29);
+            helpToolStripMenuItem.Size = new Size(69, 32);
             helpToolStripMenuItem.Text = "&Help";
             // 
             // contentsToolStripMenuItem
             // 
             contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            contentsToolStripMenuItem.Size = new Size(250, 34);
+            contentsToolStripMenuItem.Size = new Size(263, 36);
             contentsToolStripMenuItem.Text = "ℹ️ &About...";
             // 
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(247, 6);
+            toolStripSeparator5.Size = new Size(260, 6);
             // 
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(250, 34);
+            aboutToolStripMenuItem.Size = new Size(263, 36);
             aboutToolStripMenuItem.Text = "📘 &User's manual";
             // 
             // SignOutToolStripMenuItem
@@ -353,32 +390,34 @@
             SignOutToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
             SignOutToolStripMenuItem.BackColor = SystemColors.ButtonFace;
             SignOutToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            SignOutToolStripMenuItem.ForeColor = Color.FromArgb(255, 128, 0);
+            SignOutToolStripMenuItem.ForeColor = Color.FromArgb(0, 123, 255);
             SignOutToolStripMenuItem.Margin = new Padding(0, 0, 20, 0);
             SignOutToolStripMenuItem.Name = "SignOutToolStripMenuItem";
-            SignOutToolStripMenuItem.Size = new Size(99, 29);
+            SignOutToolStripMenuItem.Size = new Size(99, 32);
             SignOutToolStripMenuItem.Text = "Sign out";
             SignOutToolStripMenuItem.Click += SignOutToolStripMenuItem_Click;
             // 
             // LogInToolStripMenuItem
             // 
             LogInToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
-            LogInToolStripMenuItem.BackColor = Color.FromArgb(192, 255, 192);
-            LogInToolStripMenuItem.ForeColor = Color.Black;
+            LogInToolStripMenuItem.BackColor = Color.FromArgb(0, 123, 255);
+            LogInToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            LogInToolStripMenuItem.ForeColor = Color.White;
             LogInToolStripMenuItem.Margin = new Padding(0, 0, 20, 0);
             LogInToolStripMenuItem.Name = "LogInToolStripMenuItem";
-            LogInToolStripMenuItem.Size = new Size(78, 29);
+            LogInToolStripMenuItem.Size = new Size(81, 32);
             LogInToolStripMenuItem.Text = "Log In";
             LogInToolStripMenuItem.Click += LogInToolStripMenuItem_Click;
             // 
             // CreateAccountToolStripMenuItem
             // 
             CreateAccountToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
-            CreateAccountToolStripMenuItem.BackColor = Color.FromArgb(255, 192, 128);
+            CreateAccountToolStripMenuItem.BackColor = Color.FromArgb(255, 167, 38);
+            CreateAccountToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
             CreateAccountToolStripMenuItem.ForeColor = Color.Black;
             CreateAccountToolStripMenuItem.Margin = new Padding(0, 0, 20, 0);
             CreateAccountToolStripMenuItem.Name = "CreateAccountToolStripMenuItem";
-            CreateAccountToolStripMenuItem.Size = new Size(89, 29);
+            CreateAccountToolStripMenuItem.Size = new Size(92, 32);
             CreateAccountToolStripMenuItem.Text = "Sign up";
             CreateAccountToolStripMenuItem.Click += CreateAccountToolStripMenuItem_Click;
             // 
@@ -386,7 +425,7 @@
             // 
             UserNameToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
             UserNameToolStripMenuItem.Name = "UserNameToolStripMenuItem";
-            UserNameToolStripMenuItem.Size = new Size(124, 29);
+            UserNameToolStripMenuItem.Size = new Size(133, 32);
             UserNameToolStripMenuItem.Text = "User's name";
             // 
             // dataGridView1
@@ -396,27 +435,29 @@
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.Anchor = AnchorStyles.Top;
             dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.BackgroundColor = Color.FromArgb(192, 255, 255);
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(192, 255, 192);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(192, 255, 255);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 123, 255);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 166, 255);
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { brandDataGridViewTextBoxColumn, modelDataGridViewTextBoxColumn, originCountryDataGridViewTextBoxColumn, releaseYearDataGridViewTextBoxColumn, featuresDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, Condition });
             dataGridView1.DataSource = carBindingSource;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Menu;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(192, 255, 192);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(208, 226, 255);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.Location = new Point(12, 259);
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.Location = new Point(12, 277);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -428,8 +469,12 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1076, 366);
+            dataGridView1.ScrollBars = ScrollBars.Vertical;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(1372, 533);
             dataGridView1.TabIndex = 6;
+            dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // brandDataGridViewTextBoxColumn
             // 
@@ -438,7 +483,7 @@
             brandDataGridViewTextBoxColumn.MinimumWidth = 8;
             brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
             brandDataGridViewTextBoxColumn.ReadOnly = true;
-            brandDataGridViewTextBoxColumn.Width = 150;
+            brandDataGridViewTextBoxColumn.Width = 120;
             // 
             // modelDataGridViewTextBoxColumn
             // 
@@ -447,7 +492,7 @@
             modelDataGridViewTextBoxColumn.MinimumWidth = 8;
             modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
             modelDataGridViewTextBoxColumn.ReadOnly = true;
-            modelDataGridViewTextBoxColumn.Width = 150;
+            modelDataGridViewTextBoxColumn.Width = 240;
             // 
             // originCountryDataGridViewTextBoxColumn
             // 
@@ -456,7 +501,7 @@
             originCountryDataGridViewTextBoxColumn.MinimumWidth = 8;
             originCountryDataGridViewTextBoxColumn.Name = "originCountryDataGridViewTextBoxColumn";
             originCountryDataGridViewTextBoxColumn.ReadOnly = true;
-            originCountryDataGridViewTextBoxColumn.Width = 150;
+            originCountryDataGridViewTextBoxColumn.Width = 120;
             // 
             // releaseYearDataGridViewTextBoxColumn
             // 
@@ -465,7 +510,7 @@
             releaseYearDataGridViewTextBoxColumn.MinimumWidth = 8;
             releaseYearDataGridViewTextBoxColumn.Name = "releaseYearDataGridViewTextBoxColumn";
             releaseYearDataGridViewTextBoxColumn.ReadOnly = true;
-            releaseYearDataGridViewTextBoxColumn.Width = 150;
+            releaseYearDataGridViewTextBoxColumn.Width = 82;
             // 
             // featuresDataGridViewTextBoxColumn
             // 
@@ -474,7 +519,7 @@
             featuresDataGridViewTextBoxColumn.MinimumWidth = 8;
             featuresDataGridViewTextBoxColumn.Name = "featuresDataGridViewTextBoxColumn";
             featuresDataGridViewTextBoxColumn.ReadOnly = true;
-            featuresDataGridViewTextBoxColumn.Width = 200;
+            featuresDataGridViewTextBoxColumn.Width = 400;
             // 
             // priceDataGridViewTextBoxColumn
             // 
@@ -483,7 +528,7 @@
             priceDataGridViewTextBoxColumn.MinimumWidth = 8;
             priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             priceDataGridViewTextBoxColumn.ReadOnly = true;
-            priceDataGridViewTextBoxColumn.Width = 150;
+            priceDataGridViewTextBoxColumn.Width = 200;
             // 
             // Condition
             // 
@@ -492,26 +537,29 @@
             Condition.MinimumWidth = 8;
             Condition.Name = "Condition";
             Condition.ReadOnly = true;
-            Condition.Width = 150;
+            Condition.Width = 140;
             // 
             // SubmitApplicationButton
             // 
-            SubmitApplicationButton.BackColor = Color.FromArgb(192, 255, 255);
+            SubmitApplicationButton.Anchor = AnchorStyles.Top;
+            SubmitApplicationButton.BackColor = Color.White;
             SubmitApplicationButton.FlatStyle = FlatStyle.Popup;
-            SubmitApplicationButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            SubmitApplicationButton.Location = new Point(470, 640);
+            SubmitApplicationButton.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            SubmitApplicationButton.ForeColor = Color.FromArgb(0, 123, 255);
+            SubmitApplicationButton.Location = new Point(616, 830);
             SubmitApplicationButton.Name = "SubmitApplicationButton";
             SubmitApplicationButton.Size = new Size(200, 38);
             SubmitApplicationButton.TabIndex = 19;
             SubmitApplicationButton.Text = "New application";
             SubmitApplicationButton.UseVisualStyleBackColor = false;
+            SubmitApplicationButton.Click += SubmitApplicationButton_Click;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(245, 245, 245);
-            ClientSize = new Size(1100, 700);
+            BackColor = Color.FromArgb(249, 250, 251);
+            ClientSize = new Size(1396, 932);
             Controls.Add(SubmitApplicationButton);
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
@@ -568,6 +616,11 @@
         private ComboBox ModelsComboBox;
         private Label ModelLabel;
         private ComboBox ConditionComboBox;
+        private Label ConditionLabel;
+        private Button SubmitApplicationButton;
+        private ToolStripMenuItem UserNameToolStripMenuItem;
+        private ToolStripMenuItem SignOutToolStripMenuItem;
+        private Button AutoFindButton;
         private DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn originCountryDataGridViewTextBoxColumn;
@@ -575,9 +628,6 @@
         private DataGridViewTextBoxColumn featuresDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Condition;
-        private Label ConditionLabel;
-        private Button SubmitApplicationButton;
-        private ToolStripMenuItem UserNameToolStripMenuItem;
-        private ToolStripMenuItem SignOutToolStripMenuItem;
+        private ToolStripMenuItem logInToolStripMenuItemU;
     }
 }

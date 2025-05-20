@@ -29,8 +29,8 @@ namespace CarShowroom
 
         public void InitializeData()
         {
-            LoadDataBases();
-            //GenerateTestData();
+            //LoadDataBases();
+            GenerateTestData();
             LoadBrands();
             ResetComboBoxSelection();
             UpdateMenuVisibility();

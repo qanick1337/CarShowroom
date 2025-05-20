@@ -1,0 +1,11 @@
+При першому запуску у MainForm.cs:
+1)Розкоментувати метод GenerateTestData() (33-а строка) для ініціалізаціїї баз даних на основі тестових даних
+2)Після першого запуску, закоментувати GenerateTestData() та розкоментувати LoadDataBases(), бо якщо цього не робити, зміни збереженні в минулих сесіях не будуть збережені
+
+
+Login: admin
+Password: adminAutoMatcher
+
+Accounts to create an application:
+Login:vovchik@gmail.com
+Password:pupkinHarosh

@@ -474,6 +474,7 @@
             dataGridView1.Size = new Size(1372, 533);
             dataGridView1.TabIndex = 6;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+            dataGridView1.DataError += dataGridView1_DataError;
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // brandDataGridViewTextBoxColumn

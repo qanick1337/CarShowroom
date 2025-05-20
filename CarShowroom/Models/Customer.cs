@@ -16,6 +16,28 @@ namespace CarShowroom.Models
         public double MinBudget { get; set; }
         public double MaxBudget { get; set; }
 
+        public string DesiredBrandsDisplay
+        {
+            get
+            {
+                if (DesiredBrands != null)
+                    return string.Join(", ", DesiredBrands);
+                else
+                    return string.Empty;
+            }
+        }
+
+        public string DesiredModelsDisplay
+        {
+            get
+            {
+                if (DesiredBrandsModels != null)
+                    return string.Join(", ", DesiredBrandsModels);
+                else
+                    return string.Empty;
+            }
+        }
+
         // Default constructor
         public Customer()
         {

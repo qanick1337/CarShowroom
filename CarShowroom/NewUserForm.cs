@@ -13,7 +13,7 @@ namespace CarShowroom
 {
     public partial class NewUserForm : Form
     {
-        private CustomerDataBase customerDataBase = new();
+        public CustomerDataBase customerDataBase = new();
         public Customer newCustomer;
 
         List<string> userBrands = new List<string>();

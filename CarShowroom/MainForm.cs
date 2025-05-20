@@ -29,8 +29,8 @@ namespace CarShowroom
 
         public void InitializeData()
         {
-            //LoadDataBases();
-            GenerateTestData();
+            LoadDataBases();
+            //GenerateTestData();
             LoadBrands();
             ResetComboBoxSelection();
             UpdateMenuVisibility();
@@ -99,6 +99,7 @@ namespace CarShowroom
             if (result == DialogResult.OK)
             {
                 currentCustomer = newUserForm.newCustomer;
+                customerDatabase = newUserForm.customerDataBase;
                 isUserLoggedIn = true;
 
                 UpdateUIAfterLogIn();
@@ -139,6 +140,11 @@ namespace CarShowroom
                     isUserLoggedIn = true;
                     UpdateUIAfterLogIn();
                 }
+            }
+            else if (result == DialogResult.Yes)
+            {
+                using AdminPanelForm adminForm = new(carDatabase, customerDatabase, applicationsDataBase);
+                adminForm.ShowDialog();
             }
         }
         private void SignOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -226,6 +232,7 @@ namespace CarShowroom
         // Find cars
         private void Find_button_Click(object sender, EventArgs e)
         {
+
             string brand = BrandsComboBox.SelectedItem as string ?? string.Empty;
             string model = ModelsComboBox.SelectedItem as string ?? string.Empty;
             string condition = ConditionComboBox.SelectedItem as string ?? string.Empty;
@@ -238,6 +245,7 @@ namespace CarShowroom
 
             carBindingSource.DataSource = filteredCars;
             dataGridView1.ClearSelection();
+
         }
         private void AutoFindButton_Click(object sender, EventArgs e)
         {
@@ -317,7 +325,6 @@ namespace CarShowroom
                 }
             }
         }
-
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             selectedCars.Clear();
@@ -326,12 +333,17 @@ namespace CarShowroom
             {
                 if (row.DataBoundItem is Car car)
                 {
-                    if(!selectedCars.Contains(car))
+                    if (!selectedCars.Contains(car))
                     {
                         selectedCars.Add(car);
                     }
                 }
             }
+        }
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show($"Error: {e.Exception.Message}", "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            e.ThrowException = false;
         }
 
         //Car Applications
@@ -358,6 +370,5 @@ namespace CarShowroom
             dataGridView1.ClearSelection();
 
         }
-
     }
 }

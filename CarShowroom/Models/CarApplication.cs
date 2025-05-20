@@ -11,6 +11,17 @@ namespace CarShowroom.Models
         public int Id { get; set; }
         public string CustomerEmail { get; set; }
         public List<Car> Cars { get; set; }
+        public string CarsDisplay
+        {
+            get
+            {
+                if (Cars != null)
+                    return string.Join(", ", Cars);
+                else
+                    return string.Empty;
+            }
+        }
+
 
         public CarApplication(int id, string customerEmail, List<Car> cars)
         {
@@ -18,5 +29,6 @@ namespace CarShowroom.Models
             CustomerEmail = customerEmail;
             Cars = cars;
         }
+
     }
 }

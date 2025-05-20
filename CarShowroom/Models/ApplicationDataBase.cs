@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarShowroom.Models
 {
-    class ApplicationDataBase
+    public class ApplicationDataBase
     {
         public List<CarApplication> Applications = new();
 

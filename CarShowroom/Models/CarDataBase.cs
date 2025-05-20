@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarShowroom.Models
 {
-    class CarDataBase
+    public class CarDataBase
     {
         public List<Car> Cars { get; set; }
         public CarDataBase()

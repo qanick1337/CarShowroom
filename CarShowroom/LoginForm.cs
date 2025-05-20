@@ -26,9 +26,18 @@ namespace CarShowroom
             string contactInfo = UserMailTextBox.Text.Trim();
             string password = UserPasswordTextBox.Text.Trim();
 
+            if (contactInfo == "admin" && password == "adminAutoMatcher")
+            {
+                this.DialogResult = DialogResult.Yes;
+                this.Close();
+                return;
+            }
+
             bool validationResult = new Customer(contactInfo, password).ValidateLoginData();
 
             customerDataBase.DeserializeData("CustomerDataBase.txt");
+
+            
 
             if (validationResult)
             {

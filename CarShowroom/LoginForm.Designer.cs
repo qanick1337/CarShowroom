@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            RetryButton = new Button();
+            RetryLabel = new Label();
             LoginCancelButton = new Button();
             PasswordlLabel = new Label();
             MailLabel = new Label();
@@ -36,8 +38,6 @@
             WelcomeBackLabel = new Label();
             UserMailTextBox = new TextBox();
             LoginButton = new Button();
-            RetryLabel = new Label();
-            RetryButton = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,6 +59,34 @@
             panel1.Size = new Size(746, 514);
             panel1.TabIndex = 7;
             // 
+            // RetryButton
+            // 
+            RetryButton.BackColor = Color.FromArgb(249, 250, 251);
+            RetryButton.DialogResult = DialogResult.Retry;
+            RetryButton.FlatStyle = FlatStyle.Popup;
+            RetryButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            RetryButton.ForeColor = Color.FromArgb(0, 123, 255);
+            RetryButton.Location = new Point(413, 408);
+            RetryButton.Margin = new Padding(0);
+            RetryButton.Name = "RetryButton";
+            RetryButton.Size = new Size(205, 45);
+            RetryButton.TabIndex = 5;
+            RetryButton.Text = "Create account";
+            RetryButton.UseVisualStyleBackColor = false;
+            RetryButton.Click += RetryButton_Click;
+            // 
+            // RetryLabel
+            // 
+            RetryLabel.Anchor = AnchorStyles.Top;
+            RetryLabel.AutoSize = true;
+            RetryLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            RetryLabel.ForeColor = Color.Black;
+            RetryLabel.Location = new Point(130, 414);
+            RetryLabel.Name = "RetryLabel";
+            RetryLabel.Size = new Size(280, 32);
+            RetryLabel.TabIndex = 25;
+            RetryLabel.Text = "Don't have an account?";
+            // 
             // LoginCancelButton
             // 
             LoginCancelButton.BackColor = Color.FromArgb(255, 192, 128);
@@ -67,7 +95,7 @@
             LoginCancelButton.Location = new Point(399, 305);
             LoginCancelButton.Name = "LoginCancelButton";
             LoginCancelButton.Size = new Size(113, 44);
-            LoginCancelButton.TabIndex = 18;
+            LoginCancelButton.TabIndex = 4;
             LoginCancelButton.Text = "Cancel";
             LoginCancelButton.UseVisualStyleBackColor = false;
             LoginCancelButton.Click += LoginCancelButton_Click;
@@ -99,7 +127,7 @@
             UserPasswordTextBox.Location = new Point(234, 235);
             UserPasswordTextBox.Name = "UserPasswordTextBox";
             UserPasswordTextBox.Size = new Size(278, 45);
-            UserPasswordTextBox.TabIndex = 15;
+            UserPasswordTextBox.TabIndex = 2;
             // 
             // WelcomeBackLabel
             // 
@@ -131,38 +159,10 @@
             LoginButton.Location = new Point(234, 305);
             LoginButton.Name = "LoginButton";
             LoginButton.Size = new Size(113, 44);
-            LoginButton.TabIndex = 0;
+            LoginButton.TabIndex = 3;
             LoginButton.Text = "Log in";
             LoginButton.UseVisualStyleBackColor = false;
             LoginButton.Click += LoginButton_Click;
-            // 
-            // RetryLabel
-            // 
-            RetryLabel.Anchor = AnchorStyles.Top;
-            RetryLabel.AutoSize = true;
-            RetryLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            RetryLabel.ForeColor = Color.Black;
-            RetryLabel.Location = new Point(130, 414);
-            RetryLabel.Name = "RetryLabel";
-            RetryLabel.Size = new Size(280, 32);
-            RetryLabel.TabIndex = 25;
-            RetryLabel.Text = "Don't have an account?";
-            // 
-            // RetryButton
-            // 
-            RetryButton.BackColor = Color.FromArgb(249, 250, 251);
-            RetryButton.DialogResult = DialogResult.Retry;
-            RetryButton.FlatStyle = FlatStyle.Popup;
-            RetryButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            RetryButton.ForeColor = Color.FromArgb(0, 123, 255);
-            RetryButton.Location = new Point(413, 408);
-            RetryButton.Margin = new Padding(0);
-            RetryButton.Name = "RetryButton";
-            RetryButton.Size = new Size(205, 45);
-            RetryButton.TabIndex = 26;
-            RetryButton.Text = "Create account";
-            RetryButton.UseVisualStyleBackColor = false;
-            RetryButton.Click += RetryButton_Click;
             // 
             // LoginForm
             // 

@@ -313,26 +313,6 @@ namespace CarShowroom
         }
 
         //DataGridView
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (dataGridView1.Columns[e.ColumnIndex].DataPropertyName == "Features")
-            {
-                if (e.Value is Features features)
-                {
-                    e.Value = $"{features.Engine}, {features.HorsePowers} HP, {features.FuelType}";
-                    e.FormattingApplied = true;
-                }
-            }
-
-            if (dataGridView1.Columns[e.ColumnIndex].DataPropertyName == "Price")
-            {
-                if (e.Value is double price)
-                {
-                    e.Value = $"{price:C}";
-                    e.FormattingApplied = true;
-                }
-            }
-        }
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             selectedCars.Clear();

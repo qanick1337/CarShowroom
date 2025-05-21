@@ -52,7 +52,7 @@
             BrandTextBox.Name = "BrandTextBox";
             BrandTextBox.PlaceholderText = "Brand";
             BrandTextBox.Size = new Size(278, 34);
-            BrandTextBox.TabIndex = 2;
+            BrandTextBox.TabIndex = 1;
             // 
             // NewCarLabel
             // 
@@ -74,7 +74,7 @@
             ModelTextBox.Name = "ModelTextBox";
             ModelTextBox.PlaceholderText = "Model";
             ModelTextBox.Size = new Size(278, 34);
-            ModelTextBox.TabIndex = 4;
+            ModelTextBox.TabIndex = 2;
             // 
             // OriginCountryTextBox
             // 
@@ -84,7 +84,7 @@
             OriginCountryTextBox.Name = "OriginCountryTextBox";
             OriginCountryTextBox.PlaceholderText = "Country";
             OriginCountryTextBox.Size = new Size(278, 34);
-            OriginCountryTextBox.TabIndex = 5;
+            OriginCountryTextBox.TabIndex = 3;
             // 
             // CarInfoLabel
             // 
@@ -104,7 +104,7 @@
             yearTextBox.Name = "yearTextBox";
             yearTextBox.PlaceholderText = "Year";
             yearTextBox.Size = new Size(278, 34);
-            yearTextBox.TabIndex = 18;
+            yearTextBox.TabIndex = 4;
             // 
             // carCharacteristicslabel
             // 
@@ -124,7 +124,7 @@
             engineTextBox.Name = "engineTextBox";
             engineTextBox.PlaceholderText = "Engine";
             engineTextBox.Size = new Size(278, 34);
-            engineTextBox.TabIndex = 20;
+            engineTextBox.TabIndex = 6;
             // 
             // horsePowerTextBox
             // 
@@ -134,7 +134,7 @@
             horsePowerTextBox.Name = "horsePowerTextBox";
             horsePowerTextBox.PlaceholderText = "Horse powers ";
             horsePowerTextBox.Size = new Size(278, 34);
-            horsePowerTextBox.TabIndex = 21;
+            horsePowerTextBox.TabIndex = 7;
             // 
             // fuelTextBox
             // 
@@ -144,7 +144,7 @@
             fuelTextBox.Name = "fuelTextBox";
             fuelTextBox.PlaceholderText = "Fuel type";
             fuelTextBox.Size = new Size(278, 34);
-            fuelTextBox.TabIndex = 22;
+            fuelTextBox.TabIndex = 8;
             // 
             // ConditionComboBox
             // 
@@ -155,7 +155,7 @@
             ConditionComboBox.Location = new Point(610, 253);
             ConditionComboBox.Name = "ConditionComboBox";
             ConditionComboBox.Size = new Size(145, 36);
-            ConditionComboBox.TabIndex = 23;
+            ConditionComboBox.TabIndex = 9;
             // 
             // label1
             // 
@@ -189,7 +189,7 @@
             priceTextBox.Name = "priceTextBox";
             priceTextBox.PlaceholderText = "Price";
             priceTextBox.Size = new Size(278, 34);
-            priceTextBox.TabIndex = 26;
+            priceTextBox.TabIndex = 5;
             // 
             // NewCarForm
             // 
@@ -210,6 +210,7 @@
             Controls.Add(ModelTextBox);
             Controls.Add(NewCarLabel);
             Controls.Add(BrandTextBox);
+            MinimumSize = new Size(810, 506);
             Name = "NewCarForm";
             Text = "NewCarForm";
             ResumeLayout(false);

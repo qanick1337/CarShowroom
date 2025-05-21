@@ -92,7 +92,7 @@
             RetryButton.Margin = new Padding(0);
             RetryButton.Name = "RetryButton";
             RetryButton.Size = new Size(111, 45);
-            RetryButton.TabIndex = 25;
+            RetryButton.TabIndex = 11;
             RetryButton.Text = "Log in";
             RetryButton.UseVisualStyleBackColor = false;
             RetryButton.Click += RetryButton_Click;
@@ -118,7 +118,7 @@
             CancelButton.Location = new Point(440, 523);
             CancelButton.Name = "CancelButton";
             CancelButton.Size = new Size(111, 45);
-            CancelButton.TabIndex = 23;
+            CancelButton.TabIndex = 10;
             CancelButton.Text = "Cancel";
             CancelButton.UseVisualStyleBackColor = false;
             CancelButton.Click += CancelButton_Click;
@@ -142,7 +142,8 @@
             FavoriteModelsListBox.Location = new Point(499, 314);
             FavoriteModelsListBox.Name = "FavoriteModelsListBox";
             FavoriteModelsListBox.Size = new Size(231, 116);
-            FavoriteModelsListBox.TabIndex = 21;
+            FavoriteModelsListBox.TabIndex = 99;
+            FavoriteModelsListBox.TabStop = false;
             // 
             // PricingLabel
             // 
@@ -163,7 +164,7 @@
             AddModelTextBox.Location = new Point(250, 277);
             AddModelTextBox.Name = "AddModelTextBox";
             AddModelTextBox.Size = new Size(64, 34);
-            AddModelTextBox.TabIndex = 19;
+            AddModelTextBox.TabIndex = 6;
             AddModelTextBox.Text = "Add";
             AddModelTextBox.UseVisualStyleBackColor = false;
             AddModelTextBox.Click += AddModelTextBox_Click;
@@ -176,7 +177,7 @@
             UserModelsTextBox.Name = "UserModelsTextBox";
             UserModelsTextBox.PlaceholderText = "Models you want to buy";
             UserModelsTextBox.Size = new Size(208, 34);
-            UserModelsTextBox.TabIndex = 18;
+            UserModelsTextBox.TabIndex = 5;
             // 
             // PrefferedCarsLabel
             // 
@@ -206,7 +207,7 @@
             UserPasswordTextBox.Name = "UserPasswordTextBox";
             UserPasswordTextBox.PlaceholderText = "Enter password";
             UserPasswordTextBox.Size = new Size(278, 34);
-            UserPasswordTextBox.TabIndex = 15;
+            UserPasswordTextBox.TabIndex = 2;
             // 
             // FavoriteBrandsLabel
             // 
@@ -227,7 +228,8 @@
             FavoriteBrandsListBox.Location = new Point(499, 106);
             FavoriteBrandsListBox.Name = "FavoriteBrandsListBox";
             FavoriteBrandsListBox.Size = new Size(231, 116);
-            FavoriteBrandsListBox.TabIndex = 13;
+            FavoriteBrandsListBox.TabIndex = 99;
+            FavoriteBrandsListBox.TabStop = false;
             // 
             // AddBrandButton
             // 
@@ -238,7 +240,7 @@
             AddBrandButton.Location = new Point(250, 237);
             AddBrandButton.Name = "AddBrandButton";
             AddBrandButton.Size = new Size(64, 34);
-            AddBrandButton.TabIndex = 12;
+            AddBrandButton.TabIndex = 4;
             AddBrandButton.Text = "Add";
             AddBrandButton.UseVisualStyleBackColor = false;
             AddBrandButton.Click += AddBrandButton_Click;
@@ -251,7 +253,7 @@
             UserBrandsTextBox.Name = "UserBrandsTextBox";
             UserBrandsTextBox.PlaceholderText = "Brands you want to buy";
             UserBrandsTextBox.Size = new Size(208, 34);
-            UserBrandsTextBox.TabIndex = 11;
+            UserBrandsTextBox.TabIndex = 3;
             // 
             // minPriceTextBox
             // 
@@ -261,7 +263,7 @@
             minPriceTextBox.Name = "minPriceTextBox";
             minPriceTextBox.PlaceholderText = "Minimum Price";
             minPriceTextBox.Size = new Size(278, 34);
-            minPriceTextBox.TabIndex = 10;
+            minPriceTextBox.TabIndex = 7;
             // 
             // WelcomeLabel
             // 
@@ -283,7 +285,7 @@
             maxPriceTextBox.Name = "maxPriceTextBox";
             maxPriceTextBox.PlaceholderText = "Maximum Price";
             maxPriceTextBox.Size = new Size(278, 34);
-            maxPriceTextBox.TabIndex = 5;
+            maxPriceTextBox.TabIndex = 8;
             // 
             // UserMailTextBox
             // 
@@ -304,7 +306,7 @@
             CreateButton.Location = new Point(269, 523);
             CreateButton.Name = "CreateButton";
             CreateButton.Size = new Size(111, 45);
-            CreateButton.TabIndex = 0;
+            CreateButton.TabIndex = 9;
             CreateButton.Text = "Sign Up";
             CreateButton.UseVisualStyleBackColor = false;
             CreateButton.Click += CreateButton_Click;
@@ -316,6 +318,7 @@
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(816, 676);
             Controls.Add(NewUserFormPanel);
+            MinimumSize = new Size(838, 732);
             Name = "NewUserForm";
             Text = "NewUserForm";
             NewUserFormPanel.ResumeLayout(false);

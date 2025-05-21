@@ -13,9 +13,9 @@ namespace CarShowroom
 {
     public partial class AdminPanelForm : Form
     {
-        private CarDataBase carDatabase = new();
-        private CustomerDataBase customerDatabase = new();
-        private ApplicationDataBase applicationsDataBase = new();
+        public CarDataBase carDatabase = new();
+        public CustomerDataBase customerDatabase = new();
+        public ApplicationDataBase applicationsDataBase = new();
 
         public AdminPanelForm(CarDataBase carDb, CustomerDataBase customerDb, ApplicationDataBase appDb)
         {

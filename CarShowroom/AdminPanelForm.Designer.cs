@@ -78,6 +78,7 @@
             // 
             // adminTabControl
             // 
+            adminTabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             adminTabControl.Controls.Add(tabCars);
             adminTabControl.Controls.Add(tabCustomers);
             adminTabControl.Controls.Add(tabApplications);
@@ -101,7 +102,9 @@
             // dataGridViewCars
             // 
             dataGridViewCars.AllowUserToAddRows = false;
+            dataGridViewCars.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewCars.AutoGenerateColumns = false;
+            dataGridViewCars.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCars.BackgroundColor = Color.White;
             dataGridViewCars.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -133,58 +136,58 @@
             // brandDataGridViewTextBoxColumn
             // 
             brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
+            brandDataGridViewTextBoxColumn.FillWeight = 20F;
             brandDataGridViewTextBoxColumn.HeaderText = "Brand";
             brandDataGridViewTextBoxColumn.MinimumWidth = 8;
             brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
-            brandDataGridViewTextBoxColumn.Width = 132;
             // 
             // modelDataGridViewTextBoxColumn
             // 
             modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
+            modelDataGridViewTextBoxColumn.FillWeight = 20F;
             modelDataGridViewTextBoxColumn.HeaderText = "Model";
             modelDataGridViewTextBoxColumn.MinimumWidth = 8;
             modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
-            modelDataGridViewTextBoxColumn.Width = 198;
             // 
             // originCountryDataGridViewTextBoxColumn
             // 
             originCountryDataGridViewTextBoxColumn.DataPropertyName = "OriginCountry";
+            originCountryDataGridViewTextBoxColumn.FillWeight = 20F;
             originCountryDataGridViewTextBoxColumn.HeaderText = "Country";
             originCountryDataGridViewTextBoxColumn.MinimumWidth = 8;
             originCountryDataGridViewTextBoxColumn.Name = "originCountryDataGridViewTextBoxColumn";
-            originCountryDataGridViewTextBoxColumn.Width = 132;
             // 
             // releaseYearDataGridViewTextBoxColumn
             // 
             releaseYearDataGridViewTextBoxColumn.DataPropertyName = "ReleaseYear";
+            releaseYearDataGridViewTextBoxColumn.FillWeight = 20F;
             releaseYearDataGridViewTextBoxColumn.HeaderText = "Year";
             releaseYearDataGridViewTextBoxColumn.MinimumWidth = 8;
             releaseYearDataGridViewTextBoxColumn.Name = "releaseYearDataGridViewTextBoxColumn";
-            releaseYearDataGridViewTextBoxColumn.Width = 132;
             // 
             // featuresDataGridViewTextBoxColumn
             // 
             featuresDataGridViewTextBoxColumn.DataPropertyName = "Features";
+            featuresDataGridViewTextBoxColumn.FillWeight = 40F;
             featuresDataGridViewTextBoxColumn.HeaderText = "Features";
             featuresDataGridViewTextBoxColumn.MinimumWidth = 8;
             featuresDataGridViewTextBoxColumn.Name = "featuresDataGridViewTextBoxColumn";
-            featuresDataGridViewTextBoxColumn.Width = 264;
             // 
             // priceDataGridViewTextBoxColumn
             // 
             priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            priceDataGridViewTextBoxColumn.FillWeight = 30F;
             priceDataGridViewTextBoxColumn.HeaderText = "Price";
             priceDataGridViewTextBoxColumn.MinimumWidth = 8;
             priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            priceDataGridViewTextBoxColumn.Width = 198;
             // 
             // conditionDataGridViewTextBoxColumn
             // 
             conditionDataGridViewTextBoxColumn.DataPropertyName = "Condition";
+            conditionDataGridViewTextBoxColumn.FillWeight = 20F;
             conditionDataGridViewTextBoxColumn.HeaderText = "Condition";
             conditionDataGridViewTextBoxColumn.MinimumWidth = 8;
             conditionDataGridViewTextBoxColumn.Name = "conditionDataGridViewTextBoxColumn";
-            conditionDataGridViewTextBoxColumn.Width = 132;
             // 
             // carBindingSource
             // 
@@ -204,7 +207,9 @@
             // dataGridViewCustomers
             // 
             dataGridViewCustomers.AllowUserToAddRows = false;
+            dataGridViewCustomers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewCustomers.AutoGenerateColumns = false;
+            dataGridViewCustomers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCustomers.BackgroundColor = Color.White;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -230,7 +235,6 @@
             contactInfoDataGridViewTextBoxColumn.HeaderText = "Contact Info";
             contactInfoDataGridViewTextBoxColumn.MinimumWidth = 8;
             contactInfoDataGridViewTextBoxColumn.Name = "contactInfoDataGridViewTextBoxColumn";
-            contactInfoDataGridViewTextBoxColumn.Width = 180;
             // 
             // passwordDataGridViewTextBoxColumn
             // 
@@ -238,7 +242,6 @@
             passwordDataGridViewTextBoxColumn.HeaderText = "Password";
             passwordDataGridViewTextBoxColumn.MinimumWidth = 8;
             passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            passwordDataGridViewTextBoxColumn.Width = 150;
             // 
             // minBudgetDataGridViewTextBoxColumn
             // 
@@ -246,7 +249,6 @@
             minBudgetDataGridViewTextBoxColumn.HeaderText = "Min. Budget";
             minBudgetDataGridViewTextBoxColumn.MinimumWidth = 8;
             minBudgetDataGridViewTextBoxColumn.Name = "minBudgetDataGridViewTextBoxColumn";
-            minBudgetDataGridViewTextBoxColumn.Width = 250;
             // 
             // maxBudgetDataGridViewTextBoxColumn
             // 
@@ -254,7 +256,6 @@
             maxBudgetDataGridViewTextBoxColumn.HeaderText = "Max. Budget";
             maxBudgetDataGridViewTextBoxColumn.MinimumWidth = 8;
             maxBudgetDataGridViewTextBoxColumn.Name = "maxBudgetDataGridViewTextBoxColumn";
-            maxBudgetDataGridViewTextBoxColumn.Width = 250;
             // 
             // DesiredBrandsDisplay
             // 
@@ -263,7 +264,6 @@
             DesiredBrandsDisplay.MinimumWidth = 8;
             DesiredBrandsDisplay.Name = "DesiredBrandsDisplay";
             DesiredBrandsDisplay.ReadOnly = true;
-            DesiredBrandsDisplay.Width = 200;
             // 
             // DesiredModelsDisplay
             // 
@@ -272,7 +272,6 @@
             DesiredModelsDisplay.MinimumWidth = 8;
             DesiredModelsDisplay.Name = "DesiredModelsDisplay";
             DesiredModelsDisplay.ReadOnly = true;
-            DesiredModelsDisplay.Width = 200;
             // 
             // customerBindingSource
             // 
@@ -291,7 +290,9 @@
             // dataGridViewApplications
             // 
             dataGridViewApplications.AllowUserToAddRows = false;
+            dataGridViewApplications.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewApplications.AutoGenerateColumns = false;
+            dataGridViewApplications.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewApplications.BackgroundColor = Color.White;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 167, 38);
@@ -317,7 +318,6 @@
             idDataGridViewTextBoxColumn.HeaderText = "Id";
             idDataGridViewTextBoxColumn.MinimumWidth = 8;
             idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.Width = 150;
             // 
             // customerEmailDataGridViewTextBoxColumn
             // 
@@ -325,16 +325,15 @@
             customerEmailDataGridViewTextBoxColumn.HeaderText = "E-mail";
             customerEmailDataGridViewTextBoxColumn.MinimumWidth = 8;
             customerEmailDataGridViewTextBoxColumn.Name = "customerEmailDataGridViewTextBoxColumn";
-            customerEmailDataGridViewTextBoxColumn.Width = 150;
             // 
             // CarsDisplay
             // 
             CarsDisplay.DataPropertyName = "CarsDisplay";
+            CarsDisplay.FillWeight = 200F;
             CarsDisplay.HeaderText = "Cars";
             CarsDisplay.MinimumWidth = 8;
             CarsDisplay.Name = "CarsDisplay";
             CarsDisplay.ReadOnly = true;
-            CarsDisplay.Width = 900;
             // 
             // carApplicationBindingSource
             // 
@@ -418,6 +417,12 @@
         private ToolStripMenuItem addToolStripMenuItem;
         private ToolStripMenuItem carToolStripMenuItem;
         private ToolStripMenuItem closeAdminPanelToolStripMenuItem;
+        private DataGridViewTextBoxColumn contactInfoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn minBudgetDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn maxBudgetDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn DesiredBrandsDisplay;
+        private DataGridViewTextBoxColumn DesiredModelsDisplay;
         private DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn originCountryDataGridViewTextBoxColumn;
@@ -425,12 +430,6 @@
         private DataGridViewTextBoxColumn featuresDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn conditionDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn contactInfoDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn minBudgetDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn maxBudgetDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn DesiredBrandsDisplay;
-        private DataGridViewTextBoxColumn DesiredModelsDisplay;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn customerEmailDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn CarsDisplay;

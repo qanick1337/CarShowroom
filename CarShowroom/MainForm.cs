@@ -29,15 +29,14 @@ namespace CarShowroom
 
         public void InitializeData()
         {
-            //LoadDataBases();
-            GenerateTestData();
+            LoadDataBases();
+            //GenerateTestData();
             LoadBrands();
             ResetComboBoxSelection();
             UpdateMenuVisibility();
         }
         public void InitializeControlLayout()
         {
-            Find_button.Location = new Point(258, 167);
             AutoFindButton.Visible = false;
         }
 
@@ -145,6 +144,15 @@ namespace CarShowroom
             {
                 using AdminPanelForm adminForm = new(carDatabase, customerDatabase, applicationsDataBase);
                 adminForm.ShowDialog();
+
+                 carDatabase = adminForm.carDatabase;
+                 customerDatabase = adminForm.customerDatabase;
+                 applicationsDataBase = adminForm.applicationsDataBase;
+
+                carBindingSource.DataSource = null;
+                carBindingSource.DataSource = carDatabase.Cars;
+
+                LoadBrands();
             }
         }
         private void SignOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -340,11 +348,11 @@ namespace CarShowroom
                 }
             }
         }
-        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            MessageBox.Show($"Error: {e.Exception.Message}", "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            e.ThrowException = false;
-        }
+        //private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        //{
+        //    MessageBox.Show($"Error: {e.Exception.Message}", "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    e.ThrowException = false;
+        //}
 
         //Car Applications
         private void SubmitApplicationButton_Click(object sender, EventArgs e)

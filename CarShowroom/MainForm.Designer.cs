@@ -48,13 +48,10 @@
             carBindingSource = new BindingSource(components);
             MainFormMenuStrip = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
-            openToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator = new ToolStripSeparator();
-            saveAsToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator2 = new ToolStripSeparator();
             exitToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem = new ToolStripMenuItem();
-            undoToolStripMenuItem = new ToolStripMenuItem();
             redoToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator4 = new ToolStripSeparator();
             selectAllToolStripMenuItem = new ToolStripMenuItem();
@@ -116,7 +113,7 @@
             panel1.Controls.Add(yearTextBox);
             panel1.Controls.Add(Find_button);
             panel1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            panel1.Location = new Point(423, 43);
+            panel1.Location = new Point(429, 43);
             panel1.Name = "panel1";
             panel1.Size = new Size(574, 217);
             panel1.TabIndex = 1;
@@ -220,7 +217,7 @@
             FindAutoLabel.Anchor = AnchorStyles.Top;
             FindAutoLabel.AutoSize = true;
             FindAutoLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            FindAutoLabel.ForeColor = Color.FromArgb(0, 123, 255);
+            FindAutoLabel.ForeColor = Color.FromArgb(128, 255, 255);
             FindAutoLabel.Location = new Point(156, 9);
             FindAutoLabel.Name = "FindAutoLabel";
             FindAutoLabel.Size = new Size(252, 48);
@@ -259,62 +256,42 @@
             MainFormMenuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, toolsToolStripMenuItem, helpToolStripMenuItem, SignOutToolStripMenuItem, LogInToolStripMenuItem, CreateAccountToolStripMenuItem, UserNameToolStripMenuItem });
             MainFormMenuStrip.Location = new Point(0, 0);
             MainFormMenuStrip.Name = "MainFormMenuStrip";
-            MainFormMenuStrip.Size = new Size(1396, 36);
+            MainFormMenuStrip.Size = new Size(1408, 36);
             MainFormMenuStrip.TabIndex = 4;
             MainFormMenuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             fileToolStripMenuItem.BackColor = SystemColors.ButtonFace;
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, toolStripSeparator, saveAsToolStripMenuItem, toolStripSeparator2, exitToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripSeparator, toolStripSeparator2, exitToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(58, 32);
             fileToolStripMenuItem.Text = "&File";
             // 
-            // openToolStripMenuItem
-            // 
-            openToolStripMenuItem.ImageTransparentColor = Color.Magenta;
-            openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
-            openToolStripMenuItem.Size = new Size(298, 36);
-            openToolStripMenuItem.Text = "&Open Car DB";
-            // 
             // toolStripSeparator
             // 
             toolStripSeparator.Name = "toolStripSeparator";
-            toolStripSeparator.Size = new Size(295, 6);
-            // 
-            // saveAsToolStripMenuItem
-            // 
-            saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            saveAsToolStripMenuItem.Size = new Size(298, 36);
-            saveAsToolStripMenuItem.Text = "&Save Car DB As";
+            toolStripSeparator.Size = new Size(142, 6);
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(295, 6);
+            toolStripSeparator2.Size = new Size(142, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(298, 36);
+            exitToolStripMenuItem.Size = new Size(145, 36);
             exitToolStripMenuItem.Text = "E&xit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // editToolStripMenuItem
             // 
             editToolStripMenuItem.BackColor = SystemColors.ButtonFace;
-            editToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { undoToolStripMenuItem, redoToolStripMenuItem, toolStripSeparator4, selectAllToolStripMenuItem });
+            editToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { redoToolStripMenuItem, toolStripSeparator4, selectAllToolStripMenuItem });
             editToolStripMenuItem.Name = "editToolStripMenuItem";
             editToolStripMenuItem.Size = new Size(65, 32);
             editToolStripMenuItem.Text = "&Cars";
-            // 
-            // undoToolStripMenuItem
-            // 
-            undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            undoToolStripMenuItem.Size = new Size(284, 36);
-            undoToolStripMenuItem.Text = "🔍 &Find a car";
             // 
             // redoToolStripMenuItem
             // 
@@ -433,8 +410,9 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.Anchor = AnchorStyles.Top;
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -457,7 +435,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(12, 277);
+            dataGridView1.Location = new Point(18, 277);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -474,80 +452,79 @@
             dataGridView1.Size = new Size(1372, 533);
             dataGridView1.TabIndex = 6;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
-            dataGridView1.DataError += dataGridView1_DataError;
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // brandDataGridViewTextBoxColumn
             // 
             brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
+            brandDataGridViewTextBoxColumn.FillWeight = 20F;
             brandDataGridViewTextBoxColumn.HeaderText = "Brand";
             brandDataGridViewTextBoxColumn.MinimumWidth = 8;
             brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
             brandDataGridViewTextBoxColumn.ReadOnly = true;
-            brandDataGridViewTextBoxColumn.Width = 120;
             // 
             // modelDataGridViewTextBoxColumn
             // 
             modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
+            modelDataGridViewTextBoxColumn.FillWeight = 20F;
             modelDataGridViewTextBoxColumn.HeaderText = "Model";
             modelDataGridViewTextBoxColumn.MinimumWidth = 8;
             modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
             modelDataGridViewTextBoxColumn.ReadOnly = true;
-            modelDataGridViewTextBoxColumn.Width = 240;
             // 
             // originCountryDataGridViewTextBoxColumn
             // 
             originCountryDataGridViewTextBoxColumn.DataPropertyName = "OriginCountry";
+            originCountryDataGridViewTextBoxColumn.FillWeight = 20F;
             originCountryDataGridViewTextBoxColumn.HeaderText = "Country";
             originCountryDataGridViewTextBoxColumn.MinimumWidth = 8;
             originCountryDataGridViewTextBoxColumn.Name = "originCountryDataGridViewTextBoxColumn";
             originCountryDataGridViewTextBoxColumn.ReadOnly = true;
-            originCountryDataGridViewTextBoxColumn.Width = 120;
             // 
             // releaseYearDataGridViewTextBoxColumn
             // 
             releaseYearDataGridViewTextBoxColumn.DataPropertyName = "ReleaseYear";
+            releaseYearDataGridViewTextBoxColumn.FillWeight = 20F;
             releaseYearDataGridViewTextBoxColumn.HeaderText = "Year";
             releaseYearDataGridViewTextBoxColumn.MinimumWidth = 8;
             releaseYearDataGridViewTextBoxColumn.Name = "releaseYearDataGridViewTextBoxColumn";
             releaseYearDataGridViewTextBoxColumn.ReadOnly = true;
-            releaseYearDataGridViewTextBoxColumn.Width = 82;
             // 
             // featuresDataGridViewTextBoxColumn
             // 
             featuresDataGridViewTextBoxColumn.DataPropertyName = "Features";
+            featuresDataGridViewTextBoxColumn.FillWeight = 50F;
             featuresDataGridViewTextBoxColumn.HeaderText = "Features";
             featuresDataGridViewTextBoxColumn.MinimumWidth = 8;
             featuresDataGridViewTextBoxColumn.Name = "featuresDataGridViewTextBoxColumn";
             featuresDataGridViewTextBoxColumn.ReadOnly = true;
-            featuresDataGridViewTextBoxColumn.Width = 400;
             // 
             // priceDataGridViewTextBoxColumn
             // 
             priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            priceDataGridViewTextBoxColumn.FillWeight = 30F;
             priceDataGridViewTextBoxColumn.HeaderText = "Price";
             priceDataGridViewTextBoxColumn.MinimumWidth = 8;
             priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             priceDataGridViewTextBoxColumn.ReadOnly = true;
-            priceDataGridViewTextBoxColumn.Width = 200;
             // 
             // Condition
             // 
             Condition.DataPropertyName = "Condition";
+            Condition.FillWeight = 20F;
             Condition.HeaderText = "Condition";
             Condition.MinimumWidth = 8;
             Condition.Name = "Condition";
             Condition.ReadOnly = true;
-            Condition.Width = 140;
             // 
             // SubmitApplicationButton
             // 
-            SubmitApplicationButton.Anchor = AnchorStyles.Top;
+            SubmitApplicationButton.Anchor = AnchorStyles.Bottom;
             SubmitApplicationButton.BackColor = Color.White;
             SubmitApplicationButton.FlatStyle = FlatStyle.Popup;
             SubmitApplicationButton.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 204);
             SubmitApplicationButton.ForeColor = Color.FromArgb(0, 123, 255);
-            SubmitApplicationButton.Location = new Point(616, 830);
+            SubmitApplicationButton.Location = new Point(622, 830);
             SubmitApplicationButton.Name = "SubmitApplicationButton";
             SubmitApplicationButton.Size = new Size(200, 38);
             SubmitApplicationButton.TabIndex = 19;
@@ -560,13 +537,13 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(249, 250, 251);
-            ClientSize = new Size(1396, 932);
+            ClientSize = new Size(1408, 944);
             Controls.Add(SubmitApplicationButton);
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Controls.Add(MainFormMenuStrip);
             MainMenuStrip = MainFormMenuStrip;
-            MinimumSize = new Size(1100, 700);
+            MinimumSize = new Size(1430, 1000);
             Name = "MainForm";
             Text = "Auto_ShowRoom";
             panel1.ResumeLayout(false);
@@ -588,13 +565,10 @@
         private TextBox yearTextBox;
         private MenuStrip MainFormMenuStrip;
         private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem openToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator;
-        private ToolStripMenuItem saveAsToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem exitToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem;
-        private ToolStripMenuItem undoToolStripMenuItem;
         private ToolStripMenuItem redoToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripMenuItem selectAllToolStripMenuItem;
@@ -622,6 +596,7 @@
         private ToolStripMenuItem UserNameToolStripMenuItem;
         private ToolStripMenuItem SignOutToolStripMenuItem;
         private Button AutoFindButton;
+        private ToolStripMenuItem logInToolStripMenuItemU;
         private DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn originCountryDataGridViewTextBoxColumn;
@@ -629,6 +604,5 @@
         private DataGridViewTextBoxColumn featuresDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Condition;
-        private ToolStripMenuItem logInToolStripMenuItemU;
     }
 }

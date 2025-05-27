@@ -7,14 +7,17 @@ using System.Threading.Tasks;
 
 namespace CarShowroom.Models
 {
+    /// <summary> 
+    /// Customer class representing a customer in the car showroom application.
+    /// </summary>
     public class Customer
     {
         public string ContactInfo { get; set; }
         public string Password { get; set; }
         public List<string> DesiredBrands { get; set; }
         public List<string> DesiredBrandsModels { get; set; }
-        public double MinBudget { get; set; }
-        public double MaxBudget { get; set; }
+        public double MinBudget { get; set; } = 0.0;
+        public double MaxBudget { get; set; } = 0.0;
 
         public string DesiredBrandsDisplay
         {
@@ -38,37 +41,40 @@ namespace CarShowroom.Models
             }
         }
 
-        // Default constructor
+        ///<summary> Default constructor for Customer class.</summary>
         public Customer()
         {
-            DesiredBrands = new List<string>();
-            DesiredBrandsModels = new List<string>();
+            ContactInfo = "unknown";
+            Password = "unknown";
+            DesiredBrands = new List<string> { "unknown brand", "unknown brand" };
+            DesiredBrandsModels = new List<string> { "unknown model", "unknown model" };
+            MinBudget = 0.0;
+            MaxBudget = 0.0;
         }
 
-
+        ///<summary> Constructor for Customer class with contact info and password.</summary>
         public Customer(string contactInfo, string password)
         {
             ContactInfo = contactInfo;
             Password = password;
-
-            DesiredBrands = new List<string>();
-            DesiredBrandsModels = new List<string>();
+            DesiredBrands = new List<string> { "unknown brand", "unknown brand" };
+            DesiredBrandsModels = new List<string> { "unknown model", "unknown model" };
+            MinBudget = 0.0;
+            MaxBudget = 0.0;
         }
 
-
+        ///<summary> Constructor for Customer class with contact info, password, and budget.</summary>
         public Customer(string contactInfo, string password, double minBudget, double maxBudget)
         {
-            MinBudget = minBudget;
-            MaxBudget = maxBudget;
-
             ContactInfo = contactInfo;
             Password = password;
-
-            DesiredBrands = new List<string>();
-            DesiredBrandsModels = new List<string>();
+            MinBudget = minBudget;
+            MaxBudget = maxBudget;
+            DesiredBrands = new List<string> { "unknown brand", "unknown brand" };
+            DesiredBrandsModels = new List<string> { "unknown model", "unknown model" };
         }
 
-        // Main constructor
+        /// <summary> Main constructor for Customer class with all properties.</summary>
         public Customer(string contactInfo, string password, List<string> desiredBrands, List<string> desiredBrandsModels, double minBudget, double maxBudget)
         {
             ContactInfo = contactInfo;
@@ -79,6 +85,7 @@ namespace CarShowroom.Models
             MaxBudget = maxBudget;
         }
 
+        /// <summary> Method to validate customer data.</summary>
         public bool CustomerValidator()
         {
             if (string.IsNullOrEmpty(ContactInfo) || string.IsNullOrEmpty(Password))
@@ -103,7 +110,7 @@ namespace CarShowroom.Models
             }
             return true;
         }
-
+        /// <summary> Method to validate login data.</summary>
         public bool ValidateLoginData()
         {
             if (string.IsNullOrEmpty(ContactInfo) || string.IsNullOrEmpty(Password))
@@ -119,13 +126,14 @@ namespace CarShowroom.Models
             return true;
         }
 
+        /// <summary> Method to check if the custome's e-mail is valid'.</summary>
         public static bool IsValidEmail(string email)
         {
             var trimmedEmail = email.Trim();
 
             if (trimmedEmail.EndsWith("."))
             {
-                return false; 
+                return false;
             }
             try
             {
@@ -136,6 +144,6 @@ namespace CarShowroom.Models
             {
                 return false;
             }
-        }  
+        }
     }
 }

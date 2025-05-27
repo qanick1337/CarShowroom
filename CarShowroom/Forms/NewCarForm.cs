@@ -25,8 +25,12 @@ namespace CarShowroom
             string model = ModelTextBox.Text.Trim();
             string originCountry = OriginCountryTextBox.Text.Trim();
             int.TryParse(yearTextBox.Text.Trim(), out int yearInt);
-            double.TryParse(priceTextBox.Text.Trim(), out double priceInt);
+            int.TryParse(priceTextBox.Text.Trim(), out int priceInt);
             string condition = ConditionComboBox.SelectedItem as string ?? string.Empty;
+
+            // Convert string condition to Car.CarCondition enum
+            Car.CarCondition carCondition = condition == "New" ? Car.CarCondition.New : Car.CarCondition.Used;
+
 
             string engine = engineTextBox.Text.Trim();
             int.TryParse(horsePowerTextBox.Text.Trim(), out int horsePowerInt);
@@ -42,7 +46,7 @@ namespace CarShowroom
                 return;
             }
 
-            if  (yearInt > DateTime.Now.Year)
+            if (yearInt > DateTime.Now.Year)
             {
                 MessageBox.Show("Please, enter a valid year");
                 return;
@@ -56,6 +60,7 @@ namespace CarShowroom
             {
                 MessageBox.Show("Please, enter a valid price");
                 return;
+
             }
             if (condition != "New" && condition != "Used")
             {
@@ -63,7 +68,7 @@ namespace CarShowroom
                 return;
             }
 
-            carToAdd = new (brand, model, originCountry, yearInt, new Features(engine, horsePowerInt, fuelType), priceInt, condition);
+            carToAdd = new(brand, model, originCountry, yearInt, new Features(engine, horsePowerInt, fuelType), priceInt, carCondition);
             DialogResult = DialogResult.OK;
             this.Close();
         }

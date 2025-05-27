@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace CarShowroom.Models
 {
+    /// <summary> Car techincal features class</summary>
     public class Features
     {
+        /// <summary> Engine type of the car</summary>
         public string Engine { get; set; }
+
+        /// <summary> Horsepower of the car</summary>
         public int HorsePowers { get; set; }
+
+        /// <summary> Fuel type of the car</summary>
         public string FuelType { get;set; }
 
+        /// <summary> Default constructor</summary>
         public Features (string engine, int horsePowers, string fuelType)
         {
             Engine = engine;
@@ -19,6 +26,7 @@ namespace CarShowroom.Models
             FuelType = fuelType;
         }
 
+        /// <summary> Override ToString method to provide a string representation of the features</summary>
         public override string ToString()
         {
             return $"Engine - {Engine}, Horsepowers - {HorsePowers}, FuelType - {FuelType}";

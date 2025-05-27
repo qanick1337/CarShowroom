@@ -1,11 +1,13 @@
 using CarShowroom.Models;
 using System.Net.Mail;
 using System.Reflection;
+using CarShowroom.ProjectModel;
 
 namespace CarShowroom
 {
     public partial class MainForm : Form
     {
+        //public CarShowroom.ProjectModel.ProjectModel Project = new("CarDataBase.txt", "CustomerDataBase.txt", "ApplicationsDataBase.txt");
 
         private CarDataBase carDatabase;
         private CustomerDataBase customerDatabase;
@@ -54,13 +56,16 @@ namespace CarShowroom
         }
         public void LoadBrands()
         {
-            brands = carDatabase.Cars.Select(car => car.Brand).Distinct().ToList();
+            brands = carDatabase.Cars
+               .Select(car => car.Brand)
+               .Distinct()
+               .OrderBy(brand => brand)
+               .ToList();
 
             BindingSource brandsBindingSource = new BindingSource();
             brandsBindingSource.DataSource = brands;
 
             BrandsComboBox.DataSource = brandsBindingSource;
-
         }
         private void ResetComboBoxSelection()
         {

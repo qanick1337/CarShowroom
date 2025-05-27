@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             Find_button = new Button();
             panel1 = new Panel();
             AutoFindButton = new Button();
@@ -91,7 +91,7 @@
             Find_button.Location = new Point(159, 167);
             Find_button.Name = "Find_button";
             Find_button.Size = new Size(111, 38);
-            Find_button.TabIndex = 0;
+            Find_button.TabIndex = 8;
             Find_button.Text = "🔍Find";
             Find_button.UseVisualStyleBackColor = false;
             Find_button.Click += Find_button_Click;
@@ -127,7 +127,7 @@
             AutoFindButton.Location = new Point(315, 167);
             AutoFindButton.Name = "AutoFindButton";
             AutoFindButton.Size = new Size(131, 38);
-            AutoFindButton.TabIndex = 19;
+            AutoFindButton.TabIndex = 9;
             AutoFindButton.Text = "⚡Auto Find";
             AutoFindButton.UseVisualStyleBackColor = false;
             AutoFindButton.Click += AutoFindButton_Click;
@@ -139,8 +139,8 @@
             ConditionLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             ConditionLabel.Location = new Point(196, 119);
             ConditionLabel.Name = "ConditionLabel";
-            ConditionLabel.Size = new Size(99, 28);
-            ConditionLabel.TabIndex = 18;
+            ConditionLabel.Size = new Size(85, 23);
+            ConditionLabel.TabIndex = 5;
             ConditionLabel.Text = "Condition";
             // 
             // ConditionComboBox
@@ -151,7 +151,7 @@
             ConditionComboBox.Items.AddRange(new object[] { "All", "New", "Used" });
             ConditionComboBox.Location = new Point(193, 116);
             ConditionComboBox.Name = "ConditionComboBox";
-            ConditionComboBox.Size = new Size(153, 36);
+            ConditionComboBox.Size = new Size(153, 31);
             ConditionComboBox.TabIndex = 17;
             ConditionComboBox.SelectedIndexChanged += ConditionComboBox_SelectedIndexChanged;
             ConditionComboBox.TextChanged += ConditionComboBox_TextChanged;
@@ -163,7 +163,7 @@
             ModelLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             ModelLabel.Location = new Point(37, 119);
             ModelLabel.Name = "ModelLabel";
-            ModelLabel.Size = new Size(69, 28);
+            ModelLabel.Size = new Size(58, 23);
             ModelLabel.TabIndex = 16;
             ModelLabel.Text = "Model";
             // 
@@ -174,8 +174,8 @@
             ModelsComboBox.ForeColor = Color.FromArgb(33, 37, 41);
             ModelsComboBox.Location = new Point(34, 116);
             ModelsComboBox.Name = "ModelsComboBox";
-            ModelsComboBox.Size = new Size(153, 36);
-            ModelsComboBox.TabIndex = 15;
+            ModelsComboBox.Size = new Size(153, 31);
+            ModelsComboBox.TabIndex = 3;
             ModelsComboBox.TextChanged += ModelsComboBox_TextChanged;
             // 
             // BrandLabel
@@ -185,7 +185,7 @@
             BrandLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             BrandLabel.Location = new Point(37, 76);
             BrandLabel.Name = "BrandLabel";
-            BrandLabel.Size = new Size(63, 28);
+            BrandLabel.Size = new Size(55, 23);
             BrandLabel.TabIndex = 14;
             BrandLabel.Text = "Brand";
             // 
@@ -197,8 +197,8 @@
             BrandsComboBox.Items.AddRange(new object[] { "All" });
             BrandsComboBox.Location = new Point(34, 73);
             BrandsComboBox.Name = "BrandsComboBox";
-            BrandsComboBox.Size = new Size(153, 36);
-            BrandsComboBox.TabIndex = 13;
+            BrandsComboBox.Size = new Size(153, 31);
+            BrandsComboBox.TabIndex = 2;
             BrandsComboBox.SelectedIndexChanged += BrandsComboBox_SelectedIndexChanged;
             BrandsComboBox.TextChanged += BrandsComboBox_TextChanged;
             // 
@@ -209,18 +209,18 @@
             minPriceTextBox.Location = new Point(352, 72);
             minPriceTextBox.Name = "minPriceTextBox";
             minPriceTextBox.PlaceholderText = "Minimum Price";
-            minPriceTextBox.Size = new Size(153, 34);
-            minPriceTextBox.TabIndex = 10;
+            minPriceTextBox.Size = new Size(153, 30);
+            minPriceTextBox.TabIndex = 6;
             // 
             // FindAutoLabel
             // 
             FindAutoLabel.Anchor = AnchorStyles.Top;
             FindAutoLabel.AutoSize = true;
             FindAutoLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            FindAutoLabel.ForeColor = Color.FromArgb(128, 255, 255);
+            FindAutoLabel.ForeColor = Color.FromArgb(0, 123, 255);
             FindAutoLabel.Location = new Point(156, 9);
             FindAutoLabel.Name = "FindAutoLabel";
-            FindAutoLabel.Size = new Size(252, 48);
+            FindAutoLabel.Size = new Size(212, 41);
             FindAutoLabel.TabIndex = 2;
             FindAutoLabel.Text = "Auto Matcher";
             // 
@@ -231,8 +231,8 @@
             maxPriceTextBox.Location = new Point(352, 116);
             maxPriceTextBox.Name = "maxPriceTextBox";
             maxPriceTextBox.PlaceholderText = "Maximum Price";
-            maxPriceTextBox.Size = new Size(153, 34);
-            maxPriceTextBox.TabIndex = 5;
+            maxPriceTextBox.Size = new Size(153, 30);
+            maxPriceTextBox.TabIndex = 7;
             // 
             // yearTextBox
             // 
@@ -241,8 +241,8 @@
             yearTextBox.Location = new Point(193, 72);
             yearTextBox.Name = "yearTextBox";
             yearTextBox.PlaceholderText = "Year";
-            yearTextBox.Size = new Size(153, 34);
-            yearTextBox.TabIndex = 3;
+            yearTextBox.Size = new Size(153, 30);
+            yearTextBox.TabIndex = 4;
             // 
             // carBindingSource
             // 
@@ -256,8 +256,8 @@
             MainFormMenuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, toolsToolStripMenuItem, helpToolStripMenuItem, SignOutToolStripMenuItem, LogInToolStripMenuItem, CreateAccountToolStripMenuItem, UserNameToolStripMenuItem });
             MainFormMenuStrip.Location = new Point(0, 0);
             MainFormMenuStrip.Name = "MainFormMenuStrip";
-            MainFormMenuStrip.Size = new Size(1408, 36);
-            MainFormMenuStrip.TabIndex = 4;
+            MainFormMenuStrip.Size = new Size(1412, 31);
+            MainFormMenuStrip.TabIndex = 1;
             MainFormMenuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
@@ -265,23 +265,23 @@
             fileToolStripMenuItem.BackColor = SystemColors.ButtonFace;
             fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripSeparator, toolStripSeparator2, exitToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(58, 32);
+            fileToolStripMenuItem.Size = new Size(49, 27);
             fileToolStripMenuItem.Text = "&File";
             // 
             // toolStripSeparator
             // 
             toolStripSeparator.Name = "toolStripSeparator";
-            toolStripSeparator.Size = new Size(142, 6);
+            toolStripSeparator.Size = new Size(118, 6);
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(142, 6);
+            toolStripSeparator2.Size = new Size(118, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(145, 36);
+            exitToolStripMenuItem.Size = new Size(121, 28);
             exitToolStripMenuItem.Text = "E&xit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -290,76 +290,76 @@
             editToolStripMenuItem.BackColor = SystemColors.ButtonFace;
             editToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { redoToolStripMenuItem, toolStripSeparator4, selectAllToolStripMenuItem });
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(65, 32);
+            editToolStripMenuItem.Size = new Size(57, 27);
             editToolStripMenuItem.Text = "&Cars";
             // 
             // redoToolStripMenuItem
             // 
             redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             redoToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Y;
-            redoToolStripMenuItem.Size = new Size(284, 36);
+            redoToolStripMenuItem.Size = new Size(242, 28);
             redoToolStripMenuItem.Text = "&➕ &New car";
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(281, 6);
+            toolStripSeparator4.Size = new Size(239, 6);
             // 
             // selectAllToolStripMenuItem
             // 
             selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            selectAllToolStripMenuItem.Size = new Size(284, 36);
+            selectAllToolStripMenuItem.Size = new Size(242, 28);
             selectAllToolStripMenuItem.Text = "Select &All";
             // 
             // toolsToolStripMenuItem
             // 
             toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { customizeToolStripMenuItem, logInToolStripMenuItemU, optionsToolStripMenuItem });
             toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            toolsToolStripMenuItem.Size = new Size(67, 32);
+            toolsToolStripMenuItem.Size = new Size(58, 27);
             toolsToolStripMenuItem.Text = "&User";
             // 
             // customizeToolStripMenuItem
             // 
             customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            customizeToolStripMenuItem.Size = new Size(307, 36);
+            customizeToolStripMenuItem.Size = new Size(264, 28);
             customizeToolStripMenuItem.Text = "&New user";
             customizeToolStripMenuItem.Click += customizeToolStripMenuItem_Click;
             // 
             // logInToolStripMenuItemU
             // 
             logInToolStripMenuItemU.Name = "logInToolStripMenuItemU";
-            logInToolStripMenuItemU.Size = new Size(307, 36);
+            logInToolStripMenuItemU.Size = new Size(264, 28);
             logInToolStripMenuItemU.Text = "Log in";
             logInToolStripMenuItemU.Click += logInToolStripMenuItemU_Click;
             // 
             // optionsToolStripMenuItem
             // 
             optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            optionsToolStripMenuItem.Size = new Size(307, 36);
+            optionsToolStripMenuItem.Size = new Size(264, 28);
             optionsToolStripMenuItem.Text = "&Automative car search";
             // 
             // helpToolStripMenuItem
             // 
             helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contentsToolStripMenuItem, toolStripSeparator5, aboutToolStripMenuItem });
             helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            helpToolStripMenuItem.Size = new Size(69, 32);
+            helpToolStripMenuItem.Size = new Size(59, 27);
             helpToolStripMenuItem.Text = "&Help";
             // 
             // contentsToolStripMenuItem
             // 
             contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            contentsToolStripMenuItem.Size = new Size(263, 36);
+            contentsToolStripMenuItem.Size = new Size(229, 28);
             contentsToolStripMenuItem.Text = "ℹ️ &About...";
             // 
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(260, 6);
+            toolStripSeparator5.Size = new Size(226, 6);
             // 
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(263, 36);
+            aboutToolStripMenuItem.Size = new Size(229, 28);
             aboutToolStripMenuItem.Text = "📘 &User's manual";
             // 
             // SignOutToolStripMenuItem
@@ -370,7 +370,7 @@
             SignOutToolStripMenuItem.ForeColor = Color.FromArgb(0, 123, 255);
             SignOutToolStripMenuItem.Margin = new Padding(0, 0, 20, 0);
             SignOutToolStripMenuItem.Name = "SignOutToolStripMenuItem";
-            SignOutToolStripMenuItem.Size = new Size(99, 32);
+            SignOutToolStripMenuItem.Size = new Size(81, 27);
             SignOutToolStripMenuItem.Text = "Sign out";
             SignOutToolStripMenuItem.Click += SignOutToolStripMenuItem_Click;
             // 
@@ -382,7 +382,7 @@
             LogInToolStripMenuItem.ForeColor = Color.White;
             LogInToolStripMenuItem.Margin = new Padding(0, 0, 20, 0);
             LogInToolStripMenuItem.Name = "LogInToolStripMenuItem";
-            LogInToolStripMenuItem.Size = new Size(81, 32);
+            LogInToolStripMenuItem.Size = new Size(67, 27);
             LogInToolStripMenuItem.Text = "Log In";
             LogInToolStripMenuItem.Click += LogInToolStripMenuItem_Click;
             // 
@@ -394,7 +394,7 @@
             CreateAccountToolStripMenuItem.ForeColor = Color.Black;
             CreateAccountToolStripMenuItem.Margin = new Padding(0, 0, 20, 0);
             CreateAccountToolStripMenuItem.Name = "CreateAccountToolStripMenuItem";
-            CreateAccountToolStripMenuItem.Size = new Size(92, 32);
+            CreateAccountToolStripMenuItem.Size = new Size(75, 27);
             CreateAccountToolStripMenuItem.Text = "Sign up";
             CreateAccountToolStripMenuItem.Click += CreateAccountToolStripMenuItem_Click;
             // 
@@ -402,7 +402,7 @@
             // 
             UserNameToolStripMenuItem.Alignment = ToolStripItemAlignment.Right;
             UserNameToolStripMenuItem.Name = "UserNameToolStripMenuItem";
-            UserNameToolStripMenuItem.Size = new Size(133, 32);
+            UserNameToolStripMenuItem.Size = new Size(117, 27);
             UserNameToolStripMenuItem.Text = "User's name";
             // 
             // dataGridView1
@@ -415,37 +415,37 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 123, 255);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 166, 255);
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(0, 123, 255);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(0, 166, 255);
+            dataGridViewCellStyle7.SelectionForeColor = Color.White;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { brandDataGridViewTextBoxColumn, modelDataGridViewTextBoxColumn, originCountryDataGridViewTextBoxColumn, releaseYearDataGridViewTextBoxColumn, featuresDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, Condition });
             dataGridView1.DataSource = carBindingSource;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(208, 226, 255);
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.White;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(208, 226, 255);
+            dataGridViewCellStyle8.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.Location = new Point(18, 277);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(192, 255, 255);
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = SystemColors.Control;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(192, 255, 255);
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.ScrollBars = ScrollBars.Vertical;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -536,7 +536,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(249, 250, 251);
-            ClientSize = new Size(1408, 944);
+            ClientSize = new Size(1412, 953);
             Controls.Add(SubmitApplicationButton);
             Controls.Add(dataGridView1);
             Controls.Add(panel1);

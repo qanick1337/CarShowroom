@@ -63,6 +63,9 @@
             addToolStripMenuItem = new ToolStripMenuItem();
             carToolStripMenuItem = new ToolStripMenuItem();
             closeAdminPanelToolStripMenuItem = new ToolStripMenuItem();
+            deleteCarToolStripMenuItem = new ToolStripMenuItem();
+            deleteCustomerToolStripMenuItem = new ToolStripMenuItem();
+            deleteApplicationToolStripMenuItem = new ToolStripMenuItem();
             adminTabControl.SuspendLayout();
             tabCars.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCars).BeginInit();
@@ -87,6 +90,7 @@
             adminTabControl.SelectedIndex = 0;
             adminTabControl.Size = new Size(1339, 434);
             adminTabControl.TabIndex = 0;
+            adminTabControl.SelectedIndexChanged += adminTabControl_SelectedIndexChanged;
             // 
             // tabCars
             // 
@@ -128,6 +132,7 @@
             dataGridViewCars.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewCars.EnableHeadersVisualStyles = false;
             dataGridViewCars.Location = new Point(6, 6);
+            dataGridViewCars.MultiSelect = false;
             dataGridViewCars.Name = "dataGridViewCars";
             dataGridViewCars.RowHeadersWidth = 62;
             dataGridViewCars.Size = new Size(1319, 384);
@@ -224,6 +229,7 @@
             dataGridViewCustomers.DataSource = customerBindingSource;
             dataGridViewCustomers.EnableHeadersVisualStyles = false;
             dataGridViewCustomers.Location = new Point(6, 6);
+            dataGridViewCustomers.MultiSelect = false;
             dataGridViewCustomers.Name = "dataGridViewCustomers";
             dataGridViewCustomers.RowHeadersWidth = 62;
             dataGridViewCustomers.Size = new Size(1319, 267);
@@ -307,6 +313,7 @@
             dataGridViewApplications.DataSource = carApplicationBindingSource;
             dataGridViewApplications.EnableHeadersVisualStyles = false;
             dataGridViewApplications.Location = new Point(3, 3);
+            dataGridViewApplications.MultiSelect = false;
             dataGridViewApplications.Name = "dataGridViewApplications";
             dataGridViewApplications.RowHeadersWidth = 62;
             dataGridViewApplications.Size = new Size(1325, 267);
@@ -318,6 +325,7 @@
             idDataGridViewTextBoxColumn.HeaderText = "Id";
             idDataGridViewTextBoxColumn.MinimumWidth = 8;
             idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // customerEmailDataGridViewTextBoxColumn
             // 
@@ -342,10 +350,10 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { addToolStripMenuItem, closeAdminPanelToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { addToolStripMenuItem, closeAdminPanelToolStripMenuItem, deleteCarToolStripMenuItem, deleteCustomerToolStripMenuItem, deleteApplicationToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1363, 36);
+            menuStrip1.Size = new Size(1363, 33);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -354,13 +362,13 @@
             addToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { carToolStripMenuItem });
             addToolStripMenuItem.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 204);
             addToolStripMenuItem.Name = "addToolStripMenuItem";
-            addToolStripMenuItem.Size = new Size(66, 32);
+            addToolStripMenuItem.Size = new Size(58, 29);
             addToolStripMenuItem.Text = "Add";
             // 
             // carToolStripMenuItem
             // 
             carToolStripMenuItem.Name = "carToolStripMenuItem";
-            carToolStripMenuItem.Size = new Size(145, 36);
+            carToolStripMenuItem.Size = new Size(121, 28);
             carToolStripMenuItem.Text = "Car";
             carToolStripMenuItem.Click += carToolStripMenuItem_Click;
             // 
@@ -370,9 +378,39 @@
             closeAdminPanelToolStripMenuItem.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 204);
             closeAdminPanelToolStripMenuItem.ForeColor = Color.FromArgb(255, 167, 38);
             closeAdminPanelToolStripMenuItem.Name = "closeAdminPanelToolStripMenuItem";
-            closeAdminPanelToolStripMenuItem.Size = new Size(204, 32);
+            closeAdminPanelToolStripMenuItem.Size = new Size(173, 29);
             closeAdminPanelToolStripMenuItem.Text = "Close Admin Panel";
             closeAdminPanelToolStripMenuItem.Click += closeAdminPanelToolStripMenuItem_Click;
+            // 
+            // deleteCarToolStripMenuItem
+            // 
+            deleteCarToolStripMenuItem.BackColor = Color.FromArgb(255, 167, 38);
+            deleteCarToolStripMenuItem.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            deleteCarToolStripMenuItem.ForeColor = Color.White;
+            deleteCarToolStripMenuItem.Name = "deleteCarToolStripMenuItem";
+            deleteCarToolStripMenuItem.Size = new Size(113, 29);
+            deleteCarToolStripMenuItem.Text = "Delete Car";
+            deleteCarToolStripMenuItem.Click += deleteCarToolStripMenuItem_Click;
+            // 
+            // deleteCustomerToolStripMenuItem
+            // 
+            deleteCustomerToolStripMenuItem.BackColor = Color.FromArgb(255, 167, 38);
+            deleteCustomerToolStripMenuItem.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            deleteCustomerToolStripMenuItem.ForeColor = Color.White;
+            deleteCustomerToolStripMenuItem.Name = "deleteCustomerToolStripMenuItem";
+            deleteCustomerToolStripMenuItem.Size = new Size(167, 29);
+            deleteCustomerToolStripMenuItem.Text = "Delete Customer";
+            deleteCustomerToolStripMenuItem.Click += deleteCustomerToolStripMenuItem_Click;
+            // 
+            // deleteApplicationToolStripMenuItem
+            // 
+            deleteApplicationToolStripMenuItem.BackColor = Color.FromArgb(255, 167, 38);
+            deleteApplicationToolStripMenuItem.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            deleteApplicationToolStripMenuItem.ForeColor = Color.White;
+            deleteApplicationToolStripMenuItem.Name = "deleteApplicationToolStripMenuItem";
+            deleteApplicationToolStripMenuItem.Size = new Size(181, 29);
+            deleteApplicationToolStripMenuItem.Text = "Delete Application";
+            deleteApplicationToolStripMenuItem.Click += deleteApplicationToolStripMenuItem_Click;
             // 
             // AdminPanelForm
             // 
@@ -433,5 +471,8 @@
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn customerEmailDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn CarsDisplay;
+        private ToolStripMenuItem deleteCarToolStripMenuItem;
+        private ToolStripMenuItem deleteCustomerToolStripMenuItem;
+        private ToolStripMenuItem deleteApplicationToolStripMenuItem;
     }
 }

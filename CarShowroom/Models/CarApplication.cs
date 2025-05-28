@@ -32,7 +32,7 @@ namespace CarShowroom.Models
             get
             {
                 if (Cars != null)
-                    return string.Join(", ", Cars);
+                    return string.Join(", ", Cars.Select(car => car.DisplayString()));
                 else
                     return string.Empty;
             }
@@ -46,5 +46,10 @@ namespace CarShowroom.Models
             Cars = cars;
         }
 
+        /// <summary> Override ToString method to provide a string representation of the application. </summary>
+        public override string ToString()
+        {
+            return $"ID: {DisplayId}\r\n Cars: {CarsDisplay}";
+        }
     }
 }

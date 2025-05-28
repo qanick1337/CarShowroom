@@ -18,14 +18,35 @@ namespace CarShowroom
         /// <summary> Car database </summary>
         public DataStorage(string carPath, string customerPath, string applicationPath)
         {
-            CarsDataLoader();
-            _carDatabase.SerializeData(carPath);
+            if (!File.Exists(carPath))
+            {
+                CarsDataLoader();
+                _carDatabase.SerializeData(carPath);
+            }
+            else
+            {
+                _carDatabase.DeserializeData(carPath);
+            }
 
-            CustomersDataLoader();
-            _customerDatabase.SerializeData(customerPath);
+            if (!File.Exists(customerPath))
+            {
+                CustomersDataLoader();
+                _customerDatabase.SerializeData(customerPath);
+            }
+            else
+            {
+                _customerDatabase.DeserializeData(customerPath);
+            }
 
-            ApplicationsDataLoader();
-            _applicationDatabase.SerializeData(applicationPath);
+            if (!File.Exists(applicationPath))
+            {
+                ApplicationsDataLoader();
+                _applicationDatabase.SerializeData(applicationPath);
+            }
+            else
+            {
+                _applicationDatabase.DeserializeData(applicationPath);
+            }
         }
 
         private void CarsDataLoader()

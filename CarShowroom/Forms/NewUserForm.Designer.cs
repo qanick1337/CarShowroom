@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             NewUserFormPanel = new Panel();
-            RetryButton = new Button();
-            RetryLabel = new Label();
             CancelButton = new Button();
             FavoriteModelsLabel = new Label();
             FavoriteModelsListBox = new ListBox();
@@ -56,8 +54,6 @@
             // 
             NewUserFormPanel.Anchor = AnchorStyles.Top;
             NewUserFormPanel.BackColor = Color.FromArgb(249, 250, 251);
-            NewUserFormPanel.Controls.Add(RetryButton);
-            NewUserFormPanel.Controls.Add(RetryLabel);
             NewUserFormPanel.Controls.Add(CancelButton);
             NewUserFormPanel.Controls.Add(FavoriteModelsLabel);
             NewUserFormPanel.Controls.Add(FavoriteModelsListBox);
@@ -81,34 +77,6 @@
             NewUserFormPanel.Size = new Size(792, 652);
             NewUserFormPanel.TabIndex = 6;
             // 
-            // RetryButton
-            // 
-            RetryButton.BackColor = Color.FromArgb(249, 250, 251);
-            RetryButton.DialogResult = DialogResult.Retry;
-            RetryButton.FlatStyle = FlatStyle.Popup;
-            RetryButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            RetryButton.ForeColor = Color.FromArgb(0, 123, 255);
-            RetryButton.Location = new Point(497, 587);
-            RetryButton.Margin = new Padding(0);
-            RetryButton.Name = "RetryButton";
-            RetryButton.Size = new Size(111, 45);
-            RetryButton.TabIndex = 11;
-            RetryButton.Text = "Log in";
-            RetryButton.UseVisualStyleBackColor = false;
-            RetryButton.Click += RetryButton_Click;
-            // 
-            // RetryLabel
-            // 
-            RetryLabel.Anchor = AnchorStyles.Top;
-            RetryLabel.AutoSize = true;
-            RetryLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            RetryLabel.ForeColor = Color.Black;
-            RetryLabel.Location = new Point(186, 593);
-            RetryLabel.Name = "RetryLabel";
-            RetryLabel.Size = new Size(305, 32);
-            RetryLabel.TabIndex = 24;
-            RetryLabel.Text = "Already have an account?";
-            // 
             // CancelButton
             // 
             CancelButton.BackColor = Color.White;
@@ -129,7 +97,7 @@
             FavoriteModelsLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             FavoriteModelsLabel.Location = new Point(498, 279);
             FavoriteModelsLabel.Name = "FavoriteModelsLabel";
-            FavoriteModelsLabel.Size = new Size(194, 32);
+            FavoriteModelsLabel.Size = new Size(161, 28);
             FavoriteModelsLabel.TabIndex = 22;
             FavoriteModelsLabel.Text = "Favorite Models";
             // 
@@ -138,10 +106,10 @@
             FavoriteModelsListBox.BackColor = Color.White;
             FavoriteModelsListBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             FavoriteModelsListBox.FormattingEnabled = true;
-            FavoriteModelsListBox.ItemHeight = 28;
+            FavoriteModelsListBox.ItemHeight = 23;
             FavoriteModelsListBox.Location = new Point(499, 314);
             FavoriteModelsListBox.Name = "FavoriteModelsListBox";
-            FavoriteModelsListBox.Size = new Size(231, 116);
+            FavoriteModelsListBox.Size = new Size(231, 96);
             FavoriteModelsListBox.TabIndex = 99;
             FavoriteModelsListBox.TabStop = false;
             // 
@@ -151,7 +119,7 @@
             PricingLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             PricingLabel.Location = new Point(36, 334);
             PricingLabel.Name = "PricingLabel";
-            PricingLabel.Size = new Size(185, 32);
+            PricingLabel.Size = new Size(155, 28);
             PricingLabel.TabIndex = 20;
             PricingLabel.Text = "💰Your budget";
             // 
@@ -176,7 +144,7 @@
             UserModelsTextBox.Location = new Point(36, 277);
             UserModelsTextBox.Name = "UserModelsTextBox";
             UserModelsTextBox.PlaceholderText = "Models you want to buy";
-            UserModelsTextBox.Size = new Size(208, 34);
+            UserModelsTextBox.Size = new Size(208, 30);
             UserModelsTextBox.TabIndex = 5;
             // 
             // PrefferedCarsLabel
@@ -185,7 +153,7 @@
             PrefferedCarsLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             PrefferedCarsLabel.Location = new Point(36, 202);
             PrefferedCarsLabel.Name = "PrefferedCarsLabel";
-            PrefferedCarsLabel.Size = new Size(382, 32);
+            PrefferedCarsLabel.Size = new Size(314, 28);
             PrefferedCarsLabel.TabIndex = 17;
             PrefferedCarsLabel.Text = "🚘Preferred brands and models";
             // 
@@ -195,7 +163,7 @@
             PersonalInfoLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             PersonalInfoLabel.Location = new Point(36, 71);
             PersonalInfoLabel.Name = "PersonalInfoLabel";
-            PersonalInfoLabel.Size = new Size(285, 32);
+            PersonalInfoLabel.Size = new Size(239, 28);
             PersonalInfoLabel.TabIndex = 16;
             PersonalInfoLabel.Text = "📋Personal information";
             // 
@@ -206,7 +174,7 @@
             UserPasswordTextBox.Location = new Point(36, 146);
             UserPasswordTextBox.Name = "UserPasswordTextBox";
             UserPasswordTextBox.PlaceholderText = "Enter password";
-            UserPasswordTextBox.Size = new Size(278, 34);
+            UserPasswordTextBox.Size = new Size(278, 30);
             UserPasswordTextBox.TabIndex = 2;
             // 
             // FavoriteBrandsLabel
@@ -215,7 +183,7 @@
             FavoriteBrandsLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             FavoriteBrandsLabel.Location = new Point(499, 71);
             FavoriteBrandsLabel.Name = "FavoriteBrandsLabel";
-            FavoriteBrandsLabel.Size = new Size(193, 32);
+            FavoriteBrandsLabel.Size = new Size(161, 28);
             FavoriteBrandsLabel.TabIndex = 14;
             FavoriteBrandsLabel.Text = "Favorite Brands";
             // 
@@ -224,10 +192,10 @@
             FavoriteBrandsListBox.BackColor = Color.White;
             FavoriteBrandsListBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             FavoriteBrandsListBox.FormattingEnabled = true;
-            FavoriteBrandsListBox.ItemHeight = 28;
+            FavoriteBrandsListBox.ItemHeight = 23;
             FavoriteBrandsListBox.Location = new Point(499, 106);
             FavoriteBrandsListBox.Name = "FavoriteBrandsListBox";
-            FavoriteBrandsListBox.Size = new Size(231, 116);
+            FavoriteBrandsListBox.Size = new Size(231, 96);
             FavoriteBrandsListBox.TabIndex = 99;
             FavoriteBrandsListBox.TabStop = false;
             // 
@@ -252,7 +220,7 @@
             UserBrandsTextBox.Location = new Point(36, 237);
             UserBrandsTextBox.Name = "UserBrandsTextBox";
             UserBrandsTextBox.PlaceholderText = "Brands you want to buy";
-            UserBrandsTextBox.Size = new Size(208, 34);
+            UserBrandsTextBox.Size = new Size(208, 30);
             UserBrandsTextBox.TabIndex = 3;
             // 
             // minPriceTextBox
@@ -262,7 +230,7 @@
             minPriceTextBox.Location = new Point(36, 381);
             minPriceTextBox.Name = "minPriceTextBox";
             minPriceTextBox.PlaceholderText = "Minimum Price";
-            minPriceTextBox.Size = new Size(278, 34);
+            minPriceTextBox.Size = new Size(278, 30);
             minPriceTextBox.TabIndex = 7;
             // 
             // WelcomeLabel
@@ -273,7 +241,7 @@
             WelcomeLabel.ForeColor = Color.FromArgb(0, 123, 255);
             WelcomeLabel.Location = new Point(112, 9);
             WelcomeLabel.Name = "WelcomeLabel";
-            WelcomeLabel.Size = new Size(561, 51);
+            WelcomeLabel.Size = new Size(472, 45);
             WelcomeLabel.TabIndex = 2;
             WelcomeLabel.Text = "Welcome to the Auto Matcher";
             // 
@@ -284,7 +252,7 @@
             maxPriceTextBox.Location = new Point(36, 421);
             maxPriceTextBox.Name = "maxPriceTextBox";
             maxPriceTextBox.PlaceholderText = "Maximum Price";
-            maxPriceTextBox.Size = new Size(278, 34);
+            maxPriceTextBox.Size = new Size(278, 30);
             maxPriceTextBox.TabIndex = 8;
             // 
             // UserMailTextBox
@@ -294,7 +262,7 @@
             UserMailTextBox.Location = new Point(36, 106);
             UserMailTextBox.Name = "UserMailTextBox";
             UserMailTextBox.PlaceholderText = "Your e-mail";
-            UserMailTextBox.Size = new Size(278, 34);
+            UserMailTextBox.Size = new Size(278, 30);
             UserMailTextBox.TabIndex = 1;
             // 
             // CreateButton
@@ -316,7 +284,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(816, 676);
+            ClientSize = new Size(820, 685);
             Controls.Add(NewUserFormPanel);
             MinimumSize = new Size(838, 732);
             Name = "NewUserForm";
@@ -348,7 +316,5 @@
         private ListBox FavoriteModelsListBox;
         private Label PricingLabel;
         private Button CancelButton;
-        private Button RetryButton;
-        private Label RetryLabel;
     }
 }

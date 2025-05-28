@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CarShowroom.ProjectModel;
 
 namespace CarShowroom
 {
@@ -16,13 +17,15 @@ namespace CarShowroom
         public CustomerDataBase customerDataBase = new ();
         public Customer newCustomer;
 
+        public CarShowroom.ProjectModel.ProjectModel projectModel;
+
         List<string> userBrands = new List<string>();
         List<string> userModels = new List<string>();
-        public NewUserForm()
+        public NewUserForm(CarShowroom.ProjectModel.ProjectModel project)
         {
             InitializeComponent();
+            projectModel = project;
         }
-
 
         private void AddBrandButton_Click(object sender, EventArgs e)
         {
@@ -58,7 +61,7 @@ namespace CarShowroom
 
         private void CreateButton_Click(object sender, EventArgs e)
         {
-            customerDataBase.DeserializeData("CustomerDataBase.txt");
+            customerDataBase.DeserializeData(projectModel.CustomerPath);
 
             string userMail = UserMailTextBox.Text.Trim();
             string userPassword = UserPasswordTextBox.Text.Trim();
@@ -73,7 +76,7 @@ namespace CarShowroom
             {
                 newCustomer = customerToCheck;
                 customerDataBase.AddCustomer(customerToCheck);
-                customerDataBase.SerializeData("CustomerDataBase.txt");
+                customerDataBase.SerializeData(projectModel.CustomerPath);
 
                 MessageBox.Show("User added successfully!");
 
@@ -85,12 +88,6 @@ namespace CarShowroom
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        private void RetryButton_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Retry;
             this.Close();
         }
     }

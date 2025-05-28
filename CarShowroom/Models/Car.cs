@@ -58,6 +58,11 @@ namespace CarShowroom.Models
         {
             return $"{Brand} {Model} ({ReleaseYear}) from {OriginCountry}\n Features: {Features}\n Price: ${Price:N0}\n";
         }
+        /// <summary> Method to get a display string for the car, suitable for UI elements. </summary>
+        public string DisplayString()
+        {
+            return $"{Brand} {Model} ({ReleaseYear})";
+        }
     }
 
 }

@@ -13,16 +13,16 @@ namespace CarShowroom.ProjectModel
     public class ProjectModel
     {
         ///  <summary> Car database </summary>
-        public CarDataBase CarDatabase { get; private set; }
+        public CarDataBase CarDatabase { get;  set; }
 
         /// <summary> Customer's database</summary>
-        public CustomerDataBase CustomerDatabase { get; private set; }
+        public CustomerDataBase CustomerDatabase { get; set; }
 
         /// <summary> Customer's applications database </summary>
-        public ApplicationDataBase ApplicationDatabase { get; private set; }
+        public ApplicationDataBase ApplicationDatabase { get;  set; }
 
         /// <summary> Current application customer </summary>
-        public Customer? CurrentCustomer {  get; private set; }
+        public Customer? CurrentCustomer {  get; set; }
 
         /// <summary> Method to get status about current customer.</summary>
         public bool IsUserLoggedIn => CurrentCustomer != null;
@@ -37,13 +37,13 @@ namespace CarShowroom.ProjectModel
         /// <summary> List of selected cars </summary>
         public List<Car> selectedCars = new List<Car>();
 
+        /// <summary> List of applications, sent by customer</summary>
+        public List<CarApplication> Cart = new List<CarApplication>();
 
-
-        /// <summary> </summary>
-
-        private string _carPath;
-        private string _customerPath;
-        private string _applicationPath;
+        /// <summary> Paths to the databases </summary>
+        public string CarPath;
+        public string CustomerPath;
+        public string ApplicationPath;
 
         /// <summary> Default constructor for ProjectModel.</summary>
         public ProjectModel(string carPath, string customerPath, string applicationPath)
@@ -52,19 +52,19 @@ namespace CarShowroom.ProjectModel
             CustomerDatabase = new CustomerDataBase();
             ApplicationDatabase = new ApplicationDataBase();
 
-            _carPath = carPath;
-            _customerPath = customerPath;
-            _applicationPath = applicationPath;
+            CarPath = carPath;
+            CustomerPath = customerPath;
+            ApplicationPath = applicationPath;
 
-            DataStorage dataStorage = new DataStorage(_carPath, _customerPath, _applicationPath);
+            DataStorage dataStorage = new DataStorage(CarPath, CustomerPath, ApplicationPath);
         }
 
         /// <summary> Method to load data from storage.</summary>
         public void LoadData()
         {   
-            CarDatabase.DeserializeData(_carPath);
-            CustomerDatabase.DeserializeData(_customerPath);
-            ApplicationDatabase.DeserializeData(_applicationPath);
+            CarDatabase.DeserializeData(CarPath);
+            CustomerDatabase.DeserializeData(CustomerPath);
+            ApplicationDatabase.DeserializeData(ApplicationPath);
         }
 
         /// <summary> Method to save data to storage.</summary>
@@ -114,7 +114,9 @@ namespace CarShowroom.ProjectModel
         public List<Car> AutoFind()
         {
             if (CurrentCustomer == null)
-                return new List<Car>();
+            {
+                throw new InvalidOperationException("You need to log in.");
+            }
 
             List<Car> filteredCars = new List<Car>();
 
@@ -133,18 +135,6 @@ namespace CarShowroom.ProjectModel
             return filteredCars;
         }
 
-        /// <summary> Method to set customer.</summary>
-        public void LogIn(Customer customer)
-        {
-            CurrentCustomer = customer;
-        }
-
-        /// <summary> Method to log out the current customer.</summary>
-        public void LogOut()
-        {
-            CurrentCustomer = null;
-        }
-
         public string SubmitApplication(List<Car> selectedCars)
         {
             if (CurrentCustomer == null)
@@ -157,9 +147,22 @@ namespace CarShowroom.ProjectModel
             }
 
             CarApplication application = ApplicationDatabase.AddApplication(CurrentCustomer.ContactInfo, new List<Car>(selectedCars));
-            ApplicationDatabase.SerializeData(_applicationPath);
+            Cart.Add(application);
+            ApplicationDatabase.SerializeData(ApplicationPath);
 
             return application.DisplayId;
+        }
+
+        public List<CarApplication> GetApplicationsByCustomerEmail(string email)
+        {
+
+            if (string.IsNullOrEmpty(email))
+            {
+                throw new ArgumentException("Email cannot be null or empty.", nameof(email));
+            }
+            return ApplicationDatabase.Applications
+                .Where(app => app.CustomerEmail.Equals(email, StringComparison.OrdinalIgnoreCase))
+                .ToList();
         }
     }
 }

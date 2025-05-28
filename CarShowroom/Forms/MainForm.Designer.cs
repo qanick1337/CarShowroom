@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             Find_button = new Button();
             panel1 = new Panel();
             AutoFindButton = new Button();
@@ -48,17 +48,19 @@
             carBindingSource = new BindingSource(components);
             MainFormMenuStrip = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
-            toolStripSeparator = new ToolStripSeparator();
             toolStripSeparator2 = new ToolStripSeparator();
             exitToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem = new ToolStripMenuItem();
-            redoToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator4 = new ToolStripSeparator();
-            selectAllToolStripMenuItem = new ToolStripMenuItem();
+            findACarToolStripMenuItem = new ToolStripMenuItem();
+            autoFindToolStripMenuItem = new ToolStripMenuItem();
             toolsToolStripMenuItem = new ToolStripMenuItem();
             customizeToolStripMenuItem = new ToolStripMenuItem();
             logInToolStripMenuItemU = new ToolStripMenuItem();
-            optionsToolStripMenuItem = new ToolStripMenuItem();
+            signOutToolStripMenuItemAdd = new ToolStripMenuItem();
+            applicationsToolStripMenuItem = new ToolStripMenuItem();
+            newApplicationToolStripMenuItem = new ToolStripMenuItem();
+            myApplicationsToolStripMenuItem = new ToolStripMenuItem();
             helpToolStripMenuItem = new ToolStripMenuItem();
             contentsToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator5 = new ToolStripSeparator();
@@ -67,7 +69,7 @@
             LogInToolStripMenuItem = new ToolStripMenuItem();
             CreateAccountToolStripMenuItem = new ToolStripMenuItem();
             UserNameToolStripMenuItem = new ToolStripMenuItem();
-            dataGridView1 = new DataGridView();
+            CarsDataGridView = new DataGridView();
             brandDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             modelDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             originCountryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -76,10 +78,16 @@
             priceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             Condition = new DataGridViewTextBoxColumn();
             SubmitApplicationButton = new Button();
+            CartButton = new Button();
+            CartPanel = new Panel();
+            CartTextBox = new TextBox();
+            CloseCartButton = new Button();
+            CartLabel = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)carBindingSource).BeginInit();
             MainFormMenuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CarsDataGridView).BeginInit();
+            CartPanel.SuspendLayout();
             SuspendLayout();
             // 
             // Find_button
@@ -253,7 +261,7 @@
             MainFormMenuStrip.BackColor = SystemColors.ButtonFace;
             MainFormMenuStrip.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             MainFormMenuStrip.ImageScalingSize = new Size(24, 24);
-            MainFormMenuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, toolsToolStripMenuItem, helpToolStripMenuItem, SignOutToolStripMenuItem, LogInToolStripMenuItem, CreateAccountToolStripMenuItem, UserNameToolStripMenuItem });
+            MainFormMenuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, toolsToolStripMenuItem, applicationsToolStripMenuItem, helpToolStripMenuItem, SignOutToolStripMenuItem, LogInToolStripMenuItem, CreateAccountToolStripMenuItem, UserNameToolStripMenuItem });
             MainFormMenuStrip.Location = new Point(0, 0);
             MainFormMenuStrip.Name = "MainFormMenuStrip";
             MainFormMenuStrip.Size = new Size(1412, 31);
@@ -263,15 +271,10 @@
             // fileToolStripMenuItem
             // 
             fileToolStripMenuItem.BackColor = SystemColors.ButtonFace;
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripSeparator, toolStripSeparator2, exitToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripSeparator2, exitToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(49, 27);
             fileToolStripMenuItem.Text = "&File";
-            // 
-            // toolStripSeparator
-            // 
-            toolStripSeparator.Name = "toolStripSeparator";
-            toolStripSeparator.Size = new Size(118, 6);
             // 
             // toolStripSeparator2
             // 
@@ -288,32 +291,33 @@
             // editToolStripMenuItem
             // 
             editToolStripMenuItem.BackColor = SystemColors.ButtonFace;
-            editToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { redoToolStripMenuItem, toolStripSeparator4, selectAllToolStripMenuItem });
+            editToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripSeparator4, findACarToolStripMenuItem, autoFindToolStripMenuItem });
             editToolStripMenuItem.Name = "editToolStripMenuItem";
             editToolStripMenuItem.Size = new Size(57, 27);
             editToolStripMenuItem.Text = "&Cars";
             // 
-            // redoToolStripMenuItem
-            // 
-            redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            redoToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Y;
-            redoToolStripMenuItem.Size = new Size(242, 28);
-            redoToolStripMenuItem.Text = "&➕ &New car";
-            // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(239, 6);
+            toolStripSeparator4.Size = new Size(167, 6);
             // 
-            // selectAllToolStripMenuItem
+            // findACarToolStripMenuItem
             // 
-            selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            selectAllToolStripMenuItem.Size = new Size(242, 28);
-            selectAllToolStripMenuItem.Text = "Select &All";
+            findACarToolStripMenuItem.Name = "findACarToolStripMenuItem";
+            findACarToolStripMenuItem.Size = new Size(170, 28);
+            findACarToolStripMenuItem.Text = "Find a car";
+            findACarToolStripMenuItem.Click += findACarToolStripMenuItem_Click;
+            // 
+            // autoFindToolStripMenuItem
+            // 
+            autoFindToolStripMenuItem.Name = "autoFindToolStripMenuItem";
+            autoFindToolStripMenuItem.Size = new Size(170, 28);
+            autoFindToolStripMenuItem.Text = "Auto find ";
+            autoFindToolStripMenuItem.Click += autoFindToolStripMenuItem_Click;
             // 
             // toolsToolStripMenuItem
             // 
-            toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { customizeToolStripMenuItem, logInToolStripMenuItemU, optionsToolStripMenuItem });
+            toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { customizeToolStripMenuItem, logInToolStripMenuItemU, signOutToolStripMenuItemAdd });
             toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             toolsToolStripMenuItem.Size = new Size(58, 27);
             toolsToolStripMenuItem.Text = "&User";
@@ -321,22 +325,44 @@
             // customizeToolStripMenuItem
             // 
             customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            customizeToolStripMenuItem.Size = new Size(264, 28);
+            customizeToolStripMenuItem.Size = new Size(165, 28);
             customizeToolStripMenuItem.Text = "&New user";
             customizeToolStripMenuItem.Click += customizeToolStripMenuItem_Click;
             // 
             // logInToolStripMenuItemU
             // 
             logInToolStripMenuItemU.Name = "logInToolStripMenuItemU";
-            logInToolStripMenuItemU.Size = new Size(264, 28);
+            logInToolStripMenuItemU.Size = new Size(165, 28);
             logInToolStripMenuItemU.Text = "Log in";
             logInToolStripMenuItemU.Click += logInToolStripMenuItemU_Click;
             // 
-            // optionsToolStripMenuItem
+            // signOutToolStripMenuItemAdd
             // 
-            optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            optionsToolStripMenuItem.Size = new Size(264, 28);
-            optionsToolStripMenuItem.Text = "&Automative car search";
+            signOutToolStripMenuItemAdd.Name = "signOutToolStripMenuItemAdd";
+            signOutToolStripMenuItemAdd.Size = new Size(165, 28);
+            signOutToolStripMenuItemAdd.Text = "Sign Out";
+            signOutToolStripMenuItemAdd.Click += signOutToolStripMenuItemAdd_Click;
+            // 
+            // applicationsToolStripMenuItem
+            // 
+            applicationsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newApplicationToolStripMenuItem, myApplicationsToolStripMenuItem });
+            applicationsToolStripMenuItem.Name = "applicationsToolStripMenuItem";
+            applicationsToolStripMenuItem.Size = new Size(117, 27);
+            applicationsToolStripMenuItem.Text = "&Applications";
+            // 
+            // newApplicationToolStripMenuItem
+            // 
+            newApplicationToolStripMenuItem.Name = "newApplicationToolStripMenuItem";
+            newApplicationToolStripMenuItem.Size = new Size(224, 28);
+            newApplicationToolStripMenuItem.Text = "New application";
+            newApplicationToolStripMenuItem.Click += newApplicationToolStripMenuItem_Click;
+            // 
+            // myApplicationsToolStripMenuItem
+            // 
+            myApplicationsToolStripMenuItem.Name = "myApplicationsToolStripMenuItem";
+            myApplicationsToolStripMenuItem.Size = new Size(224, 28);
+            myApplicationsToolStripMenuItem.Text = "My applications";
+            myApplicationsToolStripMenuItem.Click += myApplicationsToolStripMenuItem_Click;
             // 
             // helpToolStripMenuItem
             // 
@@ -405,53 +431,54 @@
             UserNameToolStripMenuItem.Size = new Size(117, 27);
             UserNameToolStripMenuItem.Text = "User's name";
             // 
-            // dataGridView1
+            // CarsDataGridView
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(0, 123, 255);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(0, 166, 255);
-            dataGridViewCellStyle7.SelectionForeColor = Color.White;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { brandDataGridViewTextBoxColumn, modelDataGridViewTextBoxColumn, originCountryDataGridViewTextBoxColumn, releaseYearDataGridViewTextBoxColumn, featuresDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, Condition });
-            dataGridView1.DataSource = carBindingSource;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.White;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(208, 226, 255);
-            dataGridViewCellStyle8.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(18, 277);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = SystemColors.Control;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(192, 255, 255);
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.ScrollBars = ScrollBars.Vertical;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1372, 533);
-            dataGridView1.TabIndex = 6;
-            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
+            CarsDataGridView.AllowUserToAddRows = false;
+            CarsDataGridView.AllowUserToDeleteRows = false;
+            CarsDataGridView.AllowUserToResizeRows = false;
+            CarsDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            CarsDataGridView.AutoGenerateColumns = false;
+            CarsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            CarsDataGridView.BackgroundColor = Color.White;
+            CarsDataGridView.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 123, 255);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 166, 255);
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            CarsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            CarsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            CarsDataGridView.Columns.AddRange(new DataGridViewColumn[] { brandDataGridViewTextBoxColumn, modelDataGridViewTextBoxColumn, originCountryDataGridViewTextBoxColumn, releaseYearDataGridViewTextBoxColumn, featuresDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, Condition });
+            CarsDataGridView.DataSource = carBindingSource;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(208, 226, 255);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            CarsDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            CarsDataGridView.EnableHeadersVisualStyles = false;
+            CarsDataGridView.Location = new Point(18, 277);
+            CarsDataGridView.Name = "CarsDataGridView";
+            CarsDataGridView.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(192, 255, 255);
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            CarsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            CarsDataGridView.RowHeadersWidth = 62;
+            CarsDataGridView.ScrollBars = ScrollBars.Vertical;
+            CarsDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            CarsDataGridView.Size = new Size(1372, 533);
+            CarsDataGridView.TabIndex = 6;
+            CarsDataGridView.DataError += CarsDataGridView_DataError;
+            CarsDataGridView.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // brandDataGridViewTextBoxColumn
             // 
@@ -531,26 +558,89 @@
             SubmitApplicationButton.UseVisualStyleBackColor = false;
             SubmitApplicationButton.Click += SubmitApplicationButton_Click;
             // 
+            // CartButton
+            // 
+            CartButton.Anchor = AnchorStyles.Bottom;
+            CartButton.BackColor = Color.FromArgb(0, 123, 255);
+            CartButton.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            CartButton.ForeColor = Color.White;
+            CartButton.Location = new Point(1105, 823);
+            CartButton.Name = "CartButton";
+            CartButton.Size = new Size(201, 50);
+            CartButton.TabIndex = 20;
+            CartButton.Text = "\U0001f6d2 Your Applications";
+            CartButton.UseVisualStyleBackColor = false;
+            CartButton.Click += CartButton_Click;
+            // 
+            // CartPanel
+            // 
+            CartPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            CartPanel.BackColor = Color.White;
+            CartPanel.BorderStyle = BorderStyle.FixedSingle;
+            CartPanel.Controls.Add(CartTextBox);
+            CartPanel.Controls.Add(CloseCartButton);
+            CartPanel.Controls.Add(CartLabel);
+            CartPanel.Location = new Point(799, 260);
+            CartPanel.Name = "CartPanel";
+            CartPanel.Size = new Size(592, 548);
+            CartPanel.TabIndex = 21;
+            // 
+            // CartTextBox
+            // 
+            CartTextBox.Location = new Point(3, 98);
+            CartTextBox.Multiline = true;
+            CartTextBox.Name = "CartTextBox";
+            CartTextBox.ScrollBars = ScrollBars.Vertical;
+            CartTextBox.Size = new Size(582, 422);
+            CartTextBox.TabIndex = 21;
+            // 
+            // CloseCartButton
+            // 
+            CloseCartButton.BackColor = Color.FromArgb(224, 224, 224);
+            CloseCartButton.Location = new Point(543, 3);
+            CloseCartButton.Name = "CloseCartButton";
+            CloseCartButton.Size = new Size(42, 41);
+            CloseCartButton.TabIndex = 20;
+            CloseCartButton.Text = "❌";
+            CloseCartButton.UseVisualStyleBackColor = false;
+            CloseCartButton.Click += CloseCartButton_Click;
+            // 
+            // CartLabel
+            // 
+            CartLabel.Anchor = AnchorStyles.Top;
+            CartLabel.AutoSize = true;
+            CartLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            CartLabel.ForeColor = Color.FromArgb(0, 123, 255);
+            CartLabel.Location = new Point(170, 18);
+            CartLabel.Name = "CartLabel";
+            CartLabel.Size = new Size(261, 41);
+            CartLabel.TabIndex = 18;
+            CartLabel.Text = "Your applications";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(249, 250, 251);
             ClientSize = new Size(1412, 953);
+            Controls.Add(CartPanel);
+            Controls.Add(CartButton);
             Controls.Add(SubmitApplicationButton);
-            Controls.Add(dataGridView1);
+            Controls.Add(CarsDataGridView);
             Controls.Add(panel1);
             Controls.Add(MainFormMenuStrip);
             MainMenuStrip = MainFormMenuStrip;
             MinimumSize = new Size(1430, 1000);
             Name = "MainForm";
-            Text = "Auto_ShowRoom";
+            Text = "Auto Matcher";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)carBindingSource).EndInit();
             MainFormMenuStrip.ResumeLayout(false);
             MainFormMenuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CarsDataGridView).EndInit();
+            CartPanel.ResumeLayout(false);
+            CartPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -564,22 +654,18 @@
         private TextBox yearTextBox;
         private MenuStrip MainFormMenuStrip;
         private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem exitToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem;
-        private ToolStripMenuItem redoToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator4;
-        private ToolStripMenuItem selectAllToolStripMenuItem;
         private ToolStripMenuItem toolsToolStripMenuItem;
         private ToolStripMenuItem customizeToolStripMenuItem;
-        private ToolStripMenuItem optionsToolStripMenuItem;
         private ToolStripMenuItem helpToolStripMenuItem;
         private ToolStripMenuItem contentsToolStripMenuItem;
         private ToolStripMenuItem aboutToolStripMenuItem;
         private TextBox maxPriceTextBox;
         private BindingSource carBindingSource;
-        private DataGridView dataGridView1;
+        private DataGridView CarsDataGridView;
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripMenuItem CreateAccountToolStripMenuItem;
         private TextBox modelTextBox;
@@ -603,5 +689,16 @@
         private DataGridViewTextBoxColumn featuresDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Condition;
+        private Button CartButton;
+        private Panel CartPanel;
+        private Label CartLabel;
+        private Button CloseCartButton;
+        private TextBox CartTextBox;
+        private ToolStripMenuItem findACarToolStripMenuItem;
+        private ToolStripMenuItem autoFindToolStripMenuItem;
+        private ToolStripMenuItem applicationsToolStripMenuItem;
+        private ToolStripMenuItem newApplicationToolStripMenuItem;
+        private ToolStripMenuItem myApplicationsToolStripMenuItem;
+        private ToolStripMenuItem signOutToolStripMenuItemAdd;
     }
 }

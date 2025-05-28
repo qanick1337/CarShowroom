@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace CarShowroom.Models
 {
@@ -13,40 +14,44 @@ namespace CarShowroom.Models
     public class CarDataBase
     {
         /// <summary> List of cars in the database.</summary>
-        public List<Car> Cars { get; set; }
+        private List<Car> _cars;
+
+        /// <summary> Read-only property to access the list of cars.</summary>
+        public IReadOnlyList<Car> Cars => _cars.AsReadOnly();
+
 
         /// <summary> Constructor to initialize the car database.</summary>
         public CarDataBase()
         {
-            Cars = new List<Car>();
+            _cars = new List<Car>();
         }
         /// <summary> Method to generate test data for the car database.</summary>
         public void GenerateTestData()
         {
-           for (int i = 0; i < 10; i++)
+           for (int i = 0; i < 50; i++)
             {   
                 if(i % 2 == 0)
-                    Cars.Add(new Car($"Brand{i}", $"Model{i}", "USA", 2000 + i, new Features("V6", 300 + i * 10, "Petrol"), 10000 + i * 1000, Car.CarCondition.New));
+                    _cars.Add(new Car($"Brand{i}", $"Model{i}", "USA", 2000 + i, new Features("V6", 300 + i * 10, "Petrol"), 10000 + i * 1000, Car.CarCondition.New));
                 else
-                    Cars.Add(new Car($"Brand{i}", $"Model{i}", "USA", 2000 + i, new Features("V12", 300 + i * 10, "Petrol"), 10000 + i * 1000, Car.CarCondition.Used));
+                    _cars.Add(new Car($"Brand{i}", $"Model{i}", "USA", 2000 + i, new Features("V12", 300 + i * 10, "Petrol"), 10000 + i * 1000, Car.CarCondition.Used));
             }
         }
 
         /// <summary> Method of adding new car in database. </summary>
         public void AddCar(Car car)
         {
-            Cars.Add(car);
+            _cars.Add(car);
         }
         /// <summary> Method of removing car from database. </summary>
         public void RemoveCar(Car car)
         {
-            Cars.Remove(car);
+            _cars.Remove(car);
         }
 
         /// <summary> Method of generating test data for the car database.</summary>
         public void SerializeData(string path)
         {
-            string jsonCars = JsonSerializer.Serialize(Cars);
+            string jsonCars = JsonSerializer.Serialize(_cars);
             File.WriteAllText(path, jsonCars);
         }
         /// <summary> Method of reading data from storage and initialization of the car database.</summary>
@@ -59,7 +64,7 @@ namespace CarShowroom.Models
                     string json = File.ReadAllText(path);
                     var cars = JsonSerializer.Deserialize<List<Car>>(json);
 
-                    Cars = cars;
+                    _cars = cars ?? new List<Car>();
                 }
                 else
                 {
@@ -75,7 +80,7 @@ namespace CarShowroom.Models
         /// <summary> Filtreation of the car database based on the provided criteria. </summary>
         public List<Car> FilterDataBase(string brand, string model, int year, string condition, int minPrice, int maxPrice)
         {
-            var filteredCars = Cars.Where(car =>
+            var filteredCars = _cars.Where(car =>
                 (string.IsNullOrEmpty(brand) || car.Brand.Equals(brand, StringComparison.OrdinalIgnoreCase)) &&
                 (string.IsNullOrEmpty(model) || car.Model.Equals(model, StringComparison.OrdinalIgnoreCase)) &&
                 (year == 0 || car.ReleaseYear == year) &&

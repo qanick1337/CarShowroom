@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            RetryButton = new Button();
-            RetryLabel = new Label();
             LoginCancelButton = new Button();
             PasswordlLabel = new Label();
             MailLabel = new Label();
@@ -45,8 +43,6 @@
             // 
             panel1.Anchor = AnchorStyles.Top;
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(RetryButton);
-            panel1.Controls.Add(RetryLabel);
             panel1.Controls.Add(LoginCancelButton);
             panel1.Controls.Add(PasswordlLabel);
             panel1.Controls.Add(MailLabel);
@@ -58,34 +54,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(746, 514);
             panel1.TabIndex = 7;
-            // 
-            // RetryButton
-            // 
-            RetryButton.BackColor = Color.FromArgb(249, 250, 251);
-            RetryButton.DialogResult = DialogResult.Retry;
-            RetryButton.FlatStyle = FlatStyle.Popup;
-            RetryButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            RetryButton.ForeColor = Color.FromArgb(0, 123, 255);
-            RetryButton.Location = new Point(413, 408);
-            RetryButton.Margin = new Padding(0);
-            RetryButton.Name = "RetryButton";
-            RetryButton.Size = new Size(205, 45);
-            RetryButton.TabIndex = 5;
-            RetryButton.Text = "Create account";
-            RetryButton.UseVisualStyleBackColor = false;
-            RetryButton.Click += RetryButton_Click;
-            // 
-            // RetryLabel
-            // 
-            RetryLabel.Anchor = AnchorStyles.Top;
-            RetryLabel.AutoSize = true;
-            RetryLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            RetryLabel.ForeColor = Color.Black;
-            RetryLabel.Location = new Point(130, 414);
-            RetryLabel.Name = "RetryLabel";
-            RetryLabel.Size = new Size(280, 32);
-            RetryLabel.TabIndex = 25;
-            RetryLabel.Text = "Don't have an account?";
             // 
             // LoginCancelButton
             // 
@@ -106,7 +74,7 @@
             PasswordlLabel.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 204);
             PasswordlLabel.Location = new Point(234, 194);
             PasswordlLabel.Name = "PasswordlLabel";
-            PasswordlLabel.Size = new Size(207, 38);
+            PasswordlLabel.Size = new Size(183, 32);
             PasswordlLabel.TabIndex = 17;
             PasswordlLabel.Text = "Your password";
             // 
@@ -116,7 +84,7 @@
             MailLabel.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 204);
             MailLabel.Location = new Point(234, 103);
             MailLabel.Name = "MailLabel";
-            MailLabel.Size = new Size(167, 38);
+            MailLabel.Size = new Size(146, 32);
             MailLabel.TabIndex = 16;
             MailLabel.Text = "Your e-mail";
             // 
@@ -126,7 +94,7 @@
             UserPasswordTextBox.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
             UserPasswordTextBox.Location = new Point(234, 235);
             UserPasswordTextBox.Name = "UserPasswordTextBox";
-            UserPasswordTextBox.Size = new Size(278, 45);
+            UserPasswordTextBox.Size = new Size(278, 39);
             UserPasswordTextBox.TabIndex = 2;
             // 
             // WelcomeBackLabel
@@ -137,7 +105,7 @@
             WelcomeBackLabel.ForeColor = Color.FromArgb(0, 123, 255);
             WelcomeBackLabel.Location = new Point(71, 17);
             WelcomeBackLabel.Name = "WelcomeBackLabel";
-            WelcomeBackLabel.Size = new Size(654, 51);
+            WelcomeBackLabel.Size = new Size(551, 45);
             WelcomeBackLabel.TabIndex = 2;
             WelcomeBackLabel.Text = "Welcome back to the Auto Matcher";
             // 
@@ -147,7 +115,7 @@
             UserMailTextBox.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
             UserMailTextBox.Location = new Point(234, 144);
             UserMailTextBox.Name = "UserMailTextBox";
-            UserMailTextBox.Size = new Size(278, 45);
+            UserMailTextBox.Size = new Size(278, 39);
             UserMailTextBox.TabIndex = 1;
             // 
             // LoginButton
@@ -200,7 +168,5 @@
         private Button LoginButton;
         private Label PasswordlLabel;
         private Button LoginCancelButton;
-        private Label RetryLabel;
-        private Button RetryButton;
     }
 }

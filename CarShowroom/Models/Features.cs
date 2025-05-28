@@ -29,7 +29,7 @@ namespace CarShowroom.Models
         /// <summary> Override ToString method to provide a string representation of the features</summary>
         public override string ToString()
         {
-            return $"Engine - {Engine}, Horsepowers - {HorsePowers}, FuelType - {FuelType}";
+            return $"{Engine},{HorsePowers} HP,{FuelType}";
         }
     }
 }

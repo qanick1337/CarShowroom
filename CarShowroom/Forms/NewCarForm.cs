@@ -28,7 +28,6 @@ namespace CarShowroom
             int.TryParse(priceTextBox.Text.Trim(), out int priceInt);
             string condition = ConditionComboBox.SelectedItem as string ?? string.Empty;
 
-            // Convert string condition to Car.CarCondition enum
             Car.CarCondition carCondition = condition == "New" ? Car.CarCondition.New : Car.CarCondition.Used;
 
 

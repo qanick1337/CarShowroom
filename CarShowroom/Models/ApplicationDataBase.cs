@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.IO;
+
 
 namespace CarShowroom.Models
 {
@@ -12,12 +14,15 @@ namespace CarShowroom.Models
     /// </summary>
     public class ApplicationDataBase
     {
-        private List<CarApplication> _applications = new List<CarApplication>();
+        private List<CarApplication> _applications;
 
         /// <summary> Read-only property to access the list of applications. </summary>
-        public List<CarApplication> Applications
+        public IReadOnlyList<CarApplication> Applications => _applications.AsReadOnly();
+
+        /// <summary> Default constructor for ApplicationDataBase. Initializes the applications list. </summary>
+        public ApplicationDataBase()
         {
-            get { return _applications; }
+            _applications = new List<CarApplication>();
         }
 
         /// <summary> Method to add a new application. </summary>
@@ -27,6 +32,18 @@ namespace CarShowroom.Models
             CarApplication newApplication = new CarApplication(id, email, cars);
             _applications.Add(newApplication);
             return newApplication;
+        }
+
+        /// <summary> Method to remove an application by its ID. </summary>
+        public bool RemoveApplication(Guid id)
+        {
+            var application = _applications.FirstOrDefault(app => app.Id == id);
+            if (application != null)
+            {
+                _applications.Remove(application);
+                return true;
+            }
+            return false;
         }
 
         /// <summary> Method to save the applications list to a file in JSON format. </summary>
@@ -46,7 +63,7 @@ namespace CarShowroom.Models
                     string json = File.ReadAllText(path);
                     var applications = JsonSerializer.Deserialize<List<CarApplication>>(json);
 
-                    _applications = applications;
+                    _applications = applications ?? new List<CarApplication>();
                 }
                 else
                 {
@@ -56,8 +73,7 @@ namespace CarShowroom.Models
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error with reading file:" + ex.Message);
-                _applications = new List<CarApplication>();
+                throw new InvalidOperationException("Error with reading : " + ex.Message, ex);
             }
         }
 

@@ -19,7 +19,6 @@ namespace CarShowroom.Models
         /// <summary> Read-only property to access the list of cars.</summary>
         public IReadOnlyList<Car> Cars => _cars.AsReadOnly();
 
-
         /// <summary> Constructor to initialize the car database.</summary>
         public CarDataBase()
         {

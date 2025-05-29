@@ -32,7 +32,6 @@ namespace CarShowroom
         public void LoadStorageInfo()
         {
             Project.LoadData();
-            //carBindingSource.DataSource = Project.CarDatabase.Cars;
             CarsDataGridView.ClearSelection();
         }
         public void LoadBrands()

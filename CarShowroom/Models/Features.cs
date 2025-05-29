@@ -18,7 +18,7 @@ namespace CarShowroom.Models
         /// <summary> Fuel type of the car</summary>
         public string FuelType { get;set; }
 
-        /// <summary> Default constructor</summary>
+        /// <summary> Default constructor of Features class</summary>
         public Features (string engine, int horsePowers, string fuelType)
         {
             Engine = engine;

@@ -8,7 +8,7 @@ using CarShowroom.Models;
 namespace CarShowroom.ProjectModel
 {
     /// <summary> 
-    /// Class that represent a project
+    /// Class that represent a project.
     /// </summary>
     public class ProjectModel
     {
@@ -29,7 +29,6 @@ namespace CarShowroom.ProjectModel
 
         ///<summary> List of brands </summary>
         public List<string> brands;
-
 
         /// <summary> List of filtered cars that will be displayed </summary>
         public List<Car> filteredCars = new List<Car>();
@@ -75,7 +74,7 @@ namespace CarShowroom.ProjectModel
             ApplicationDatabase.SerializeData(applicationPath);
         }
 
-        /// <summary> Method to get brands.</summary>
+        /// <summary> Method to get sorted brands list.</summary>
         public List<string> GetBrands()
         {
             if (CarDatabase.Cars.Count == 0)
@@ -103,7 +102,7 @@ namespace CarShowroom.ProjectModel
             return models;
         }
 
-        /// <summary> Method to filter the cars.</summary>
+        /// <summary> Method of filtration cars list with several parameters.</summary>
         public List<Car> FilterCars(string brand, string model, int year, string condition, int minPrice, int maxPrice)
         {
             filteredCars = CarDatabase.FilterDataBase(brand, model, year, condition, minPrice, maxPrice);
@@ -135,6 +134,7 @@ namespace CarShowroom.ProjectModel
             return filteredCars;
         }
 
+        /// <summary> Method to submit an application for selected cars. </summary>
         public string SubmitApplication(List<Car> selectedCars)
         {
             if (CurrentCustomer == null)
@@ -153,6 +153,7 @@ namespace CarShowroom.ProjectModel
             return application.DisplayId;
         }
 
+        /// <summary> Method to get applications by customer's email.</summary>
         public List<CarApplication> GetApplicationsByCustomerEmail(string email)
         {
 

@@ -42,6 +42,7 @@
             label1 = new Label();
             AddCarButton = new Button();
             priceTextBox = new TextBox();
+            SaveCarDetails = new Button();
             SuspendLayout();
             // 
             // BrandTextBox
@@ -51,7 +52,7 @@
             BrandTextBox.Location = new Point(51, 135);
             BrandTextBox.Name = "BrandTextBox";
             BrandTextBox.PlaceholderText = "Brand";
-            BrandTextBox.Size = new Size(278, 34);
+            BrandTextBox.Size = new Size(278, 30);
             BrandTextBox.TabIndex = 1;
             // 
             // NewCarLabel
@@ -62,7 +63,7 @@
             NewCarLabel.ForeColor = Color.FromArgb(0, 123, 255);
             NewCarLabel.Location = new Point(318, 9);
             NewCarLabel.Name = "NewCarLabel";
-            NewCarLabel.Size = new Size(166, 51);
+            NewCarLabel.Size = new Size(142, 45);
             NewCarLabel.TabIndex = 3;
             NewCarLabel.Text = "New car";
             // 
@@ -73,7 +74,7 @@
             ModelTextBox.Location = new Point(51, 175);
             ModelTextBox.Name = "ModelTextBox";
             ModelTextBox.PlaceholderText = "Model";
-            ModelTextBox.Size = new Size(278, 34);
+            ModelTextBox.Size = new Size(278, 30);
             ModelTextBox.TabIndex = 2;
             // 
             // OriginCountryTextBox
@@ -83,7 +84,7 @@
             OriginCountryTextBox.Location = new Point(51, 215);
             OriginCountryTextBox.Name = "OriginCountryTextBox";
             OriginCountryTextBox.PlaceholderText = "Country";
-            OriginCountryTextBox.Size = new Size(278, 34);
+            OriginCountryTextBox.Size = new Size(278, 30);
             OriginCountryTextBox.TabIndex = 3;
             // 
             // CarInfoLabel
@@ -92,7 +93,7 @@
             CarInfoLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             CarInfoLabel.Location = new Point(51, 100);
             CarInfoLabel.Name = "CarInfoLabel";
-            CarInfoLabel.Size = new Size(225, 32);
+            CarInfoLabel.Size = new Size(190, 28);
             CarInfoLabel.TabIndex = 17;
             CarInfoLabel.Text = "📋Car information";
             // 
@@ -103,7 +104,7 @@
             yearTextBox.Location = new Point(51, 255);
             yearTextBox.Name = "yearTextBox";
             yearTextBox.PlaceholderText = "Year";
-            yearTextBox.Size = new Size(278, 34);
+            yearTextBox.Size = new Size(278, 30);
             yearTextBox.TabIndex = 4;
             // 
             // carCharacteristicslabel
@@ -112,7 +113,7 @@
             carCharacteristicslabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             carCharacteristicslabel.Location = new Point(477, 100);
             carCharacteristicslabel.Name = "carCharacteristicslabel";
-            carCharacteristicslabel.Size = new Size(256, 32);
+            carCharacteristicslabel.Size = new Size(214, 28);
             carCharacteristicslabel.TabIndex = 19;
             carCharacteristicslabel.Text = "⚙️Car characteristics";
             // 
@@ -123,7 +124,7 @@
             engineTextBox.Location = new Point(477, 135);
             engineTextBox.Name = "engineTextBox";
             engineTextBox.PlaceholderText = "Engine";
-            engineTextBox.Size = new Size(278, 34);
+            engineTextBox.Size = new Size(278, 30);
             engineTextBox.TabIndex = 6;
             // 
             // horsePowerTextBox
@@ -133,7 +134,7 @@
             horsePowerTextBox.Location = new Point(477, 175);
             horsePowerTextBox.Name = "horsePowerTextBox";
             horsePowerTextBox.PlaceholderText = "Horse powers ";
-            horsePowerTextBox.Size = new Size(278, 34);
+            horsePowerTextBox.Size = new Size(278, 30);
             horsePowerTextBox.TabIndex = 7;
             // 
             // fuelTextBox
@@ -143,7 +144,7 @@
             fuelTextBox.Location = new Point(477, 215);
             fuelTextBox.Name = "fuelTextBox";
             fuelTextBox.PlaceholderText = "Fuel type";
-            fuelTextBox.Size = new Size(278, 34);
+            fuelTextBox.Size = new Size(278, 30);
             fuelTextBox.TabIndex = 8;
             // 
             // ConditionComboBox
@@ -154,7 +155,7 @@
             ConditionComboBox.Items.AddRange(new object[] { "New", "Used" });
             ConditionComboBox.Location = new Point(610, 253);
             ConditionComboBox.Name = "ConditionComboBox";
-            ConditionComboBox.Size = new Size(145, 36);
+            ConditionComboBox.Size = new Size(145, 31);
             ConditionComboBox.TabIndex = 9;
             // 
             // label1
@@ -163,7 +164,7 @@
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
             label1.Location = new Point(477, 255);
             label1.Name = "label1";
-            label1.Size = new Size(127, 32);
+            label1.Size = new Size(104, 28);
             label1.TabIndex = 24;
             label1.Text = "Condition";
             // 
@@ -188,14 +189,30 @@
             priceTextBox.Location = new Point(51, 295);
             priceTextBox.Name = "priceTextBox";
             priceTextBox.PlaceholderText = "Price";
-            priceTextBox.Size = new Size(278, 34);
+            priceTextBox.Size = new Size(278, 30);
             priceTextBox.TabIndex = 5;
+            // 
+            // SaveCarDetails
+            // 
+            SaveCarDetails.BackColor = Color.FromArgb(0, 123, 255);
+            SaveCarDetails.DialogResult = DialogResult.Yes;
+            SaveCarDetails.FlatStyle = FlatStyle.Popup;
+            SaveCarDetails.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            SaveCarDetails.ForeColor = Color.White;
+            SaveCarDetails.Location = new Point(350, 360);
+            SaveCarDetails.Name = "SaveCarDetails";
+            SaveCarDetails.Size = new Size(113, 44);
+            SaveCarDetails.TabIndex = 26;
+            SaveCarDetails.Text = " 💾 Save";
+            SaveCarDetails.UseVisualStyleBackColor = false;
+            SaveCarDetails.Click += SaveCarDetails_Click;
             // 
             // NewCarForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(788, 450);
+            ClientSize = new Size(792, 459);
+            Controls.Add(SaveCarDetails);
             Controls.Add(priceTextBox);
             Controls.Add(AddCarButton);
             Controls.Add(label1);
@@ -233,5 +250,6 @@
         private Label label1;
         private Button AddCarButton;
         private TextBox priceTextBox;
+        private Button SaveCarDetails;
     }
 }

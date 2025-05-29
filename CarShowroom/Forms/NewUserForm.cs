@@ -66,23 +66,38 @@ namespace CarShowroom
             string userMail = UserMailTextBox.Text.Trim();
             string userPassword = UserPasswordTextBox.Text.Trim();
 
-            double.TryParse(minPriceTextBox.Text.Trim(), out double userMinimumBudgetInt);
-            double.TryParse(maxPriceTextBox.Text.Trim(), out double userMaximumBudgetInt);
+            string minBudgetStr = minPriceTextBox.Text.Trim();
+            string maxBudgetStr = maxPriceTextBox.Text.Trim();
 
-            Customer customerToCheck = new Customer(userMail, userPassword, userBrands, userModels, userMinimumBudgetInt, userMaximumBudgetInt);
-            customerToCheck.CustomerValidator();
-
-            if (customerToCheck.CustomerValidator())
+            if (!double.TryParse(minBudgetStr, out double userMinimumBudgetDouble) || !double.TryParse(maxBudgetStr, out double userMaximumBudgetDouble))
             {
-                newCustomer = customerToCheck;
-                customerDataBase.AddCustomer(customerToCheck);
-                customerDataBase.SerializeData(projectModel.CustomerPath);
-
-                MessageBox.Show("User added successfully!");
-
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                MessageBox.Show("Minimum and maximum budget must be valid numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            Customer customerToCheck = new Customer(userMail, userPassword, userBrands, userModels, userMinimumBudgetDouble, userMaximumBudgetDouble);
+
+            try
+            {
+                if (customerToCheck.CustomerValidator())
+                {
+                    newCustomer = customerToCheck;
+                    customerDataBase.AddCustomer(customerToCheck);
+                    customerDataBase.SerializeData(projectModel.CustomerPath);
+
+                    MessageBox.Show("User added successfully!");
+
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

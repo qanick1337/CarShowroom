@@ -32,9 +32,13 @@ namespace CarShowroom.Models
             get
             {
                 if (Cars != null)
+                {
                     return string.Join(", ", Cars.Select(car => car.DisplayString()));
+                }
                 else
+                {
                     return string.Empty;
+                }
             }
         }
 

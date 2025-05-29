@@ -90,23 +90,23 @@ namespace CarShowroom.Models
         {
             if (string.IsNullOrEmpty(ContactInfo) || string.IsNullOrEmpty(Password))
             {
-                MessageBox.Show("Contact info and password cannot be empty.");
-                return false;
+                throw new ArgumentNullException("Contact info and password cannot be empty.");
             }
             if (!IsValidEmail(ContactInfo))
             {
-                MessageBox.Show("Invalid email format.");
-                return false;
+                throw new ArgumentException("Invalid email format.");
+            }
+            if (Password.Length < 8)
+            {
+                throw new ArgumentException("Password must be at least 8 characters long.");
             }
             if (MinBudget < 0 || MaxBudget < 0)
             {
-                MessageBox.Show("Budget cannot be negative.");
-                return false;
+                throw new ArgumentOutOfRangeException("Budget values cannot be negative.");
             }
             if (MinBudget > MaxBudget)
             {
-                MessageBox.Show("Minimum budget cannot be greater than maximum budget.");
-                return false;
+                throw new ArgumentOutOfRangeException("Minimum budget cannot be greater than maximum budget.");
             }
             return true;
         }
@@ -115,13 +115,11 @@ namespace CarShowroom.Models
         {
             if (string.IsNullOrEmpty(ContactInfo) || string.IsNullOrEmpty(Password))
             {
-                MessageBox.Show("Contact info and password cannot be empty.");
-                return false;
+                throw new ArgumentException("Contact info and password cannot be empty.");
             }
             if (!IsValidEmail(ContactInfo))
             {
-                MessageBox.Show("Invalid email format.");
-                return false;
+                throw new ArgumentException("Invalid email format.");
             }
             return true;
         }

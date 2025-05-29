@@ -12,6 +12,7 @@ using CarShowroom.ProjectModel;
 
 namespace CarShowroom
 {
+
     public partial class AdminPanelForm : Form
     {
         public CarDataBase carDatabase = new();
@@ -45,7 +46,6 @@ namespace CarShowroom
         private void InitializeUI()
         {
             adminTabControl.SelectedIndex = 0;
-            MenuToogler(0);
         }
         private void RefreshAndSave(BindingSource source, object dataSource)
         {
@@ -54,42 +54,9 @@ namespace CarShowroom
             projectModel.SaveData(projectModel.CarPath, projectModel.CustomerPath, projectModel.ApplicationPath);
         }
 
-        private void MenuToogler(int index)
-        {
-            if (index == 0)
-            {
-                deleteCarToolStripMenuItem.Visible = true;
-                deleteCustomerToolStripMenuItem.Visible = false;
-                deleteApplicationToolStripMenuItem.Visible = false;
-            }
-            else if (index == 1)
-            {
-                deleteCarToolStripMenuItem.Visible = false;
-                deleteCustomerToolStripMenuItem.Visible = true;
-                deleteApplicationToolStripMenuItem.Visible = false;
-            }
-            else if (index == 2)
-            {
-                deleteCarToolStripMenuItem.Visible = false;
-                deleteCustomerToolStripMenuItem.Visible = false;
-                deleteApplicationToolStripMenuItem.Visible = true;
-            }
-        }
         private void AdminPanelForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             projectModel.SaveData(projectModel.CarPath, projectModel.CustomerPath, projectModel.ApplicationPath);
-        }
-
-        private void carToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using NewCarForm newCarForm = new();
-            var result = newCarForm.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                carDatabase.AddCar(newCarForm.carToAdd);
-                RefreshAndSave(carBindingSource, carDatabase.Cars);
-            }
         }
 
         private void closeAdminPanelToolStripMenuItem_Click(object sender, EventArgs e)
@@ -97,7 +64,7 @@ namespace CarShowroom
             this.Close();
         }
 
-        private void deleteCarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DeleteCarButton_Click(object sender, EventArgs e)
         {
             if (carBindingSource.Current is Car selectedCar)
             {
@@ -110,7 +77,35 @@ namespace CarShowroom
             }
         }
 
-        private void deleteCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddCarButton_Click(object sender, EventArgs e)
+        {
+            using NewCarForm newCarForm = new();
+            var result = newCarForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                carDatabase.AddCar(newCarForm.carToAdd);
+                RefreshAndSave(carBindingSource, carDatabase.Cars);
+            }
+        }
+
+        private void EditCarButton_Click(object sender, EventArgs e)
+        {
+            if (carBindingSource.Current is Car selectedCar)
+            {
+                using NewCarForm newCarForm = new(selectedCar);
+                var result = newCarForm.ShowDialog();
+
+                if (result == DialogResult.Yes)
+                {
+                    carDatabase.RemoveCar(selectedCar);
+                    carDatabase.AddCar(newCarForm.carToAdd);
+                    RefreshAndSave(carBindingSource, carDatabase.Cars);
+                }
+            }
+        }
+
+        private void DeleteCustomerButton_Click(object sender, EventArgs e)
         {
             if (customerBindingSource.Current is Customer selectedCustomer)
             {
@@ -123,7 +118,7 @@ namespace CarShowroom
             }
         }
 
-        private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void deleteApplicationButton_Click(object sender, EventArgs e)
         {
             if (carApplicationBindingSource.Current is CarApplication selectedApplication)
             {
@@ -133,24 +128,8 @@ namespace CarShowroom
                     if (applicationsDataBase.RemoveApplication(selectedApplication.Id))
                     {
                         RefreshAndSave(carApplicationBindingSource, applicationsDataBase.Applications);
-                    }                  
+                    }
                 }
-            }
-        }
-
-        private void adminTabControl_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (adminTabControl.SelectedIndex == 0)
-            {
-                MenuToogler(0);
-            }
-            else if (adminTabControl.SelectedIndex == 1)
-            {
-                MenuToogler(1);
-            }
-            else if (adminTabControl.SelectedIndex == 2)
-            {
-                MenuToogler(2);
             }
         }
     }

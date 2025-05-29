@@ -13,8 +13,6 @@ namespace CarShowroom
         private CustomerDataBase _customerDatabase = new CustomerDataBase();
         private ApplicationDataBase _applicationDatabase = new ApplicationDataBase();
 
-
-
         /// <summary> Car database </summary>
         public DataStorage(string carPath, string customerPath, string applicationPath)
         {

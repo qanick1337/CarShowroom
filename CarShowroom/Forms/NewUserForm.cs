@@ -12,9 +12,15 @@ using CarShowroom.ProjectModel;
 
 namespace CarShowroom
 {
+    /// <summary>
+    /// Form that allows customers to create account.
+    /// </summary>
     public partial class NewUserForm : Form
     {
-        public CustomerDataBase customerDataBase = new ();
+        /// <summary> Database for customers </summary>
+        public CustomerDataBase customerDataBase = new();
+
+        /// <summary> New customer that will be created </summary>
         public Customer newCustomer;
 
         public CarShowroom.ProjectModel.ProjectModel projectModel;

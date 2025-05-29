@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace CarShowroom
 {
+    /// <summary>
+    /// Form that allows customers to log in to their account.
+    /// </summary>  
     public partial class LoginForm : Form
     {
         private CustomerDataBase customerDataBase = new();

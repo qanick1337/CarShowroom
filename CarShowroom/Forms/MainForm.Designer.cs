@@ -353,14 +353,14 @@
             // newApplicationToolStripMenuItem
             // 
             newApplicationToolStripMenuItem.Name = "newApplicationToolStripMenuItem";
-            newApplicationToolStripMenuItem.Size = new Size(224, 28);
+            newApplicationToolStripMenuItem.Size = new Size(217, 28);
             newApplicationToolStripMenuItem.Text = "New application";
             newApplicationToolStripMenuItem.Click += newApplicationToolStripMenuItem_Click;
             // 
             // myApplicationsToolStripMenuItem
             // 
             myApplicationsToolStripMenuItem.Name = "myApplicationsToolStripMenuItem";
-            myApplicationsToolStripMenuItem.Size = new Size(224, 28);
+            myApplicationsToolStripMenuItem.Size = new Size(217, 28);
             myApplicationsToolStripMenuItem.Text = "My applications";
             myApplicationsToolStripMenuItem.Click += myApplicationsToolStripMenuItem_Click;
             // 
@@ -550,11 +550,11 @@
             SubmitApplicationButton.FlatStyle = FlatStyle.Popup;
             SubmitApplicationButton.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 204);
             SubmitApplicationButton.ForeColor = Color.FromArgb(0, 123, 255);
-            SubmitApplicationButton.Location = new Point(622, 830);
+            SubmitApplicationButton.Location = new Point(585, 823);
             SubmitApplicationButton.Name = "SubmitApplicationButton";
             SubmitApplicationButton.Size = new Size(200, 38);
             SubmitApplicationButton.TabIndex = 19;
-            SubmitApplicationButton.Text = "New application";
+            SubmitApplicationButton.Text = "➕New application";
             SubmitApplicationButton.UseVisualStyleBackColor = false;
             SubmitApplicationButton.Click += SubmitApplicationButton_Click;
             // 

@@ -13,14 +13,22 @@ using CarShowroom.ProjectModel;
 namespace CarShowroom
 {
 
+    /// <summary>
+    /// Representation of admin panel form in the car showroom application.
+    /// It allows the admin to manage cars, customers, and applications.
+    /// </summary>
     public partial class AdminPanelForm : Form
     {
+        /// <summary>
+        /// Databases for cars, customers, and applications to work with.
+        /// </summary>
         public CarDataBase carDatabase = new();
         public CustomerDataBase customerDatabase = new();
         public ApplicationDataBase applicationsDataBase = new();
 
         private CarShowroom.ProjectModel.ProjectModel projectModel;
 
+        /// <summary> Constructor of AdminPanelForm class</summary>
         public AdminPanelForm(CarShowroom.ProjectModel.ProjectModel project)
         {
 

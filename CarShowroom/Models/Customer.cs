@@ -12,13 +12,25 @@ namespace CarShowroom.Models
     /// </summary>
     public class Customer
     {
+        /// <summary> Contact information of the customer, email address.</summary>
         public string ContactInfo { get; set; }
+
+        /// <summary> Password for the customer's account.</summary>
         public string Password { get; set; }
+
+        /// <summary> List of desired car brands.</summary>
         public List<string> DesiredBrands { get; set; }
+
+        /// <summary> List of desired car models.</summary>
         public List<string> DesiredBrandsModels { get; set; }
+
+        /// <summary> Minimum budget for purchasing a car.</summary>
         public double MinBudget { get; set; } = 0.0;
+
+        /// <summary> Maximum budget for purchasing a car.</summary>
         public double MaxBudget { get; set; } = 0.0;
 
+        /// <summary> Display property for desired brands.</summary>
         public string DesiredBrandsDisplay
         {
             get
@@ -30,6 +42,7 @@ namespace CarShowroom.Models
             }
         }
 
+        /// <summary> Display property for desired models.</summary>
         public string DesiredModelsDisplay
         {
             get

@@ -14,42 +14,56 @@ namespace CarShowroom.Models
     public class CustomerDataBase
     {
         private List<Customer> _customers;
-        /// <summary> Read-only property to access the list of customers.</summary>
+        /// <summary> 
+        /// Read-only property to access the list of customers.
+        /// </summary>
         public IReadOnlyList<Customer> Customers => _customers.AsReadOnly();
 
-        /// <summary> Default constructor for CustomerDataBase.</summary>
+        /// <summary>
+        /// Default constructor for CustomerDataBase.
+        /// </summary>
         public CustomerDataBase()
         {
             _customers = new List<Customer>();
         }
 
-        /// <summary> Method to add a customer to the database.</summary>
+        /// <summary> 
+        /// Method to add a customer to the database.
+        /// </summary>
         public void AddCustomer(Customer customer)
         {
             _customers.Add(customer);
         }
 
-        /// <summary> Method to remove a customer from the database.</summary>
+        /// <summary> 
+        /// Method to remove a customer from the database.
+        /// </summary>
         public void RemoveCustomer(Customer customer)
         {
             _customers.Remove(customer);
         }
 
-        /// <summary> Method to generate test data for the customer database.</summary>
+        /// <summary> 
+        /// Method to generate test data for the customer database.
+        /// </summary>
         public void GenerateData()
         {
             _customers.Add(new Customer("vovchik@gmail.com", "pupkinHarosh", new List<string> { "Ferrari", "BMW" }, new List<string> { "Daytona SP3", "M3" }, 10000, 7890000));
             _customers.Add(new Customer("sigmaboy@usamail.com", "UsaUsaUsa", new List<string> {}, new List<string> {}, 10000, 10000000));
         }
 
-        /// <summary> Method to serialize the customer data to a file in JSON format.</summary>
+        /// <summary> 
+        /// Method to serialize the customer data to a file in JSON format.
+        /// </summary>
         public void SerializeData(string path)
         {
             string jsonCustomers = JsonSerializer.Serialize(_customers);
             File.WriteAllText(path, jsonCustomers);
         }
 
-        /// <summary> Method to deserialize the customer data from a file in JSON format.</summary>
+        /// <summary> 
+        /// Method to deserialize the customer data from a file in JSON format.
+        /// </summary>
         public void DeserializeData(string path)
         {
             try
@@ -73,7 +87,9 @@ namespace CarShowroom.Models
             }
         }
 
-        /// <summary> Method to get a customer by their email and password.</summary>
+        /// <summary>
+        /// Method to get a customer by their email and password.
+        /// </summary>
         public Customer GetCustomerByData(string userMail, string userPassword)
         {
             foreach (var customer in _customers)

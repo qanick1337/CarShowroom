@@ -5,10 +5,15 @@ using CarShowroom.ProjectModel;
 
 namespace CarShowroom
 {
+    /// <summary> Main form of the car showroom application UI. </summary>
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Represents the project model containing all data and logic for the application.
+        /// </summary>
         public CarShowroom.ProjectModel.ProjectModel Project = new("CarDataBase.txt", "CustomerDataBase.txt", "ApplicationsDataBase.txt");
 
+        /// <summary> Constructor of MainForm class</summary>
         public MainForm()
         {
             InitializeComponent();
@@ -16,12 +21,19 @@ namespace CarShowroom
             InitializeData();
         }
 
+        /// <summary>
+        /// Sets the initial visibility of certain UI controls.
+        /// </summary>
         public void InitializeControlLayout()
         {
             AutoFindButton.Visible = false;
             CartPanel.Visible = false;
             CartButton.Visible = false;
         }
+
+        /// <summary>
+        /// Loads data, brand list, resets combo boxes, and updates UI based on login state.
+        /// </summary>
         public void InitializeData()
         {
             LoadStorageInfo();
@@ -29,11 +41,19 @@ namespace CarShowroom
             ResetComboBoxSelection();
             ToggleUserUI(Project.IsUserLoggedIn);
         }
+
+        /// <summary>
+        /// Loads car database and clears any selection in the DataGridView.
+        /// </summary>
         public void LoadStorageInfo()
         {
             Project.LoadData();
             CarsDataGridView.ClearSelection();
         }
+
+        /// <summary>
+        /// Loads car brands into the brand ComboBox.
+        /// </summary>
         public void LoadBrands()
         {
             Project.brands = Project.GetBrands();
@@ -43,6 +63,7 @@ namespace CarShowroom
 
             BrandsComboBox.DataSource = brandsBindingSource;
         }
+
         private void ResetComboBoxSelection()
         {
             BrandsComboBox.Text = string.Empty;
@@ -62,6 +83,7 @@ namespace CarShowroom
             signOutToolStripMenuItemAdd.Visible = loggedIn;
             logInToolStripMenuItemU.Visible = !loggedIn;
         }
+
         private void FilterAndDisplayCars()
         {
             string brand = BrandsComboBox.SelectedItem as string ?? string.Empty;
@@ -88,6 +110,7 @@ namespace CarShowroom
             Project.CurrentCustomer = null;
             ToggleUserUI(false);
         }
+
         private void UpdateLabelVisibility(ComboBox comboBox, Label label)
         {
             label.Visible = string.IsNullOrWhiteSpace(comboBox.Text);

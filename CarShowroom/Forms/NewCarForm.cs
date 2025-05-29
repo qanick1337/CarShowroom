@@ -11,14 +11,26 @@ using System.Windows.Forms;
 
 namespace CarShowroom
 {
+    /// <summary>
+    /// Form for adding or editing car details in the car showroom application.
+    /// </summary>
     public partial class NewCarForm : Form
     {
+        /// <summary> Car object to be added or edited.</summary>
         public Car carToAdd = new();
+
+        /// <summary>
+        /// Constructor for NewCarForm in add mode.
+        /// </summary>
         public NewCarForm()
         {
             InitializeComponent();
             InitializeAddMode();
         }
+
+        /// <summary>
+        /// Constructor for NewCarForm in edit mode with a selected car.
+        /// </summary>
         public NewCarForm(Car selectedCar)
         {
             InitializeComponent();

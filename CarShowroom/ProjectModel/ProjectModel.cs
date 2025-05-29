@@ -15,7 +15,7 @@ namespace CarShowroom.ProjectModel
         ///  <summary> Car database </summary>
         public CarDataBase CarDatabase { get;  set; }
 
-        /// <summary> Customer's database</summary>
+        /// <summary> Customers database</summary>
         public CustomerDataBase CustomerDatabase { get; set; }
 
         /// <summary> Customer's applications database </summary>

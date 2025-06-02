@@ -99,7 +99,7 @@ namespace CarShowroom.Models
         }
 
         /// <summary> Method to validate customer data.</summary>
-        public bool CustomerValidator()
+        public bool ValidateCustomer()
         {
             if (string.IsNullOrEmpty(ContactInfo) || string.IsNullOrEmpty(Password))
             {
@@ -122,6 +122,16 @@ namespace CarShowroom.Models
                 throw new ArgumentOutOfRangeException("Minimum budget cannot be greater than maximum budget.");
             }
             return true;
+        }
+
+        /// <summary> Method to check if a user already exists in the list of customers.</summary>
+        public bool UserExists(List<Customer> customers)
+        {
+            if (customers == null || customers.Count == 0)
+            {
+                return false;
+            }
+            return customers.Any(c => c.ContactInfo.Equals(ContactInfo, StringComparison.OrdinalIgnoreCase));
         }
         /// <summary> Method to validate login data.</summary>
         public bool ValidateLoginData()

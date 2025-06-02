@@ -94,8 +94,22 @@ namespace CarShowroom
             int.TryParse(minPriceTextBox.Text.Trim(), out int minPriceInt);
             int.TryParse(maxPriceTextBox.Text.Trim(), out int maxPriceInt);
 
-            Project.filteredCars = Project.FilterCars(brand, model, yearInt, condition, minPriceInt, maxPriceInt).ToList();
-            carBindingSource.DataSource = Project.filteredCars;
+            if (Project.FilterCars(brand, model, yearInt, condition, minPriceInt, maxPriceInt).ToList().Count != 0)
+            {
+                Project.filteredCars = Project.FilterCars(brand, model, yearInt, condition, minPriceInt, maxPriceInt).ToList();
+                carBindingSource.DataSource = Project.filteredCars;
+                CarsDataGridView.ClearSelection();
+            }
+            else
+            {
+                NoCarsResult();
+            }
+
+        }
+        private void NoCarsResult()
+        {
+            MessageBox.Show("No cars found matching the specified criteria.", "No Results", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            carBindingSource.DataSource = null;
             CarsDataGridView.ClearSelection();
         }
 
@@ -195,6 +209,11 @@ namespace CarShowroom
             {
                 Project.filteredCars = Project.AutoFind();
 
+                if (Project.filteredCars.Count == 0)
+                {
+                    NoCarsResult();
+                    return;
+                }
                 carBindingSource.DataSource = Project.filteredCars;
                 CarsDataGridView.ClearSelection();
             }
@@ -276,6 +295,12 @@ namespace CarShowroom
                 }
                 CartPanel.Visible = true;
                 var applications = Project.GetApplicationsByCustomerEmail(Project.CurrentCustomer.ContactInfo);
+
+                if (applications.Count == 0)
+                {
+                    CartTextBox.Text = "No applications found.";
+                    return;
+                }
                 CartTextBox.Text = string.Join(Environment.NewLine + Environment.NewLine, applications.Select(a => a.ToString()));
             }
             catch (Exception ex)

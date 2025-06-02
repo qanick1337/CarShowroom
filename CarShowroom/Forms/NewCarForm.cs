@@ -74,6 +74,7 @@ namespace CarShowroom
         private void SaveCarDetails_Click(object sender, EventArgs e)
         {
             var selectedCar = CarEditor();
+
             if (selectedCar != null)
             {
                 carToAdd = selectedCar;

@@ -173,7 +173,7 @@
             UserPasswordTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             UserPasswordTextBox.Location = new Point(36, 146);
             UserPasswordTextBox.Name = "UserPasswordTextBox";
-            UserPasswordTextBox.PlaceholderText = "Enter password";
+            UserPasswordTextBox.PlaceholderText = "Enter password*";
             UserPasswordTextBox.Size = new Size(278, 30);
             UserPasswordTextBox.TabIndex = 2;
             // 
@@ -229,7 +229,7 @@
             minPriceTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             minPriceTextBox.Location = new Point(36, 381);
             minPriceTextBox.Name = "minPriceTextBox";
-            minPriceTextBox.PlaceholderText = "Minimum Price";
+            minPriceTextBox.PlaceholderText = "Minimum Price*";
             minPriceTextBox.Size = new Size(278, 30);
             minPriceTextBox.TabIndex = 7;
             // 
@@ -251,7 +251,7 @@
             maxPriceTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             maxPriceTextBox.Location = new Point(36, 421);
             maxPriceTextBox.Name = "maxPriceTextBox";
-            maxPriceTextBox.PlaceholderText = "Maximum Price";
+            maxPriceTextBox.PlaceholderText = "Maximum Price*";
             maxPriceTextBox.Size = new Size(278, 30);
             maxPriceTextBox.TabIndex = 8;
             // 
@@ -261,7 +261,7 @@
             UserMailTextBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             UserMailTextBox.Location = new Point(36, 106);
             UserMailTextBox.Name = "UserMailTextBox";
-            UserMailTextBox.PlaceholderText = "Your e-mail";
+            UserMailTextBox.PlaceholderText = "Your e-mail*";
             UserMailTextBox.Size = new Size(278, 30);
             UserMailTextBox.TabIndex = 1;
             // 

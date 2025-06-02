@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CarShowroom.Models;
 
-namespace CarShowroom
+namespace CarShowroom.StorageData
 {
     public class DataStorage
     {

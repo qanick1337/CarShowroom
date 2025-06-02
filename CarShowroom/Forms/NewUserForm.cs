@@ -85,7 +85,12 @@ namespace CarShowroom
 
             try
             {
-                if (customerToCheck.CustomerValidator())
+                if (customerToCheck.UserExists(projectModel.CustomerDatabase.Customers.ToList()))
+                {
+                    MessageBox.Show("User with this email already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (customerToCheck.ValidateCustomer())
                 {
                     newCustomer = customerToCheck;
                     customerDataBase.AddCustomer(customerToCheck);

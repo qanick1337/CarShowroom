@@ -61,10 +61,6 @@
             applicationsToolStripMenuItem = new ToolStripMenuItem();
             newApplicationToolStripMenuItem = new ToolStripMenuItem();
             myApplicationsToolStripMenuItem = new ToolStripMenuItem();
-            helpToolStripMenuItem = new ToolStripMenuItem();
-            contentsToolStripMenuItem = new ToolStripMenuItem();
-            toolStripSeparator5 = new ToolStripSeparator();
-            aboutToolStripMenuItem = new ToolStripMenuItem();
             SignOutToolStripMenuItem = new ToolStripMenuItem();
             LogInToolStripMenuItem = new ToolStripMenuItem();
             CreateAccountToolStripMenuItem = new ToolStripMenuItem();
@@ -261,7 +257,7 @@
             MainFormMenuStrip.BackColor = SystemColors.ButtonFace;
             MainFormMenuStrip.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
             MainFormMenuStrip.ImageScalingSize = new Size(24, 24);
-            MainFormMenuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, toolsToolStripMenuItem, applicationsToolStripMenuItem, helpToolStripMenuItem, SignOutToolStripMenuItem, LogInToolStripMenuItem, CreateAccountToolStripMenuItem, UserNameToolStripMenuItem });
+            MainFormMenuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, toolsToolStripMenuItem, applicationsToolStripMenuItem, SignOutToolStripMenuItem, LogInToolStripMenuItem, CreateAccountToolStripMenuItem, UserNameToolStripMenuItem });
             MainFormMenuStrip.Location = new Point(0, 0);
             MainFormMenuStrip.Name = "MainFormMenuStrip";
             MainFormMenuStrip.Size = new Size(1412, 31);
@@ -363,30 +359,6 @@
             myApplicationsToolStripMenuItem.Size = new Size(217, 28);
             myApplicationsToolStripMenuItem.Text = "My applications";
             myApplicationsToolStripMenuItem.Click += myApplicationsToolStripMenuItem_Click;
-            // 
-            // helpToolStripMenuItem
-            // 
-            helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contentsToolStripMenuItem, toolStripSeparator5, aboutToolStripMenuItem });
-            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            helpToolStripMenuItem.Size = new Size(59, 27);
-            helpToolStripMenuItem.Text = "&Help";
-            // 
-            // contentsToolStripMenuItem
-            // 
-            contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            contentsToolStripMenuItem.Size = new Size(229, 28);
-            contentsToolStripMenuItem.Text = "ℹ️ &About...";
-            // 
-            // toolStripSeparator5
-            // 
-            toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(226, 6);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(229, 28);
-            aboutToolStripMenuItem.Text = "📘 &User's manual";
             // 
             // SignOutToolStripMenuItem
             // 
@@ -568,7 +540,7 @@
             CartButton.Name = "CartButton";
             CartButton.Size = new Size(201, 50);
             CartButton.TabIndex = 20;
-            CartButton.Text = "\U0001f6d2 Your Applications";
+            CartButton.Text = "\U0001f6d2 My Applications";
             CartButton.UseVisualStyleBackColor = false;
             CartButton.Click += CartButton_Click;
             // 
@@ -660,13 +632,9 @@
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripMenuItem toolsToolStripMenuItem;
         private ToolStripMenuItem customizeToolStripMenuItem;
-        private ToolStripMenuItem helpToolStripMenuItem;
-        private ToolStripMenuItem contentsToolStripMenuItem;
-        private ToolStripMenuItem aboutToolStripMenuItem;
         private TextBox maxPriceTextBox;
         private BindingSource carBindingSource;
         private DataGridView CarsDataGridView;
-        private ToolStripSeparator toolStripSeparator5;
         private ToolStripMenuItem CreateAccountToolStripMenuItem;
         private TextBox modelTextBox;
         private TextBox minPriceTextBox;
